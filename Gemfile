@@ -18,6 +18,7 @@ gem 'devise'
 gem 'high_voltage'
 gem 'pg'
 gem 'slim-rails'
+gem "font-awesome-rails"
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
