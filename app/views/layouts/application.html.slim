@@ -1,16 +1,22 @@
 doctype html
-html
+html lang="en"
+  meta content=("text/html; charset=UTF-8") http-equiv="Content-Type"
   head
-    meta[name="viewport" content="width=device-width, initial-scale=1.0"]
-    title
-      = content_for?(:title) ? yield(:title) : 'Ideaburn'
-    meta name="description" content="#{content_for?(:description) ? yield(:description) : 'Ideaburn'}"
-    == stylesheet_link_tag "application", :media => 'all'
-    == javascript_include_tag 'application'
-    == csrf_meta_tags
-  body
-    header
-      == render 'layouts/navigation'
-    main[role="main"]
-      == render 'layouts/messages'
-      == yield
+    meta charset="utf-8"
+    title IdeaBurns - Global Online Startup Ecosystem Platform
+    meta name="viewport" content="width=device-width, initial-scale=1.0"
+    meta content=("text/html; charset=utf-8") http-equiv="Content-Type"
+    meta name="description" content=""
+    meta name="author" content="IdeaBurns"
+    /! BEGIN GLOBAL MANDATORY STYLES
+    link rel='stylesheet' type='text/css' href='http://fonts.googleapis.com/css?family=Roboto+Condensed:300italic,400italic,700italic,400,300,700&amp;subset=all'
+    /! END GLOBAL MANDATORY STYLES
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => false
+
+    = csrf_meta_tags
+  body.c-layout-header-fixed.c-layout-header-mobile-fixed.c-layout-header-fullscreen
+
+    = render "layouts/header"
+    = yield
+    = render "layouts/footer"
+    = javascript_include_tag 'application', 'data-turbolinks-track' => false

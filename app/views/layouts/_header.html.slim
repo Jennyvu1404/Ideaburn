@@ -1,0 +1,90 @@
+/! HEADER
+header.c-layout-header.c-layout-header-2.c-layout-header-dark-mobile.c-header-transparent-dark.header-normal data-minimize-offset="80"
+  .c-navbar style=("height:71px;background:url('#{asset_path('base/img/content/backgrounds/inner-BG.jpg')}')")
+    .container
+
+      .c-navbar-wrapper.clearfix
+
+        .c-brand.c-pull-left
+          = link_to root_path, class: 'c-logo' do
+            = image_tag asset_path('base/img/Ideaburn-logo.png'), class: 'c-desktop-logo', alt: ''
+            = image_tag asset_path('base/img/Ideaburn-logo.png'), class: 'c-desktop-logo-inverse', alt: '', style: 'margin-bottom:5px;'
+            = image_tag asset_path('base/img/Ideaburn-logo.png'), class: 'c-mobile-logo', alt: ''
+          button.c-hor-nav-toggler type="button" data-target=".c-mega-menu"
+            span.c-line
+            span.c-line
+            span.c-line
+
+        form.c-quick-search action="#"
+          input type="text" name="query" placeholder="Type to search..." value="" class="form-control" autocomplete="off"
+          span.c-theme-link &times;
+
+        nav.c-mega-menu.c-pull-right.c-mega-menu-dark.c-mega-menu-dark-mobile.c-theme.c-fonts-uppercase.c-fonts-bold
+          ul.nav.navbar-nav.c-theme-nav
+            li
+              = link_to "ENTREPRENEURS", "", class: "c-link dropdown-toggle"
+            li.c-menu-type-classic
+              = link_to "INVESTERS", "javascript:;", class: "c-link dropdown-toggle"
+            li
+              = link_to "STARTUPS", "javascript:;", class: "c-link dropdown-toggle"
+            li
+              = link_to "STARTUP EVENTS", "javascript:;", class: "c-link dropdown-toggle"
+
+            li.login
+              = link_to "LOGIN", "", class: "m60 c-btn-border-opacity-04 c-btn btn-no-focus c-btn-header btn btn-sm c-btn-border-1x c-btn-white  c-btn-uppercase c-btn-sbold"
+            li.singup
+              = link_to "SIGNUP", "", class: "mlr0 rec-btn-border-opacity-04 c-btn btn-no-focus c-btn-header btn btn-sm c-btn-border-1x c-btn-white  c-btn-uppercase c-btn-sbold", style: "background:#FFD101;border-color:#FFD101;"
+            li
+              button.btn-nav
+                .bar.arrow-top-r
+                .bar.arrow-middle-r
+                .bar.arrow-bottom-r
+      nav.nav-container.hidden.hideNav
+        ul.nav-list
+          li.list-item
+            = link_to " Behind IT Thoughts", "#"
+          li.list-item
+            = link_to " Terms of use", "#"
+          li.list-item
+            = link_to " Privacy Policy", "#"
+          li.list-item
+            = link_to " What's Next", "#"
+          li.list-item
+            = link_to " Conact US", "#"
+
+        .c-section.c-section-social
+          .social-line
+          .socialicon
+            ul.list-inline.list-unstyled
+              li
+                = link_to "#" do
+                  = image_tag asset_path('base/img/f.png')
+              li
+                = link_to "#" do
+                  = image_tag asset_path('base/img/T.png')
+              li
+                = link_to "#" do
+                  = image_tag asset_path('base/img/In.png')
+              li
+                = link_to "#" do
+                  = image_tag asset_path('base/img/Instagram.png')
+nav.c-layout-quick-sidebar
+  .c-header
+    button.c-link.c-close type="button"
+
+  .c-content
+    .c-section
+      h4 = link_to " Behind IT Thoughts", "#"
+    .c-section
+      h4 = link_to " Terms of use", "#"
+    .c-section
+      h4 = link_to " Privacy Policy", "#"
+    .c-section
+      h4 = link_to " What's Next", "#"
+    .c-section
+      h4 = link_to " Conact US", "#"
+    .c-section.c-section-social
+      .social-line
+      .socialicon
+        = link_to "#" do
+          = image_tag asset_path('base/img/Toggle-SocialIcons.png')
