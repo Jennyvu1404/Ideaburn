@@ -11,8 +11,8 @@
               - flash.each do |key, value|
                 .alert.alert-danger
                   = value
-              .form-group
-                = select("test", "user_type", UserType.all.collect {|p| [ p.name, p.id ] }, { include_blank: '- Select User Type -' }, class: 'form-control dd')
+              /!.form-group
+                = select("user", "user_type", UserType.all.collect {|p| [ p.name, p.id ] }, { include_blank: '- Select User Type -' }, class: 'form-control dd')
               .form-group
                 = f.label :email, for: 'login-email', class: 'hide'
                 = f.email_field :email, class: 'form-control input-lg c-square', id: 'icon-email', placeholder: 'Email'
