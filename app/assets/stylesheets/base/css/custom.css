@@ -7,7 +7,7 @@ button {
 }
 
 :focus { outline: none; }
- 
+
  ::-moz-focus-inner {
  border: 0;
 }
@@ -30,7 +30,7 @@ button {
     padding: 21px 0;
     position: fixed;
    //right: 40px;
- 
+
     width: 50px;
   -webkit-transition: all 1s ease;
   -moz-transition: all 1s ease;
@@ -55,7 +55,7 @@ button {
 .animated { z-index: 999; }
 
 .animated .arrow-top-r {
-  -webkit-transform: rotateZ(45deg) translateY6px);
+  -webkit-transform: rotateZ(45deg) translateY(6px);
   -moz-transform: rotateZ(45deg) translateY(6px);
   -ms-transform: rotateZ(45deg) translateY(6px);
   -o-transform: rotateZ(45deg) translateY(6px);
@@ -103,7 +103,7 @@ button {
   margin: 0;
   padding: 0;
   padding-top: 40px;
-  
+
 }
 .list-item li a{  }
 .list-item {
@@ -114,7 +114,7 @@ button {
   -ms-transition: all 1s ease;
   -o-transition: all 1s ease;
   transition: all 1s ease;
-  line-height: 25px; 
+  line-height: 25px;
 }
 
 .list-item:hover {
@@ -159,28 +159,28 @@ button {
   -o-transition: all 1s ease;
   transition: all 1s ease;
 }
- @keyframes 
+ @keyframes
 showNav { from {
  right: -100%;
 }
 
 to { right: 0; }
 }
- @-webkit-keyframes 
+ @-webkit-keyframes
 showNav { from {
  right: -100%;
 }
 
 to { right: 0; }
 }
- @-moz-keyframes 
+ @-moz-keyframes
 showNav { from {
  right: -100%;
 }
 
 to { right: 0; }
 }
- @-o-keyframes 
+ @-o-keyframes
 showNav { from {
  right: -100%;
 }
@@ -194,28 +194,28 @@ to { right: 0; }
   -o-animation: showNav 1s ease forwards;
   animation: showNav .5s ease forwards;
 }
- @keyframes 
+ @keyframes
 hideNav { from {
  right: 0;
 }
 
 to { right: -100%; }
 }
- @-webkit-keyframes 
+ @-webkit-keyframes
 hideNav { from {
  right: 0;
 }
 
 to { right: -100%; }
 }
- @-moz-keyframes 
+ @-moz-keyframes
 hideNav { from {
  right: 0;
 }
 
 to { right: -100%; }
 }
- @-o-keyframes 
+ @-o-keyframes
 hideNav { from {
  right: 0;
 }
