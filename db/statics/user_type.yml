@@ -1,0 +1,9 @@
+---
+- id: 1
+  name: Admin
+- id: 2
+  name: Entrepreneur
+- id: 3
+  name: Start up
+- id: 4
+  name: Investor

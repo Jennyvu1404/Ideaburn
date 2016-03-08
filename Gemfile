@@ -19,6 +19,7 @@ gem 'high_voltage'
 gem 'pg'
 gem 'slim-rails'
 gem "font-awesome-rails"
+gem 'static_model'
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
