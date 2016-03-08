@@ -5600,10 +5600,10 @@ h1 {
 @media (max-width: 991px) {
   /* 991px */
   .c-layout-footer.c-layout-footer-4.c-bg-footer-8 {
-    background: url(../img/content/backgrounds/bg-83.jpg) center center no-repeat;
+    background: asset_url('base/img/content/backgrounds/bg-83.jpg') center center no-repeat;
     background-size: cover; }
   .c-layout-footer.c-layout-footer-4.c-bg-footer-9 {
-    background: url(../img/content/backgrounds/bg-83.jpg) center center no-repeat;
+    background: asset_url('base/img/content/backgrounds/bg-83.jpg') center center no-repeat;
     background-size: cover; }
     .c-layout-footer.c-layout-footer-4.c-bg-footer-9 .c-footer-4-p-left {
       background: rgba(255, 255, 255, 0.8);
@@ -5877,13 +5877,13 @@ h1 {
     padding: 60px 0; } }
 
 .c-content-line-icon {
-  background-image: url(../img/content/line-icons/default.png);
+  background-image: asset_url('base/img/content/line-icons/default.png');
   display: inline-block;
   width: 60px;
   height: 60px;
   background-size: cover; }
   .c-content-line-icon.c-white {
-    background-image: url(../img/content/line-icons/white.png); }
+    background-image: asset_url('base/img/content/line-icons/white.png'); }
   .c-content-line-icon.c-icon-screen-chart {
     background-position: 0px -1300%; }
   .c-content-line-icon.c-icon-support {
@@ -7083,19 +7083,19 @@ h1 {
       }
       #icon-email
       {
-         background:url("../img/content/backgrounds/input-icon-email.png") no-repeat scroll  10px 14px  !important;
+         background:asset_url('base/img/content/backgrounds/input-icon-email.png') no-repeat scroll  10px 14px  !important;
          left:no-repeat;
          background-color:#fff !important;
       }
        #icon-password
       {
-         background:url("../img/content/backgrounds/input-icon-Password.png") no-repeat scroll  10px 12px !important;
+         background:asset_url('base/img/content/backgrounds/input-icon-Password.png') no-repeat scroll  10px 12px !important;
          left:no-repeat;
           background-color:#fff !important;
       }
         #icon-password1
       {
-         background:url("../img/content/backgrounds/input-icon-Password.png") no-repeat scroll  10px 12px !important;
+         background:asset_url('base/img/content/backgrounds/input-icon-Password.png') no-repeat scroll  10px 12px !important;
          left:no-repeat;
           background-color:#fff !important;
       }
@@ -9669,29 +9669,29 @@ h1 {
 }
           li#tbl1
          {
-              background: url(../img/content/backgrounds/ideaburn-iconsStaratups.png) center center no-repeat;
+              background: asset_url('base/img/content/backgrounds/ideaburn-iconsStaratups.png') center center no-repeat;
 
 
 
          }
          li#tbl1.active
           {
-              background: url(../img/content/backgrounds/ideaburn-iconsStaratups-hover.png) center center no-repeat !important;
+              background: asset_url('base/img/content/backgrounds/ideaburn-iconsStaratups-hover.png') center center no-repeat !important;
 
 
          }
 
            li#tbl2
          {
-              background: url(../img/content/backgrounds/ideaburn-iconsStaratups-investor.png) center center no-repeat;
+              background: asset_url('base/img/content/backgrounds/ideaburn-iconsStaratups-investor.png') center center no-repeat;
          }
          li#tbl2.active
           {
-              background: url(../img/content/backgrounds/ideaburn-iconsStaratups-investor-hover.png) center center no-repeat !important;
+              background: asset_url('base/img/content/backgrounds/ideaburn-iconsStaratups-investor-hover.png') center center no-repeat !important;
          }
            li#tbl3
          {
-              background: url(../img/content/backgrounds/ideaburn-iconsStaratups-entrepreneur.png) center center no-repeat;
+              background: asset_url('base/img/content/backgrounds/ideaburn-iconsStaratups-entrepreneur.png') center center no-repeat;
          }
          .pane-text p
          {
@@ -9711,7 +9711,7 @@ h1 {
          }
           li#tbl3.active
           {
-              background: url(../img/content/backgrounds/ideaburn-iconsStaratups-entrepreneur-hover.png) center center no-repeat !important;
+              background: asset_url('base/img/content/backgrounds/ideaburn-iconsStaratups-entrepreneur-hover.png') center center no-repeat !important;
          }
     .c-content-tab-1 .nav.tabs-left > li:last-child > a,
     .c-content-tab-1 .nav.nav-justified.tabs-left > li:last-child > a {
@@ -9824,7 +9824,7 @@ h1 {
     .c-content-tab-2 > .nav > li:not(.active) > a > .c-content-line-icon {
       opacity: 0.9;
       filter: unquote('alphaopacity=90');
-      background-image: url(../img/content/line-icons/dark1.png); }
+      background-image: asset_url('base/img/content/line-icons/dark1.png'); }
     .c-content-tab-2 > .nav > li + li {
       margin-left: 20px; }
 
@@ -10260,7 +10260,7 @@ h1 {
   .share-ideas
   {
 
-     background:url(../img/ideaburn-iconsStaratups-hover.png);
+     background: asset_url('base/img/ideaburn-iconsStaratups-hover.png');
   }
   .pb0
   {
@@ -10379,7 +10379,7 @@ h1 {
 .c-content-step-3 .c-steps-3-block span {
   width: 36px;
   height: 71px;
-  background: url(../img/content/misc/step3-angle-right.png) no-repeat 100% 50%;
+  background: asset_url('base/img/content/misc/step3-angle-right.png') no-repeat 100% 50%;
   position: absolute;
   top: 0;
   right: 10px; }
