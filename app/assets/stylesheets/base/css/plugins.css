@@ -1,6 +1,6 @@
 @charset "UTF-8";
 /*********************************
-COMPONENTS 
+COMPONENTS
 *********************************/
 code {
   border: 1px solid #d4d4d4;
@@ -13,14 +13,14 @@ code {
   font-size: 28px;
   outline: none !important;
   opacity: 0.5;
-  filter: alphaopacity=50;
+  filter: unquote('alphaopacity=50');
   -webkit-transition: back 0.2s ease-out;
   -moz-transition: all 0.2s ease-out;
   -o-transition: all 0.2s ease-out;
   -ms-transition: all 0.2s ease-out; }
   .close:hover {
     opacity: 0.8;
-    filter: alphaopacity=80;
+    filter: unquote('alphaopacity=80');
     -webkit-transition: back 0.2s ease-out;
     -moz-transition: all 0.2s ease-out;
     -o-transition: all 0.2s ease-out;
@@ -6640,14 +6640,14 @@ label.control-label {
   transition: all 0.3s;
   color: #ffffff;
   opacity: 0.3;
-  filter: alphaopacity=30; }
+  filter: unquote('alphaopacity=30'); }
   .tparrows.circle.hidearrows {
     opacity: 0;
-    filter: alphaopacity=0; }
+    filter: unquote('alphaopacity=0'); }
   .tparrows.circle:hover {
     transition: all 0.3s;
     opacity: 1;
-    filter: alphaopacity=100; }
+    filter: unquote('alphaopacity=100'); }
 
 .tp-banner-container.c-arrow-dark .tparrows.circle {
   background-image: url(../img/content/line-icons/dark1.png); }
@@ -7013,12 +7013,12 @@ label.control-label {
 .owl-theme.owl-theme-white .owl-pagination .owl-page span {
   background: #ffffff;
   opacity: 0.5;
-  filter: alphaopacity=50; }
+  filter: unquote('alphaopacity=50'); }
 
 .owl-theme.owl-theme-white .owl-pagination .owl-page.active span {
   background: #ffffff;
   opacity: 1;
-  filter: alphaopacity=100; }
+  filter: unquote('alphaopacity=100'); }
 
 @media (max-width: 767px) {
   /* 767px */
@@ -7034,7 +7034,7 @@ label.control-label {
 .fancybox-margin {
   margin: 0; }
 
-/*** 
+/***
 Fontawesome Demo
 ***/
 .fontawesome-icon-list {
@@ -7084,7 +7084,7 @@ Simple Line Icons Demo
   .simplelineicons-demo .item-box {
     width: 24.333%; } }
 
-/*** 
+/***
 Glyphicons Demo
 ***/
 .glyphicons-demo ul {
