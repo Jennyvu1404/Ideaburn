@@ -18,5 +18,5 @@ html lang="en"
 
     = render "layouts/header"
     = yield
-    = render "layouts/footer"
+    = render "layouts/footer" if controller_name == "home"
     = javascript_include_tag 'application', 'data-turbolinks-track' => false
