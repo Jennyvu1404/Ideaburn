@@ -2214,7 +2214,7 @@ h1 {
 
 .c-opacity-0 {
   opacity: 0;
-  filter: alphaopacity=0; }
+  filter: alphaopacity; }
 
 .c-opacity-01 {
   opacity: 0.1;
@@ -6113,7 +6113,7 @@ h1 {
     z-index: 1; }
   .c-content-overlay .c-overlay-wrapper {
     opacity: 0;
-    filter: alphaopacity=0;
+    filter: alphaopacity;
     position: absolute;
     top: -100%;
     left: 0;
