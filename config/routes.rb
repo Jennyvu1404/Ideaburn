@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
   root to: 'home#index'
-  get 'states/:country', to: 'application#states'
-  get 'cities/:country/:state', to: 'application#cities'
 
   devise_for :users, path: 'user',
   module: :user,
@@ -10,4 +8,9 @@ Rails.application.routes.draw do
       sign_in: :login,
       sign_out: :logout
       }
+
+  namespace :api do
+    get 'states/:country', to: 'location#states'
+    get 'cities/:country/:state', to: 'location#cities'
+  end
 end
