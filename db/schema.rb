@@ -11,12 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160309025537) do
+ActiveRecord::Schema.define(version: 20160309030912) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "entrepreneur_users", force: :cascade do |t|
+  create_table "entrepreneurs", force: :cascade do |t|
     t.integer  "user_id"
     t.string   "first_name"
     t.string   "last_name"
@@ -43,9 +43,9 @@ ActiveRecord::Schema.define(version: 20160309025537) do
     t.datetime "updated_at",            null: false
   end
 
-  add_index "entrepreneur_users", ["user_id"], name: "index_entrepreneur_users_on_user_id", using: :btree
+  add_index "entrepreneurs", ["user_id"], name: "index_entrepreneurs_on_user_id", using: :btree
 
-  create_table "investor_users", force: :cascade do |t|
+  create_table "investors", force: :cascade do |t|
     t.integer  "user_id"
     t.string   "name"
     t.integer  "founded"
@@ -60,9 +60,9 @@ ActiveRecord::Schema.define(version: 20160309025537) do
     t.datetime "updated_at",     null: false
   end
 
-  add_index "investor_users", ["user_id"], name: "index_investor_users_on_user_id", using: :btree
+  add_index "investors", ["user_id"], name: "index_investors_on_user_id", using: :btree
 
-  create_table "startup_users", force: :cascade do |t|
+  create_table "startups", force: :cascade do |t|
     t.integer  "user_id"
     t.string   "name"
     t.integer  "founded"
@@ -78,7 +78,7 @@ ActiveRecord::Schema.define(version: 20160309025537) do
     t.datetime "updated_at",        null: false
   end
 
-  add_index "startup_users", ["user_id"], name: "index_startup_users_on_user_id", using: :btree
+  add_index "startups", ["user_id"], name: "index_startups_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -100,7 +100,7 @@ ActiveRecord::Schema.define(version: 20160309025537) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
-  add_foreign_key "entrepreneur_users", "users"
-  add_foreign_key "investor_users", "users"
-  add_foreign_key "startup_users", "users"
+  add_foreign_key "entrepreneurs", "users"
+  add_foreign_key "investors", "users"
+  add_foreign_key "startups", "users"
 end
