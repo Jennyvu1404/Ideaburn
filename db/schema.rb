@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160309030912) do
+ActiveRecord::Schema.define(version: 20160309153235) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,9 +22,7 @@ ActiveRecord::Schema.define(version: 20160309030912) do
     t.string   "last_name"
     t.integer  "age"
     t.datetime "dob"
-    t.integer  "type"
-    t.integer  "country"
-    t.integer  "city"
+    t.integer  "entrepreneur_type"
     t.boolean  "gender"
     t.integer  "profession_type"
     t.string   "profession_company"
@@ -51,8 +49,6 @@ ActiveRecord::Schema.define(version: 20160309030912) do
     t.integer  "founded"
     t.integer  "category"
     t.string   "website"
-    t.integer  "country"
-    t.integer  "city"
     t.text     "mission"
     t.text     "work"
     t.integer  "register_under"
@@ -69,8 +65,6 @@ ActiveRecord::Schema.define(version: 20160309030912) do
     t.integer  "bussines_category"
     t.string   "website"
     t.datetime "strength"
-    t.integer  "country"
-    t.integer  "city"
     t.text     "mission"
     t.text     "work"
     t.integer  "register_under"
@@ -93,8 +87,10 @@ ActiveRecord::Schema.define(version: 20160309030912) do
     t.inet     "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
-    t.string   "name"
+    t.string   "username"
     t.integer  "user_type"
+    t.string   "country"
+    t.string   "city"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

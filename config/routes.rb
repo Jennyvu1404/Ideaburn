@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   root to: 'home#index'
+  get 'states/:country', to: 'application#states'
+  get 'cities/:country/:state', to: 'application#cities'
 
   devise_for :users, path: 'user',
   module: :user,

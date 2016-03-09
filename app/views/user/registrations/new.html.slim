@@ -1,0 +1,64 @@
+.c-layout-page.mt72
+  .c-content-box.c-size-md.c-bg-light-grey
+    .container
+      .row
+        .col-md-3
+        .col-md-6.col-sm-6
+          .c-content-step-1.c-opt-1.login-box
+            h3.c-font-35.login-head.mb40 GET REGISTER WITH US
+            = form_for(@user, url: registration_path(resource_name)) do |f|
+              = devise_error_messages!
+              .form-group
+                = select("user", "user_type", UserType.all.collect {|p| [ p.name, p.id ] }, { include_blank: '- Select User Type -' }, class: 'form-control dd select-user-type', required: true)
+              .form-group
+                = f.text_field :username, id: 'icon-email', class: 'form-control input-lg c-square', placeholder: 'User Name', required: true
+                a.c-btn-forgot.c-font-12 Minimum 5 Characters Required *
+              .form-group
+                = f.email_field :email, id: 'icon-email', class: 'form-control input-lg c-square', placeholder: 'Email', required: true
+              .form-group
+                = f.password_field :password, class: 'form-control input-lg c-square', id: 'icon-password', placeholder: 'Password', autocomplete: "off", required: true
+                - if @minimum_password_length
+                  a.c-btn-forgot.c-font-12 = "Minimum #{@minimum_password_length} Characters Required *"
+              .form-group
+                = f.password_field :password_confirmation, class: 'form-control input-lg c-square', id: 'icon-password', placeholder: 'Confirm Password', autocomplete: "off"
+              = render partial: "startup", locals: {f: f}
+              = render partial: "investor", locals: {f: f}
+              = render partial: "entrepreneur", locals: {f: f}
+              .form-group
+                = f.country_select :country, {priority: %w(US CA), prompt: '- Slect A Country -'}, class: 'form-control input-lg c-square select-country', required: true
+              .form-group
+                select.form-control.input-lg.c-square.select-state
+                  = options_for_select([['- Slect A State -', nil]])
+              .form-group
+                = f.select :city, [], { include_blank: '- Select A City -' }, class: 'form-control input-lg c-square select-city', required: true
+              .form-group
+                .col-md-6.col-xs-6.pl0
+                  .c-checkbox
+                    input.confirm.c-check#login-rememberme type="checkbox" required="true"
+                    label.c-font-thin.c-font-14 for="login-rememberme"
+                      span
+                      span.check
+                      span.box
+                      | Terms & Conditions
+              .form-group.mb30
+                button.btn.c-theme-btn.btn-fwidth.btn-md.c-btn-uppercase.c-btn-square.c-btn-login type="submit" Signup
+              .clearfix
+              .form-group
+                = link_to new_user_session_path do
+                  .c-content-divider.c-divider-sm.c-icon-bg.c-bg-grey.c-margin-b-20
+                    span Login
+              .form-group
+                p Not Received Confirmation Instructions
+
+        .col-md-3
+
+javascript:
+  $( document ).ready(function() {
+    var defaultUserType = parseInt( $('select.select-user-type').val() );
+    _renderForm(defaultUserType);
+  });
+  setTimeout(function() {
+    var $checkbox = $('.c-check');
+    $('.new-checkbox').remove();
+    $checkbox.insertBefore($('.c-font-thin'));
+  }, 0);
