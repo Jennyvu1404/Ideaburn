@@ -11,10 +11,74 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160308073921) do
+ActiveRecord::Schema.define(version: 20160309030912) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "entrepreneurs", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.integer  "age"
+    t.datetime "dob"
+    t.integer  "type"
+    t.integer  "country"
+    t.integer  "city"
+    t.boolean  "gender"
+    t.integer  "profession_type"
+    t.string   "profession_company"
+    t.integer  "profession_skill"
+    t.integer  "profession_experience"
+    t.integer  "graduation"
+    t.string   "university"
+    t.string   "mobile"
+    t.string   "address"
+    t.string   "website"
+    t.string   "email_second"
+    t.text     "about"
+    t.text     "inspire_quote"
+    t.string   "linkedin"
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
+
+  add_index "entrepreneurs", ["user_id"], name: "index_entrepreneurs_on_user_id", using: :btree
+
+  create_table "investors", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "name"
+    t.integer  "founded"
+    t.integer  "category"
+    t.string   "website"
+    t.integer  "country"
+    t.integer  "city"
+    t.text     "mission"
+    t.text     "work"
+    t.integer  "register_under"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  add_index "investors", ["user_id"], name: "index_investors_on_user_id", using: :btree
+
+  create_table "startups", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "name"
+    t.integer  "founded"
+    t.integer  "bussines_category"
+    t.string   "website"
+    t.datetime "strength"
+    t.integer  "country"
+    t.integer  "city"
+    t.text     "mission"
+    t.text     "work"
+    t.integer  "register_under"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+  end
+
+  add_index "startups", ["user_id"], name: "index_startups_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -36,4 +100,7 @@ ActiveRecord::Schema.define(version: 20160308073921) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "entrepreneurs", "users"
+  add_foreign_key "investors", "users"
+  add_foreign_key "startups", "users"
 end
