@@ -11,7 +11,7 @@ Rails.application.routes.draw do
       sign_in: :login,
       sign_out: :logout
       }
-
+  resources :users
   namespace :api do
     get 'states/:country', to: 'location#states'
     get 'cities/:country/:state', to: 'location#cities'
