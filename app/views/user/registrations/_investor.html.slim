@@ -1,6 +1,6 @@
 = f.fields_for @user.build_investor do |investor|
   .form-group.investor.form-hide
-    = investor.text_field :name, class: 'form-control input-lg c-square', placeholder: 'Investors Name'
+    = investor.text_field :name, class: 'form-control input-lg c-square', placeholder: 'Investor Name'
   .form-group.investor.form-hide
     = investor.select :founded, Investor.year_options, {}, class: 'form-control input-lg c-square'
   .form-group.investor.form-hide

@@ -1,37 +1,52 @@
 $(document).ready(function () {
-  $('select.select-user-type').on('change', function() {
-    formHidden();
-      var userType =this.value;
-      _renderForm(userType);
+  $('[data-user_type_select]').on('change', function() {
+    hideFormUserType();
+      var userType = this.value;
+      _renderFormUserType(userType);
   });
 
-  $('select.select-country').change(function () {
-    var input_state = $('.select-state');
-    $.getJSON('/api/states/' + $(this).val(), function (data) {
+  $('[data-country_select]').change(function () {
+    var input_state = $('[data-state_select]');
+    var first_city = ""
+    $.getJSON('/api/states/' + $(this).val(), function (data){
+      if($.isEmptyObject(data)){
+        $('[data-state_select]').hide();
+        $('[data-city_select]').hide();
+        return false;
+      }
+      $('[data-state_select]').show();
+      $('[data-city_select]').show();
+      first_city = data[0];
       input_state.empty();
-      $('.select-city').empty();
-      $('.select-city').append('<option value="">- Slect A City -</option>');
+      $('[data-city_select]').empty();
+      $('[data-city_select]').append('<option value="">- Slect A City -</option>');
       $.each(data, function (i) {
         var opt = '<option value='+ i +'>' + data[i] + '</option>';
         input_state.append(opt);
+        first_city = i
       });
+      appendCitiesByState(first_city);
     });
   });
 
-  $('select.select-state').change(function () {
-    var input_state2 = $('.select-city');
-    $.getJSON('/api/cities/' + $('select.select-country').val() + '/' + $(this).val(), function (data) {
-      input_state2.empty();
+  $('[data-state_select]').change(function () {
+    appendCitiesByState($(this).val());
+  });
+
+  function appendCitiesByState(state){
+    var input_city = $('[data-city_select]');
+    $.getJSON('/api/cities/' + $('[data-country_select]').val() + '/' + state, function (data) {
+      input_city.empty();
       $.each(data, function (i) {
         var opt = '<option value='+ i +'>' + data[i] + '</option>';
-        input_state2.append(opt);
+        input_city.append(opt);
       });
     });
-  });
+  }
 
 });
 
-function _renderForm(userType) {
+function _renderFormUserType(userType) {
   switch(userType) {
     case 'entrepreneur':
       $('.entrepreneur').show();
@@ -43,10 +58,10 @@ function _renderForm(userType) {
       $('.investor').show();
       break;
     default:
-      formHidden();
+      hideFormUserType();
   };
 }
 
-function formHidden() {
+function hideFormUserType() {
   $('.startup, .investor, .entrepreneur').hide();
 }
