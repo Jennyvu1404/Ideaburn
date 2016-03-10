@@ -1,0 +1,97 @@
+/*----------------------------
+        HEADER SECTION
+-----------------------------*/
+
+.header-section {
+    background:#FFF;
+    box-shadow: 1px 0 3px rgba(0,0,0,.15);
+    -webkit-box-shadow: 1px 0 3px rgba(0,0,0,.15);
+    -moz-box-shadow: 1px 0 3px rgba(0,0,0,.15);
+    -o-box-shadow: 1px 0 3px rgba(0,0,0,.15);
+}
+
+.header-section::after {
+    clear: both;
+    display: block;
+    content: '';
+}
+.menu-collapsed
+{
+      font-size: 15px;
+    padding: 10px 0 0;
+    width: 40px;
+    height: 40px;
+   margin-left:-20px !important;
+   margin-top:2px;
+    text-align: center;
+    cursor: pointer;
+    float: left;
+    color: #333;
+  background: hsla(0, 0%, 0%, 0) asset_url("header-toggle-icon.png") no-repeat scroll center center !important;
+    border: none;
+    border-radius: 100%;
+    -moz-transition: all 0.2s ease-out 0s;
+    -webkit-transition: all 0.2s ease-out 0s;
+    transition: all 0.2s ease-out 0s;
+}
+.toggle-btn {
+    font-size: 15px;
+    padding: 10px 0 0;
+    width: 40px;
+    height: 40px;
+   margin-left:-27px;
+   margin-top:2px;
+    text-align: center;
+    cursor: pointer;
+    float: left;
+    color: #333;
+  background: hsla(0, 0%, 0%, 0) asset_url("header-arrow-icon.png") no-repeat scroll center center;
+    border: none;
+    border-radius: 100%;
+    -moz-transition: all 0.2s ease-out 0s;
+    -webkit-transition: all 0.2s ease-out 0s;
+    transition: all 0.2s ease-out 0s;
+}
+.toggle-btn:hover {
+    color: #333;
+}
+.searchform input {
+    box-shadow: none;
+    float: left;
+    font-size: 14px;
+    margin:8px 0 0 10px;
+    padding:7px 10px;
+    width: 220px;
+    outline:none;
+    border:1px solid #eee;
+    border-radius:4px;
+    -webkit-border-radius:4px;
+    -moz-border-radius:4px;
+    -o-border-radius:4px;
+}
+.searchform input:focus {
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    border-color: #ddd;
+}
+.logo-co{
+    float:left;
+    padding:7px 15px 6px;
+}
+.logo-co a {
+    display:block;
+}
+.msg-icon
+{
+    background: asset_url('header-messages-icon.png');
+    height:30px;
+    width:31px;
+}
+.notifications-icon
+{
+    background: asset_url('header-notifications-icon.png');
+    height:30px;
+    width:31px;
+}
+.prof-img{background: asset_url('head-usericon.png') no-repeat center; margin-right: 24px;width: 30px !important; height: 30px !important}
