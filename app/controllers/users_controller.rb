@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   layout "user"
 
   def index
-    @users = User.all
+
   end
 
   def show
@@ -12,5 +12,4 @@ class UsersController < ApplicationController
       redirect_to :back, :alert => "Access denied."
     end
   end
-
 end

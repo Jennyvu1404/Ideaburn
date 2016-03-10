@@ -1,0 +1,10 @@
+# Contact
+mailer:
+  username: 'example@gmail.com'
+  password: 'password'
+  receive: 'clarence@naturion.com'
+# Cloudinary
+cloudinary:
+  cloud_name: 'cloud-name'
+  api_key: 'cloud-api-key'
+  api_secret: 'cloud-api-secret'

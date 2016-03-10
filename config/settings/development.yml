@@ -1,0 +1,10 @@
+# Contact
+mailer:
+  username: 'golden.owl.test@gmail.com'
+  password: 'goldenowl2016'
+  receive: 'cloundinary.goldenowl@gmail.com'
+# Cloudinary
+cloudinary:
+  cloud_name: 'golden-owl-clound'
+  api_key: '173569679173764'
+  api_secret: 'UKYxGJiBJBu0dwoeO5m8aKMRB7M'
