@@ -1,16 +1,30 @@
 class User::RegistrationsController < Devise::RegistrationsController
-# before_filter :configure_sign_up_params, only: [:create]
+  before_filter :configure_sign_up_params, only: [:create]
 # before_filter :configure_account_update_params, only: [:update]
 
   # GET /resource/sign_up
-  # def new
-  #   super
-  # end
+   def new
+     super
+     @user = User.new
+   end
 
   # POST /resource
-  # def create
-  #   super
-  # end
+  def create
+    super
+    if current_user.present?
+      if current_user.entrepreneur?
+        entrepreneur = Entrepreneur.new(entrepreneur_params)
+        current_user.entrepreneur = entrepreneur
+      elsif current_user.startup?
+        startup = Startup.new(startup_params)
+        current_user.startup = startup
+      elsif current_user.investor?
+        investor = Investor.new(investor_params)
+        current_user.investor = investor
+      end
+      current_user.save!
+    end
+  end
 
   # GET /resource/edit
   # def edit
@@ -39,9 +53,9 @@ class User::RegistrationsController < Devise::RegistrationsController
   # protected
 
   # If you have extra params to permit, append them to the sanitizer.
-  # def configure_sign_up_params
-  #   devise_parameter_sanitizer.for(:sign_up) << :attribute
-  # end
+  def configure_sign_up_params
+     devise_parameter_sanitizer.for(:sign_up) << [:user_type, :username, :country, :city]
+  end
 
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_account_update_params
@@ -49,12 +63,26 @@ class User::RegistrationsController < Devise::RegistrationsController
   # end
 
   # The path used after sign up.
-  # def after_sign_up_path_for(resource)
-  #   super(resource)
-  # end
+  #def after_sign_up_path_for(resource)
+  #  super(resource)
+  #end
 
   # The path used after sign up for inactive accounts.
   # def after_inactive_sign_up_path_for(resource)
   #   super(resource)
   # end
+
+  private
+
+  def startup_params
+    params[:user][:startup].permit(:name, :founded, :bussines_category, :website, :strength, :mission, :work, :register_under)
+  end
+
+  def entrepreneur_params
+    params[:user][:entrepreneur].permit(:first_name, :last_name, :age, :dob, :gender, :entrepreneur_type)
+  end
+
+  def investor_params
+    params[:user][:investor].permit(:name, :founded, :category, :website, :mission, :work, :register_under)
+  end
 end

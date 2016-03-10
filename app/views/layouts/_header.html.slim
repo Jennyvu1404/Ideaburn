@@ -29,11 +29,14 @@ header.c-layout-header.c-layout-header-2.c-layout-header-dark-mobile.c-header-tr
               = link_to "STARTUPS", "javascript:;", class: "c-link dropdown-toggle"
             li
               = link_to "STARTUP EVENTS", "javascript:;", class: "c-link dropdown-toggle"
-
-            li.login
-              = link_to "LOGIN", new_user_session_path, class: "m60 c-btn-border-opacity-04 c-btn btn-no-focus c-btn-header btn btn-sm c-btn-border-1x c-btn-white  c-btn-uppercase c-btn-sbold"
-            li.singup
-              = link_to "SIGNUP", new_user_registration_path, class: "mlr0 rec-btn-border-opacity-04 c-btn btn-no-focus c-btn-header btn btn-sm c-btn-border-1x c-btn-white  c-btn-uppercase c-btn-sbold", style: "background:#FFD101;border-color:#FFD101;"
+            - if current_user
+                li.login
+                  = link_to "LOGOUT", destroy_user_session_path, method: :delete, class: "mlr0 rec-btn-border-opacity-04 c-btn btn-no-focus c-btn-header btn btn-sm c-btn-border-1x c-btn-white  c-btn-uppercase c-btn-sbold"
+            - else
+                li.login
+                  = link_to "LOGIN", new_user_session_path, class: "m60 c-btn-border-opacity-04 c-btn btn-no-focus c-btn-header btn btn-sm c-btn-border-1x c-btn-white  c-btn-uppercase c-btn-sbold"
+                li.singup
+                  = link_to "SIGNUP", new_user_registration_path, class: "mlr0 rec-btn-border-opacity-04 c-btn btn-no-focus c-btn-header btn btn-sm c-btn-border-1x c-btn-white  c-btn-uppercase c-btn-sbold", style: "background:#FFD101;border-color:#FFD101;"
             li
               button.btn-nav
                 .bar.arrow-top-r

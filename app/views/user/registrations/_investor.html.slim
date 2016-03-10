@@ -1,0 +1,15 @@
+= f.fields_for @user.build_investor do |investor|
+  .form-group.investor.form-hide
+    = investor.text_field :name, class: 'form-control input-lg c-square', placeholder: 'Investor Name'
+  .form-group.investor.form-hide
+    = investor.select :founded, Investor.year_options, {}, class: 'form-control input-lg c-square'
+  .form-group.investor.form-hide
+    = investor.select :category, BussinesCategory.all.collect {|p| [ p.name, p.id ] }, { include_blank: '- Select Bussines Category -' }, class: 'form-control input-lg c-square'
+  .form-group.investor.form-hide
+    = investor.text_field :website, class: 'form-control input-lg c-square', placeholder: 'Website'
+  .form-group.investor.form-hide
+    = investor.text_area :mission, class: 'form-control input-lg c-square', placeholder: 'Mission & Vision'
+  .form-group.investor.form-hide
+    = investor.text_area :work, class: 'form-control input-lg c-square', placeholder: 'How it work'
+  .form-group.investor.form-hide
+    = investor.select :register_under, RegisterUnder.all.collect {|p| [ p.name, p.id ] }, { include_blank: '- Select Register Under -' }, class: 'form-control input-lg c-square'
