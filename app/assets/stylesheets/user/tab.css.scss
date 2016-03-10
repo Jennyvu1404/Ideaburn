@@ -1,0 +1,35 @@
+.tabsec li a {
+  border: medium none !important;
+  font-size: 15px;
+  margin-bottom: -2px;
+  padding: 5px 0;
+}
+.tabsec .active > a {
+  border-bottom: 4px solid #333333!important;
+}
+
+.tabsec {
+  max-width: 100%;
+  border-bottom: 2px solid #DBDBDB !important;
+  margin-bottom: 20px !important;
+}
+.j-forms .content {
+  background: #f9fafe none repeat scroll 0 0;
+  box-shadow: 0 0 0 !important;
+  padding: 25px 25px 0;
+}
+.j-forms h3 {
+  font-size: 15px;
+  font-weight: bold;
+  color: #6B6B6D;
+}
+.j-forms {
+  box-shadow: none !important;
+}
+.nopad {
+  padding: 0;
+}
+.change_picture img {
+  max-height: 160px !important;
+  width: 160px !important;
+}

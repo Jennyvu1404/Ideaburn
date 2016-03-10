@@ -12,7 +12,7 @@ html lang="en"
     link rel='stylesheet' type='text/css' href='http://fonts.googleapis.com/css?family=Roboto+Condensed:300italic,400italic,700italic,400,300,700&amp;subset=all'
     /! END GLOBAL MANDATORY STYLES
     = stylesheet_link_tag 'user', media: 'all', 'data-turbolinks-track' => false
-    = javascript_include_tag 'application', 'data-turbolinks-track' => false
+    = javascript_include_tag 'user', 'data-turbolinks-track' => false
     javascript:
         new WOW().init();
 
@@ -22,7 +22,6 @@ html lang="en"
         = render "users/left_side"
         .main-content
             = render "users/header_section"
-            #page-wrapper
-                = yield
+            = yield
     = javascript_include_tag \
         "scripts"

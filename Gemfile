@@ -23,6 +23,9 @@ gem 'static_model'
 gem 'carmen-rails', '~> 1.0.0'
 gem "cocoon"
 gem 'city-state'
+gem 'simple_form'
+gem 'carrierwave'
+gem 'cloudinary'
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
