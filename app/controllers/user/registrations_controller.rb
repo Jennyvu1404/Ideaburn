@@ -12,13 +12,13 @@ class User::RegistrationsController < Devise::RegistrationsController
   def create
     super
     if current_user.present?
-      if current_user.user_type == 2
+      if current_user.entrepreneur?
         entrepreneur = Entrepreneur.new(entrepreneur_params)
         current_user.entrepreneur = entrepreneur
-      elsif current_user.user_type == 3
+      elsif current_user.startup?
         startup = Startup.new(startup_params)
         current_user.startup = startup
-      elsif current_user.user_type == 4
+      elsif current_user.investor?
         investor = Investor.new(investor_params)
         current_user.investor = investor
       end

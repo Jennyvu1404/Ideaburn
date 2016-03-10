@@ -1,7 +1,7 @@
 $(document).ready(function () {
   $('select.select-user-type').on('change', function() {
     formHidden();
-      var userType = parseInt(this.value);
+      var userType =this.value;
       _renderForm(userType);
   });
 
@@ -33,13 +33,13 @@ $(document).ready(function () {
 
 function _renderForm(userType) {
   switch(userType) {
-    case 2:
+    case 'entrepreneur':
       $('.entrepreneur').show();
       break;
-    case 3:
+    case 'startup':
       $('.startup').show();
       break;
-    case 4:
+    case 'investor':
       $('.investor').show();
       break;
     default:
