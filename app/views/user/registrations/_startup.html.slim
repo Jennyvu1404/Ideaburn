@@ -1,0 +1,21 @@
+= f.fields_for @user.build_startup do |startup|
+  .form-group.startup.form-hide
+    = startup.text_field :name, class: 'form-control input-lg c-square', placeholder: 'Startup Name'
+  .form-group.startup.form-hide
+    = startup.select :founded, Startup.options, {}, class: 'form-control input-lg c-square'
+  .form-group.startup.form-hide
+    = startup.select :bussines_category, BussinesCategory.all.collect {|p| [ p.name, p.id ] }, { include_blank: '- Select Bussines Category -' }, class: 'form-control input-lg c-square'
+  .form-group.startup.form-hide
+    = startup.text_field :website, class: 'form-control input-lg c-square', placeholder: 'Website'
+  .form-group.startup.form-hide
+    .row
+      .col-sm-2.text-middle
+        | Strength
+      .col-sm-10
+        = startup.date_field :strength, class: 'form-control input-lg c-square'
+  .form-group.startup.form-hide
+    = startup.text_area :mission, class: 'form-control input-lg c-square', placeholder: 'Mission & Vision'
+  .form-group.startup.form-hide
+    = startup.text_area :work, class: 'form-control input-lg c-square', placeholder: 'How it work'
+  .form-group.startup.form-hide
+    = startup.select :register_under, RegisterUnder.all.collect {|p| [ p.name, p.id ] }, { include_blank: '- Select Register Under -' }, class: 'form-control input-lg c-square'
