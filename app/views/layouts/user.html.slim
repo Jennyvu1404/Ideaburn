@@ -17,10 +17,12 @@ html lang="en"
         new WOW().init();
 
     = csrf_meta_tags
-  body.ticky-header.left-side-collapsed
+  body.sticky-header.left-side-collapsed
     section style="padding:0px"
         = render "users/left_side"
         .main-content
             = render "users/header_section"
             #page-wrapper
                 = yield
+    = javascript_include_tag \
+        "scripts"
