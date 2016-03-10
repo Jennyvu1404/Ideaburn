@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   root to: 'home#index'
 
+  devise_scope :user do
+    get 'user/logout' => 'user/sessions#destroy'
+  end
   devise_for :users, path: 'user',
   module: :user,
     path_names: {
