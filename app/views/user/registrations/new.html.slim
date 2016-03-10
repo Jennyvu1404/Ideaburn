@@ -21,16 +21,6 @@
                   a.c-btn-forgot.c-font-12 = "Minimum #{@minimum_password_length} Characters Required *"
               .form-group
                 = f.password_field :password_confirmation, class: 'form-control input-lg c-square', id: 'icon-password', placeholder: 'Confirm Password', autocomplete: "off"
-              = render partial: "startup", locals: {f: f}
-              = render partial: "investor", locals: {f: f}
-              = render partial: "entrepreneur", locals: {f: f}
-              .form-group
-                = f.country_select :country, {priority: %w(US CA), prompt: '- Slect A Country -'}, class: 'form-control input-lg c-square', required: true, 'data-country_select' => ''
-              .form-group.d_none
-                select.form-control.input-lg.c-square data-state_select=''
-                  = options_for_select([['- Slect A State -', nil]])
-              .form-group
-                = f.select :city, [], { include_blank: '- Select A City -' }, class: 'form-control input-lg c-square', 'data-city_select' => ''
               .form-group
                 .col-md-6.col-xs-6.pl0
                   .c-checkbox
