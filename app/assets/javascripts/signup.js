@@ -1,9 +1,9 @@
 $(document).ready(function () {
-  $('[data-user_type_select]').on('change', function() {
+  /*$('[data-user_type_select]').on('change', function() {
     hideFormUserType();
       var userType = this.value;
       _renderFormUserType(userType);
-  });
+  });*/
 
   $('[data-country_select]').change(function () {
     var input_state = $('[data-state_select]');

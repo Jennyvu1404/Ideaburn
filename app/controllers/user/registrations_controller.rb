@@ -9,22 +9,9 @@ class User::RegistrationsController < Devise::RegistrationsController
    end
 
   # POST /resource
-  def create
-    super
-    if current_user.present?
-      if current_user.entrepreneur?
-        entrepreneur = Entrepreneur.new(entrepreneur_params)
-        current_user.entrepreneur = entrepreneur
-      elsif current_user.startup?
-        startup = Startup.new(startup_params)
-        current_user.startup = startup
-      elsif current_user.investor?
-        investor = Investor.new(investor_params)
-        current_user.investor = investor
-      end
-      current_user.save!
-    end
-  end
+  #def create
+  #  super
+  #end
 
   # GET /resource/edit
   # def edit
