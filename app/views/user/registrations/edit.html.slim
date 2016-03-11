@@ -1,5 +1,5 @@
 #page-wrapper
-  = simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, class: 'j-forms', id: 'j-forms' }) do |f|
+  = simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, class: 'j-formsa j-forms', id: 'j-forms' }) do |f|
     .switches
       .col-4
         .col-md-12.p0
@@ -106,7 +106,7 @@
                               .col-md-6.col-xs-12.unit
                                 label.label Profession Type
                                 label.input.select
-                                  = entrepreneur.select :profession_type, Entrepreneur.pro_type_options, id: 'prof'
+                                  = entrepreneur.select :profession_type, Entrepreneur.pro_type_options, id: 'prof', required: true
                                   i
                               .col-md-6.col-xs-12.unit
                                 label.label Company
@@ -125,7 +125,7 @@
                               .col-md-6.col-xs-12.unit
                                 label.label Startup Experience
                                 label.input.select
-                                  = entrepreneur.select :profession_experience, Entrepreneur.pro_exp_options, id: 'exp'
+                                  = entrepreneur.select :profession_experience, Entrepreneur.pro_exp_options, id: 'exp', required: true
                                   i
                             /! end city post code
                           #tab3.tab-pane.fade
@@ -133,7 +133,7 @@
                             .col-md-12.unit
                               label.label Graduation
                               label.input.select
-                                = entrepreneur.select :graduation, Entrepreneur.graduation_options, id: 'graduation'
+                                = entrepreneur.select :graduation, Entrepreneur.graduation_options, id: 'graduation', required: true
                                 i
                             /! end country
                             /! start address
@@ -214,7 +214,7 @@
                             /! end response from server
                       /! end /.content
                     .footer
-                      button.primary-btn type="submit"  Next
+                      button.primary-btn data-button-next='' type="submit"  Submit
                     /! end /.footer
   .clearfix
 javascript:

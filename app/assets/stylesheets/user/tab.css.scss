@@ -10,20 +10,21 @@
 
 .tabsec {
   max-width: 100%;
-  border-bottom: 2px solid #DBDBDB !important;
-  margin-bottom: 20px !important;
+  border-bottom: 4px solid #DBDBDB !important;
+  margin-bottom: 1em !important;
+  padding-left: 10px !important;
 }
-.j-forms .content {
+.j-formsa .content {
   background: #f9fafe none repeat scroll 0 0;
   box-shadow: 0 0 0 !important;
   padding: 25px 25px 0;
 }
-.j-forms h3 {
-  font-size: 15px;
-  font-weight: bold;
-  color: #6B6B6D;
+.j-formsa h3 {
+  font-size: 15px !important;
+  font-weight: bold !important;
+  color: #6B6B6D !important;
 }
-.j-forms {
+.j-formsa {
   box-shadow: none !important;
 }
 .nopad {
