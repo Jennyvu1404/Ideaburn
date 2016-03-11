@@ -6,10 +6,7 @@
           .col-md-3.mb30.nopad align="center"
             .change_picture
               center
-                - if @user.photo.nil?
-                  = image_tag asset_path('Profile-Picture-Change-icon.png'), class: 'mb8', id: 'image-preview'
-                - else
-                  = image_tag asset_path(@user.photo), class: 'mb8', id: 'image-preview'
+                = image_tag asset_path(@user.avatar), class: 'mb8', id: 'image-preview'
             .update_border
             input#get_file.update-p style=("text-align: center;") type="button" value=("Change Picture") /
             = f.file_field :photo, :as => :file, accept: 'image/png,image/gif,image/jpeg', id: 'my_file'

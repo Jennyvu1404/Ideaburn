@@ -4,7 +4,7 @@ class CreateStartupUsers < ActiveRecord::Migration
       t.belongs_to :user, index: true, foreign_key: true
       t.string :name
       t.integer :founded
-      t.integer :bussines_category
+      t.integer :business_category
       t.string :website
       t.datetime :strength
       t.integer :country

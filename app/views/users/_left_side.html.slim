@@ -16,14 +16,14 @@
         span2 Edit
   .left-side-inner
     ul.nav.nav-pills.nav-stacked.custom-nav
-      li.active#tbl1
-        = link_to "#" do
+      li#tbl1
+        = link_to edit_user_registration_path do
           = image_tag asset_path('SideNav-Icons-1.png'), style: 'visibility:hidden;'
           span Dashboard
           span1
             = image_tag asset_path('arrow-right.png')
       li#tbl2
-        = link_to "#" do
+        = link_to user_ideas_path do
           = image_tag asset_path('SideNav-Icons-2-Normal.png'), style: 'visibility:hidden;'
           span Ideas Posting
           span2

@@ -1,0 +1,39 @@
+#page-wrapper
+  .switches
+    .col-4
+      .col-md-9.p0
+        .col-md-6.col-xs-12
+          h3.c-font-17 style="line-height:2;"
+        .clear
+        .col-md-12.mb30
+          aside
+            .col-md-4.p0
+              .switch-right-grid
+                .switch-right-grid1 style=("background-color: #f9f9f9")
+                  .col-md-12.idea-left
+                    h3 LOREM IPSUM TIPS
+                  .clearfix
+                  .idea-height style=("overflow: hidden; outline: none;") tabindex="5001"
+                    input#post-2.read-more-state type="checkbox" /
+                    ul.read-more-wrap
+                      li Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                      li Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                      li Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                      li.read-more-target Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                      li.read-more-target Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                      li.read-more-target Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                    label.read-more-trigger for="post-2"
+                  hr.idea-border/
+              .idea-margin align="center"
+                 = image_tag asset_path('open-idea.png'), class: 'img-resposive center'
+          .mid-content.col-md-8 style=("background-color: #fff")
+            div
+              = render 'form'
+              /! Third row ends here
+              /! <div class="col-md-12"><span class="viewmore"><br><br><br></span></div
+      .col-md-3
+        .totalviews
+          = image_tag asset_path('Totalviews-icon.png')
+          span Total Views
+          | 99,999
+      = render 'closed_idea'

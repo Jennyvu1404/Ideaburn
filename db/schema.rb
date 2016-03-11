@@ -49,9 +49,9 @@ ActiveRecord::Schema.define(version: 20160310203631) do
     t.string   "title"
     t.text     "description"
     t.string   "attachment"
-    t.integer  "views"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.integer  "views",       default: 0
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
   end
 
   create_table "investors", force: :cascade do |t|
@@ -73,7 +73,7 @@ ActiveRecord::Schema.define(version: 20160310203631) do
     t.integer  "user_id"
     t.string   "name"
     t.integer  "founded"
-    t.integer  "bussines_category"
+    t.integer  "business_category"
     t.string   "website"
     t.datetime "strength"
     t.text     "mission"

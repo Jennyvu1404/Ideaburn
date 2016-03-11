@@ -6,7 +6,7 @@ class CreateIdeas < ActiveRecord::Migration
       t.string :title
       t.text :description
       t.string :attachment
-      t.integer :views
+      t.integer :views, default: 0
 
       t.timestamps null: false
     end

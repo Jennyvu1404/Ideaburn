@@ -23,4 +23,10 @@ class User < ActiveRecord::Base
   validates :password, length: {minimum: 8, maximum: 120}, on: :update, allow_blank: true
 
   mount_uploader :photo, UserUploader
+
+  def avatar
+    return 'Profile-Picture-Change-icon.png' if self.photo.blank?
+    self.photo
+  end
+
 end

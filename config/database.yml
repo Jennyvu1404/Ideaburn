@@ -26,18 +26,18 @@ test:
   adapter:  postgresql
   host:     localhost
   encoding: unicode
-  database: ideaburn_test
+  database: ideaburn_development
   pool:     5
-  username: ideaburn
-  password:
+  username: root
+  password: root
   template: template0
 
 production:
   adapter:  postgresql
   host:     localhost
   encoding: unicode
-  database: ideaburn_production
+  database: ideaburn_development
   pool:     5
-  username: ideaburn
-  password:
+  username: root
+  password: root
   template: template0
