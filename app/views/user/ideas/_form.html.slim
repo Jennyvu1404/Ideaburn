@@ -1,0 +1,20 @@
+= form_for [:user, @idea], class: 'form-horizontal'  do |f|
+  .form-group
+    label.col-sm-5.control-label for="selector1"  Idea Category*
+    .col-sm-7
+      = f.select :category_id, BussinesCategory.all.collect {|p| [ p.name, p.id ] }, { include_blank: '- Select Idea Category -' }, class: 'form-control'
+  .form-group
+    label.col-sm-5.control-label for="disabledinput"  Idea Title*
+    .col-sm-7
+      = f.text_field :title, class: 'form-control1', placeholder: 'Enter Idea Title here'
+  .form-group
+    label.col-sm-5.control-label for="disabledinput"  Idea Description*
+    .col-sm-12
+      = f.text_area :description, class: 'form-control1', style: 'height: 80px; margin-top: 10px'
+  .form-group
+    label.col-sm-5.control-label for="disabledinput"  Upload File
+    .col-sm-7
+      = f.file_field :attachment
+  .form-group
+    .pull-right
+      input#submit-idea.btn.btn-idea type="submit" value="SUBMIT" /

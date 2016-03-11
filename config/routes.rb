@@ -13,4 +13,7 @@ Rails.application.routes.draw do
     get 'states/:country', to: 'location#states'
     get 'cities/:country/:state', to: 'location#cities'
   end
+  namespace :user do
+  resources :ideas
+  end
 end
