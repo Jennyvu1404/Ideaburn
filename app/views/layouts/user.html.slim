@@ -23,5 +23,5 @@ html lang="en"
         .main-content
             = render "users/header_section"
             = yield
-        = render "users/footer"
+        = render "users/footer" unless action_name == 'edit'
     = javascript_include_tag "scripts"
