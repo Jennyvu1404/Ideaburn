@@ -1,19 +1,19 @@
-.left-side.sticky-left-side#left_scroll
+#left_scroll.left-side.sticky-left-side
   .logo
     span1
-      = link_to "#" do
+      a href="index.html"
         = image_tag asset_path('Ideaburn-logo.png')
     span
-      = link_to "#" do
+      a href="index.html"
         = image_tag asset_path('logo-collapsed.png')
   .logo-icon.text-center
     h1 Anamika
     p Entreprenuer
     .edit-icon
       p
+        span2.edit-hover Edit
         span
           = image_tag asset_path('Side-Nav-photo-Edit-icons.png')
-        span2 Edit
   .left-side-inner
     ul.nav.nav-pills.nav-stacked.custom-nav
       li#tbl1
@@ -29,14 +29,14 @@
           span2
             = image_tag asset_path('arrow-left.png')
       li#tbl3
-        = link_to "#" do
-          = image_tag asset_path('SideNav-Icons-3-Normal.png'), style: 'visibility:hidden;'
+        a href="index.html"
+          = image_tag asset_path('SideNav-Icons-3-Normal.png'), style: "visibility:hidden;"
           span Investers
           span3
             = image_tag asset_path('arrow-left.png')
-      li.menu-list#tbl4
-        = link_to "#" do
-          = image_tag asset_path('SideNav-Icons-4-Normal.png'), style: 'visibility:hidden;'
+      li#tbl4.menu-list
+        a href="#"
+          = image_tag asset_path('SideNav-Icons-4-Normal.png'), style: "visibility:hidden;"
           span Analytics
           span4
             = image_tag asset_path('arrow-left.png')
