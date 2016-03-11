@@ -1,12 +1,12 @@
-= form_for [:user, @idea], class: 'form-horizontal'  do |f|
+= form_for [:user, @idea], html: { class: 'form-horizontal form-open-idea' }  do |f|
   .form-group
     label.col-sm-5.control-label for="selector1"  Idea Category*
     .col-sm-7
-      = f.select :category_id, BusinessCategory.all.collect {|p| [ p.name, p.id ] }, { include_blank: '- Select Idea Category -' }, class: 'form-control'
+      = f.select :category_id, BusinessCategory.all.collect {|p| [ p.name, p.id ] }, { include_blank: '- Select Idea Category -' }, class: 'form-control1', id: 'select3'
   .form-group
     label.col-sm-5.control-label for="disabledinput"  Idea Title*
     .col-sm-7
-      = f.text_field :title, class: 'form-control1', placeholder: 'Enter Idea Title here'
+      = f.text_field :title, class: 'form-control1', placeholder: 'Enter Idea Title here', id: 'disabledinput'
   .form-group
     label.col-sm-5.control-label for="disabledinput"  Idea Description*
     .col-sm-12
@@ -14,7 +14,7 @@
   .form-group
     label.col-sm-5.control-label for="disabledinput"  Upload File
     .col-sm-7
-      = f.file_field :attachment
+      = f.file_field :attachment, id: 'idea-file'
   .form-group
     .pull-right
       input#submit-idea.btn.btn-idea type="submit" value="SUBMIT" /
