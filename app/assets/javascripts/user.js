@@ -9,7 +9,9 @@ $(document).ready(function() {
       buttonText: "",
       changeMonth: true,
       changeYear: true});
-  document.getElementById('get_file').onclick = function() {
-    document.getElementById('my_file').click();
-  };
+  try {
+    document.getElementById('get_file').onclick = function() {
+      document.getElementById('my_file').click();
+    };
+  } catch(err){console.clear();}
 });

@@ -13,4 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap-sprockets
-//= require_tree .
+//= require ideaburn
+//= require signup
+//= require_tree ./plugins
+//= require_tree ./base

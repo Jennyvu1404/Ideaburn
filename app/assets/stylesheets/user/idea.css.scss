@@ -1,0 +1,47 @@
+.form-open-idea {
+  .control-label {
+    text-align: left !important;
+    color: #000;
+    font-weight: 300;
+    font-size: 0.85em;
+  }
+
+  .btn-idea {
+    padding: 8px 12px;
+    background-color: #333;
+    color: #fff;
+    border-radius: 0;
+    margin-right: 15px;
+    font-weight: 600;
+  }
+
+  .btn-idea:hover {
+    color: #fff;
+  }
+
+  #idea-file::-webkit-file-upload-button {
+    visibility: hidden;
+  }
+  #idea-file::before {
+    content: 'Choose file';
+    display: inline-block;
+
+    border: 1px solid #999;
+    border-radius: 5px;
+    padding: 5px 8px;
+    outline: none;
+    white-space: nowrap;
+    -webkit-user-select: none;
+    cursor: pointer;
+    font-weight: normal;
+    font-size: 10pt;
+    vertical-align: middle;
+  }
+  #idea-file:hover::before {
+
+  }
+  #idea-file:active::before {
+
+  }
+}
+
