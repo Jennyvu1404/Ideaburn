@@ -1,4 +1,8 @@
 = form_for [:user, @idea], html: { class: 'form-horizontal form-open-idea' }  do |f|
+  ul.list-message-error
+    - @idea.errors.full_messages.each do |error_message|
+        li.alert-alert-error.alert-danger
+          = error_message
   .form-group
     label.col-sm-5.control-label for="selector1"  Idea Category*
     .col-sm-7

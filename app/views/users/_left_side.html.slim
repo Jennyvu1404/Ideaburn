@@ -7,7 +7,7 @@
       a href="#"
         = image_tag asset_path('logo-collapsed.png')
   .logo-icon.text-center
-    h1 = current_user.fullname
+    h1 = current_user.username
     p = current_user.user_type.capitalize
     .edit-icon
       p

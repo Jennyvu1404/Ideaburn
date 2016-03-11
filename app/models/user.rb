@@ -29,8 +29,4 @@ class User < ActiveRecord::Base
     self.photo
   end
 
-  def fullname
-    "#{self.entrepreneur.first_name.capitalize} #{self.entrepreneur.last_name.capitalize}" if self.entrepreneur
-  end
-
 end
