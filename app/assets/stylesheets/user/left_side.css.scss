@@ -61,29 +61,27 @@
 
       margin-bottom:0px;
 }
-.edit-icon:hover span2
+.edit-icon:hover span2.edit-hover
 {
     display:block;
-  float:left;
     cursor:pointer;
-     -webkit-transition: all .5s ease;
-  -moz-transition: all .5s ease;
-  -ms-transition: all .5s ease;
-  -o-transition: all .5s ease;
-  transition: all .5s ease;
+    -webkit-transition: all .5s ease;
+    -moz-transition: all .5s ease;
+    -ms-transition: all .5s ease;
+    -o-transition: all .5s ease;
+    transition: all .5s ease;
 }
 .edit-icon span2
 {
     display:none;
+    float: left;
      -webkit-transition: all .5s ease;
-  -moz-transition: all .5s ease;
-  -ms-transition: all .5s ease;
-  -o-transition: all .5s ease;
-  transition: all .5s ease;
+    -moz-transition: all .5s ease;
+    -ms-transition: all .5s ease;
+    -o-transition: all .5s ease;
+    transition: all .5s ease;
 }
-.edit-icon span
-{cursor:pointer;
- }
+.edit-icon span{cursor:pointer;}
  .menu-collapsed
  {
      background: asset_url('user-downarrown-normal.png') no-repeat left top;
@@ -467,7 +465,7 @@ div#page-wrapper {
 .custom-nav > li.active > a:hover,
 .custom-nav > li.active > a:focus {
     background:none !important;
-    color:#FED000;
+    color:#FED000 !important;
 }
 
 ul.dropdown-menu.drp-mnu li {
