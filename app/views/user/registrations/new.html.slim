@@ -9,7 +9,7 @@
             = form_for(@user, url: registration_path(resource_name)) do |f|
               = devise_error_messages!
               .form-group
-                = select("user", "user_type", User.user_types.keys, { include_blank: '- Select User Type -' }, class: 'form-control dd', required: true, 'data-user_type_select' => '')
+                = select("user", "user_type", User.user_types.except('admin').keys, { include_blank: '- Select User Type -' }, class: 'form-control dd', required: true, 'data-user_type_select' => '')
               .form-group
                 = f.text_field :username, id: 'icon-email', class: 'form-control input-lg c-square', placeholder: 'User Name', required: true
                 a.c-btn-forgot.c-font-12 Minimum 5 Characters Required *

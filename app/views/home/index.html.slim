@@ -25,20 +25,20 @@
           center
             = image_tag asset_path('base/img/Home-Icons-Ideas.png'), class: 'img-responsive'
             .clear
-            span.c-counter.c-span.text-center.idea-text data-counter="counterup" 130
+            span.c-counter.c-span.text-center.idea-text data-counter="counterup" = Idea.count
             span.idea.idea-text ideas
         .col-md-3.col-xs-3
           center
             = image_tag asset_path('base/img/Home-Icons-Startups.png'), class: 'img-responsive'
             .clear
-            span.c-counter.c-span.text-center.idea-text data-counter="counterup" 35,500
+            span.c-counter.c-span.text-center.idea-text data-counter="counterup" = User.startup.count
             span.idea.idea-text startups
         .col-md-3.col-xs-3
           center
             = image_tag asset_path('base/img/Home-Icons-Investers.png'), class: 'img-responsive'
             .clear
-            span.c-counter.c-span.text-center.idea-text data-counter="counterup" style="color: #FFD101; font-weight: 600;" 101,865
-            span.idea.idea-text investers
+            span.c-counter.c-span.text-center.idea-text data-counter="counterup" style="color: #FFD101; font-weight: 600;" = User.investor.count
+            span.idea.idea-text investors
         .col-md-3.col-xs-3
           center
             = image_tag asset_path('base/img/Home-Icons-Deals.png'), class: 'img-responsive'
@@ -167,173 +167,47 @@
                 .c-content-tab-1.c-theme.c-margin-t-30
                   .nav-justified
                     ul.nav.nav-tabs.nav-justified.mb30 style="border-bottom: 2px solid #ccc;"
-                      li.active
-                        center
-                          = link_to "#blog_recent_posts_2", "data-toggle" => "tab" do
-                            = image_tag asset_path('base/img/c.png')
-                        = link_to "#blog_recent_posts_2", "data-toggle" => "tab" do
-                          | Art &amp; Crafts
-
-                      li
-                        center
-                          = link_to "#blog_recent_posts_automative", "data-toggle" => "tab" do
-                            = image_tag asset_path('base/img/Categories-Automotive.png')
-                        = link_to "#blog_recent_posts_automative", "data-toggle" => "tab" do
-                          | Automotive
-
-                      li
-                        center
-                          = link_to "#blog_recent_posts_design", "data-toggle" => "tab" do
-                            = image_tag asset_path('base/img/Categories-Design.png')
-                        = link_to "#blog_recent_posts_design", "data-toggle" => "tab" do
-                          | Design
-
-                      li
-                        center
-                          = link_to "#blog_recent_posts_education", "data-toggle" => "tab" do
-                            = image_tag asset_path('base/img/Categories-Education.png')
-                        = link_to "#blog_recent_posts_education", "data-toggle" => "tab" do
-                          | Education
-
-                      li
-                        center
-                          = link_to "#blog_recent_posts_entertainment", "data-toggle" => "tab" do
-                            = image_tag asset_path('base/img/Categories-Entertainment.png')
-                        = link_to "#blog_recent_posts_entertainment", "data-toggle" => "tab" do
-                          | Entertainment
-
-                      li
-                        center
-                          = link_to "#blog_recent_posts_fashion", "data-toggle" => "tab" do
-                            = image_tag asset_path('base/img/Categories-Fashion.png')
-                        = link_to "#blog_recent_posts_fashion", "data-toggle" => "tab" do
-                          | Fashion
-
-                      li
-                        center
-                          = link_to "#blog_recent_posts_finance", "data-toggle" => "tab" do
-                            = image_tag asset_path('base/img/Categories-Finance.png')
-                        = link_to "#blog_recent_posts_finance", "data-toggle" => "tab" do
-                          | Finance
-
-                      li
-                        center
-                          = link_to "#blog_recent_posts_hm", "data-toggle" => "tab" do
-                            = image_tag asset_path('base/img/Categories-Health.png')
-                        = link_to "#blog_recent_posts_hm", "data-toggle" => "tab" do
-                          | Health &amp; Medical
-
-                      li.active
-                        center
-                          = link_to "#blog_recent_posts_journalism", "data-toggle" => "tab" do
-                            = image_tag asset_path('base/img/Categories-Journalisium.png')
-                        = link_to "#blog_recent_posts_journalism", "data-toggle" => "tab" do
-                          | Journalism
-
-                      li
-                        center
-                          = link_to "#blog_recent_posts_Manufacturing", "data-toggle" => "tab" do
-                            = image_tag asset_path('base/img/Categories-Manufacturing.png')
-                        = link_to "#log_recent_posts_Manufacturing", "data-toggle" => "tab" do
-                          | Manufacturing
-
-                      li
-                        center
-                          = link_to "#blog_recent_posts_Music", "data-toggle" => "tab" do
-                            = image_tag asset_path('base/img/Categories-Music.png')
-                        = link_to "#blog_recent_posts_Music", "data-toggle" => "tab" do
-                          | Music
-
-                      li
-                        center
-                          = link_to "#blog_recent_posts_Photography", "data-toggle" => "tab" do
-                            = image_tag asset_path('base/img/Categories-Photography.png')
-                        = link_to "#blog_recent_posts_Photography", "data-toggle" => "tab" do
-                          | Photography
-
-                      li
-                        center
-                          = link_to "#blog_recent_posts_Realestate", "data-toggle" => "tab" do
-                            = image_tag asset_path('base/img/Categories-Realestate.png')
-                        = link_to "#blog_recent_posts_Realestate", "data-toggle" => "tab" do
-                          | Realestate
-
-                      li
-                        center
-                          = link_to "#blog_recent_posts_Retail", "data-toggle" => "tab" do
-                            = image_tag asset_path('base/img/Categories-Retail.png')
-                        = link_to "#blog_recent_posts_Retail", "data-toggle" => "tab" do
-                          | Retail
-
-                      li
-                        center
-                          = link_to "#blog_recent_posts_Technologies", "data-toggle" => "tab" do
-                            = image_tag asset_path('base/img/Categories-Technologies.png')
-                        = link_to "#blog_recent_posts_Retail", "data-toggle" => "tab" do
-                          | Technologies
-
-                      li
-                        center
-                          = link_to "#blog_recent_posts_Travel", "data-toggle" => "tab" do
-                            = image_tag asset_path('base/img/Categories-Travel.png')
-                        = link_to "#blog_recent_posts_Travel", "data-toggle" => "tab" do
-                          | Travel
+                      - Category.all.each_with_index do |category, index|
+                        li class=("active" if index.zero?)
+                          center
+                            = link_to "#tab_category_#{category.id}", "data-toggle" => "tab" do
+                              = image_tag asset_path(category.image)
+                          = link_to "#tab_category_#{category.id}", "data-toggle" => "tab" do
+                            = category.name
             = link_to "#", class: 'buttons next' do
               = fa_icon 'chevron-right'
 
           .tab-content
-            .tab-pane.tab-cont.active#blog_recent_posts_2
-              .col-md-7
-                h1.c-font-20 Art &amp; Craft
-                h2 Temple Of Promise Grove - Burning Man 2015
-                p There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.
-                p
-                  span Read More >
-                .col-md-4.mt10 align="center"
-                  = image_tag asset_path('base/img/Home-Icons-Ideas-small.png'), class: 'bg-icons'
-                  .clearfix
-                  span.c-counter data-counter="counterup" 6,669
-                  span.c-font-12 &nbsp;ideas
+            - Category.all.each_with_index do |category, index|
+              - idea = category.ideas.first
+              .tab-pane.tab-cont id="tab_category_#{category.id}" class=("active" if index.zero?)
+                .col-md-7
+                  h1.c-font-20 = category.name
+                  - if idea
+                    h2 = idea.title
+                    p = idea.description
+                    p
+                      span Read More >
+                    .col-md-4.mt10 align="center"
+                      = image_tag asset_path('base/img/Home-Icons-Ideas-small.png'), class: 'bg-icons'
+                      .clearfix
+                      span.c-counter data-counter="counterup" = category.ideas.count
+                      span.c-font-12 &nbsp;ideas
 
-                .col-md-4.mt10 align="center"
-                  = image_tag asset_path('base/img/Home-Icons-Investers-small.png'), class: 'bg-icons'
-                  .clearfix
-                  span.c-counter data-counter="counterup" 6,669
-                  span.c-font-12 &nbsp;investers
+                    .col-md-4.mt10 align="center"
+                      = image_tag asset_path('base/img/Home-Icons-Investers-small.png'), class: 'bg-icons'
+                      .clearfix
+                      span.c-counter data-counter="counterup" 6,669
+                      span.c-font-12 &nbsp;investers
 
-                .col-md-4.mt10 align="center"
-                  = image_tag asset_path('base/img/Home-Icons-Deals-small.png'), class: 'bg-icons'
-                  .clearfix
-                  span.c-counter data-counter="counterup" 6,669
-                  span.c-font-12 &nbsp;deals
+                    .col-md-4.mt10 align="center"
+                      = image_tag asset_path('base/img/Home-Icons-Deals-small.png'), class: 'bg-icons'
+                      .clearfix
+                      span.c-counter data-counter="counterup" 6,669
+                      span.c-font-12 &nbsp;deals
+                  - else
+                    .tab-pane.tab-cont id="tab_category_#{category.id}" class=("active" if index.zero?)
+                      | Updating...
 
-              .col-md-5
-                = image_tag asset_path('base/img/tab-img.png'), class: 'img-responsive'
-
-            /!.tab-pane.tab-cont.active#blog_recent_posts_2
-              .col-md-7
-                h1.c-font-20 Automative
-                h2 Temple Of Promise Grove - Burning Man 2015
-                p There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.
-                p
-                  span Read More >
-                .col-md-4.mt10 align="center"
-                  = image_tag asset_path('base/img/Home-Icons-Ideas-small.png'), class: 'bg-icons'
-                  .clearfix
-                  span.c-counter data-counter="counterup" 6,669
-                  span.c-font-12 &nbsp;ideas
-
-                .col-md-4.mt10 align="center"
-                  = image_tag asset_path('base/img/Home-Icons-Investers-small.png'), class: 'bg-icons'
-                  .clearfix
-                  span.c-counter data-counter="counterup" 6,669
-                  span.c-font-12 &nbsp;investers
-
-                .col-md-4.mt10 align="center"
-                  = image_tag asset_path('base/img/Home-Icons-Deals-small.png'), class: 'bg-icons'
-                  .clearfix
-                  span.c-counter data-counter="counterup" 6,669
-                  span.c-font-12 &nbsp;deals
-
-              .col-md-5
-                = image_tag asset_path('base/img/tab-img.png'), class: 'img-responsive'
+                .col-md-5
+                  = image_tag asset_path('base/img/tab-img.png'), class: 'img-responsive'
