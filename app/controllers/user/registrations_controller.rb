@@ -80,7 +80,7 @@ class User::RegistrationsController < Devise::RegistrationsController
   end
 
   def startup_params
-    params[:user][:startup].permit(:name, :founded, :business_category, :website, :strength, :mission, :work, :register_under)
+    params[:user][:startup].permit(:name, :founded, :category, :website, :strength, :mission, :work, :register_under)
   end
 
   def entrepreneur_params

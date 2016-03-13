@@ -73,14 +73,14 @@ ActiveRecord::Schema.define(version: 20160310203631) do
     t.integer  "user_id"
     t.string   "name"
     t.integer  "founded"
-    t.integer  "business_category"
+    t.integer  "category"
     t.string   "website"
     t.datetime "strength"
     t.text     "mission"
     t.text     "work"
     t.integer  "register_under"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
   end
 
   add_index "startups", ["user_id"], name: "index_startups_on_user_id", using: :btree

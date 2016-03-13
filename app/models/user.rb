@@ -15,7 +15,7 @@ class User < ActiveRecord::Base
   has_one :entrepreneur, dependent: :destroy, :autosave => true
   accepts_nested_attributes_for :entrepreneur, reject_if: proc { |attributes| attributes['name'].blank? }, allow_destroy: true
 
-  enum user_type: {entrepreneur: 2, startup: 3, investor: 4}
+  enum user_type: {admin: 1, entrepreneur: 2, startup: 3, investor: 4}
 
   validates :username, presence: true, length: { minimum: 5 }
   validates :user_type, presence: true
@@ -27,10 +27,6 @@ class User < ActiveRecord::Base
   def avatar
     return 'Profile-Picture-Change-icon.png' if self.photo.blank?
     self.photo
-  end
-
-  def fullname
-    "#{self.entrepreneur.first_name.capitalize} #{self.entrepreneur.last_name.capitalize}" if self.entrepreneur
   end
 
 end

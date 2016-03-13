@@ -4,7 +4,7 @@
   .form-group.startup.form-hide
     = startup.select :founded, Startup.options, {}, class: 'form-control input-lg c-square'
   .form-group.startup.form-hide
-    = startup.select :business_category, BusinessCategory.all.collect {|p| [ p.name, p.id ] }, { include_blank: '- Select Business Category -' }, class: 'form-control input-lg c-square'
+    = startup.select :category, Category.all.collect {|p| [ p.name, p.id ] }, { include_blank: '- Select Business Category -' }, class: 'form-control input-lg c-square'
   .form-group.startup.form-hide
     = startup.text_field :website, class: 'form-control input-lg c-square', placeholder: 'Website'
   .form-group.startup.form-hide
