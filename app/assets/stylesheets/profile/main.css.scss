@@ -1,0 +1,52 @@
+ul,
+li {
+    list-style: none;
+}
+
+.container {
+    margin: 0px auto;
+}
+
+.timee {
+    margin-right: 10px;
+}
+
+.sub-but {
+    margin-left: 220px;
+}
+
+#my_file {
+    display: none;
+}
+
+.update-p {
+    text-align: center;
+}
+
+.left-side-collapsed #get_file {
+    background: #F2F4F3;
+    border: 0px solid #F2F4F3;
+    padding: 0px;
+    border-radius: 5px;
+    margin: 0px;
+    cursor: pointer;
+    font-size: 14px;
+    text-align: center !important;
+    padding: 10px;
+}
+
+#my_file1 {
+    display: none;
+}
+
+#get_file {
+    background: #F2F4F3;
+    border: 0px solid #F2F4F3;
+    padding: 0px;
+    border-radius: 5px;
+    margin: 0px;
+    cursor: pointer;
+    font-size: 14px;
+    text-align: center !important;
+    padding: 10px;
+}

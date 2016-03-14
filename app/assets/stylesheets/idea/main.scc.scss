@@ -1,0 +1,192 @@
+.fa-thumbs-up::before {
+    color: #FFD000;
+    cursor: pointer;
+}
+
+.fa-comments-o {
+    cursor: pointer;
+}
+
+.rating {
+    color: White;
+}
+
+.fa-star {
+    color: #FFD000;
+    font-size: 22px;
+}
+
+.left-side-collapsed {
+    li#tbl1 {
+        background: asset_url('SideNav-Icons-1.png') no-repeat 10px 9px;
+        display: block;
+    }
+    li#tbl2.active {
+        background: asset_url('SideNav-Icons-2-hover.png') no-repeat 10px 9px;
+        display: block;
+    }
+}
+
+li#tbl1 {
+    background: asset_url('SideNav-Icons-1.png') no-repeat 25px 9px;
+    display: block;
+}
+
+li#tbl1.active {
+    background: asset_url('SideNav-Icons-1-hover.png') no-repeat 25px 9px;
+    display: block;
+}
+
+li#tbl1:hover {
+    background: asset_url('SideNav-Icons-1-hover.png') no-repeat 25px 9px;
+    display: block;
+}
+
+li#tbl2 {
+    background: asset_url('SideNav-Icons-2-Normal.png') no-repeat 25px 9px;
+    display: block;
+}
+
+li#tbl2.active {
+    background: asset_url('SideNav-Icons-2-hover.png') no-repeat 25px 9px;
+    display: block;
+}
+
+li#tbl2:hover {
+    background: asset_url('SideNav-Icons-2-hover.png') no-repeat 25px 9px;
+    display: block;
+}
+
+li#tbl3 {
+    background: asset_url('SideNav-Icons-3-Normal.png') no-repeat 25px 9px;
+    display: block;
+}
+
+li#tbl3.active {
+    background: asset_url('SideNav-Icons-3-hover.png') no-repeat 25px 9px;
+    display: block;
+}
+
+li#tbl3:hover {
+    background: asset_url('SideNav-Icons-3-hover.png') no-repeat 25px 9px;
+    display: block;
+}
+
+li#tbl4 {
+    background: asset_url('SideNav-Icons-4-Normal.png') no-repeat 25px 9px;
+    display: block;
+}
+
+li#tbl4.active {
+    background: asset_url('SideNav-Icons-4-hover.png') no-repeat 25px 9px;
+    display: block;
+}
+
+li#tbl4:hover {
+    background: asset_url('SideNav-Icons-4-hover.png') no-repeat 25px 9px;
+    display: block;
+}
+
+.activity-image1 {
+    background-repeat: no-repeat;
+    width: 70px;
+    padding: 0px 10px;
+    margin: 2px 8px 0 10px;
+    height: 70px;
+}
+
+@media (min-width: 1280px) {
+    .activity-rows1 {
+        padding: 6px 0;
+        border-bottom: 1px solid #EEE;
+        background: asset_url('IdeaDetails-img1.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+    .activity-image1 {
+        background-repeat: no-repeat;
+        width: 70px;
+        padding: 0px 10px;
+        margin: 2px 8px 0 10px;
+        height: 70px;
+    }
+    .activity-image1 img {
+        width: 70px;
+    }
+    .icon-cam {
+        background: #fff asset_url("phtoupload-icon.png") no-repeat scroll left top;
+        border: 0 none;
+        cursor: pointer;
+        height: 16px;
+        position: absolute;
+        right: 40px;
+        top: 10px;
+        line-height: 26px;
+        transition: all 0.4s linear 0s;
+        width: 16px;
+    }
+    .comments {
+        padding: 20px;
+        background: #FAFAFA;
+        border-bottom: 2px solid #dcdcdc;
+    }
+    .comment-details {
+        padding: 20px 0px;
+        background: #FAFAFA;
+    }
+    .comment-details p span {
+        font-size: 11px !important;
+        padding-right: 20px !important;
+    }
+    .comments-button {
+        background: #E4E4E4;
+        color: #333;
+        padding: 7px 0px;
+        border-radius: 20px;
+        text-align: center;
+        width: 106px;
+        text-transform: uppercase;
+        font-size: 11px;
+        color: #666;
+    }
+    .mt20 {
+        margin-top: 20px;
+    }
+    .icon-smiley {
+        background: #fff asset_url("smiley.png") no-repeat scroll left top !important;
+        border: 0 none;
+        cursor: pointer;
+        height: 16px;
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        line-height: 26px;
+        transition: all 0.4s linear 0s;
+        width: 16px;
+    }
+    .comment-details p span9 {
+        font-size: 16px !important;
+        color: #444;
+        margin-bottom: 5px;
+        margin-right: 5px;
+    }
+    .idea-details p {
+        color: #666;
+        font-size: 15px;
+        text-align: justify;
+        margin-bottom: 12px;
+    }
+    .border {
+        border-bottom: 1px solid #ccc;
+        margin-bottom: 10px;
+    }
+    .mb15 {
+        margin-bottom: 15px;
+    }
+    .mt0 {
+        margin-top: 0px !important;
+    }
+    .mr5 {
+        margin-right: 10px;
+    }
+}
