@@ -10,7 +10,7 @@ class Entrepreneur < ActiveRecord::Base
   end
 
   def self.graduation_options
-    [["- Select Graduation -", nil], ["BE", "BE"], ["B.Tech", "BE.Tech"]]
+    [["- Select Graduation -", nil], ["UnderGraduate", 1], ["PostGraduate", 2], ["Phd", 3], ["Others", 4]]
   end
 
   def self.pro_skill_options
@@ -18,7 +18,7 @@ class Entrepreneur < ActiveRecord::Base
   end
 
   def self.pro_exp_options
-    [["- Startup Experience -", nil], ["1", 1] ,["2", 2]]
+    [["- Startup Experience -", nil]].concat((0..9).collect{|y| "#{y} years" })
   end
 
   def self.pro_type_options
