@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160310203631) do
+ActiveRecord::Schema.define(version: 20160314075319) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,9 +49,9 @@ ActiveRecord::Schema.define(version: 20160310203631) do
     t.string   "title"
     t.text     "description"
     t.string   "attachment"
-    t.integer  "views",       default: 0
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+    t.integer  "views"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "investors", force: :cascade do |t|
@@ -73,14 +73,14 @@ ActiveRecord::Schema.define(version: 20160310203631) do
     t.integer  "user_id"
     t.string   "name"
     t.integer  "founded"
-    t.integer  "category"
+    t.integer  "bussines_category"
     t.string   "website"
     t.datetime "strength"
     t.text     "mission"
     t.text     "work"
     t.integer  "register_under"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
   end
 
   add_index "startups", ["user_id"], name: "index_startups_on_user_id", using: :btree
@@ -102,7 +102,7 @@ ActiveRecord::Schema.define(version: 20160310203631) do
     t.integer  "user_type"
     t.string   "country"
     t.string   "city"
-    t.string   "home_town"
+    t.string   "region"
     t.string   "photo"
   end
 

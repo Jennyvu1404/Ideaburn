@@ -58,7 +58,7 @@ class User::RegistrationsController < Devise::RegistrationsController
   def configure_account_update_params
     #devise_parameter_sanitizer.for(:account_update) << [:county, :city, :home_town]
     devise_parameter_sanitizer.for(:account_update) do |u|
-      u.permit(:country, :city, :home_town, :photo, entrepreneur_attributes: [:first_name, :last_name])
+      u.permit(:country, :city, :region, :photo, entrepreneur_attributes: [:first_name, :last_name])
     end
   end
 
