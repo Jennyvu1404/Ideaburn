@@ -185,9 +185,9 @@
                   h1.c-font-20 = category.name
                   - if idea
                     h2 = idea.title
-                    p = idea.description
+                    p = idea.description.truncate(300)
                     p
-                      span Read More >
+                      span = link_to "Read More >", user_idea_path(idea)
                     .col-md-4.mt10 align="center"
                       = image_tag asset_path('base/img/Home-Icons-Ideas-small.png'), class: 'bg-icons'
                       .clearfix

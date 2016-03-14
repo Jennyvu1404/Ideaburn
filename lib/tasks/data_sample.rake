@@ -20,10 +20,11 @@ namespace :data do
         idea = entrepreneur.ideas.build({
           title: Faker::Lorem.sentence,
           category_id: Category.all.sample.id,
-          description: Faker::Lorem.paragraph
+          description: Faker::Lorem.paragraph(50),
+          views: Faker::Number.number(4)
           })
+        idea.save
       end
-      idea.save
 
       startup = User.create!({
         username: "startup#{index}",

@@ -14,19 +14,20 @@
             .switch-right-grid1
               .col-md-12.activity-rows1
                 .col-xs-3.activity-img.activity-image1
-                  = image_tag asset_path(@idea.user.avatar), class: 'img-resposive img-circle'
+                  = image_tag asset_path(@idea.user.avatar), class: 'img-resposive img-circle', style: 'width:70px;height:70px'
                 .col-xs-9.activity-desc
                   .col-md-4.plr0
                     h5.mt0
-                      a href="#"  John Doen
+                      a href="#" = @idea.user.username
                     p
                       span
                         = image_tag asset_path('location-icon.png')
-                      | New Yark City, USA.
+                      | New York City, USA.
                     p
                       span
                         = image_tag asset_path('posted-icon.png')
-                      | Posted on:30-12-15
+                      | Posted on:
+                      = @idea.created_at.strftime('%d-%m-%Y')
                   .col-md-3.rating
                     br/
                     .rating_star
@@ -54,9 +55,8 @@
               .idea-details
                 .col-md-12
                   p style="color:#ccc;"
-                    span.idea-type> Idea Type: Automobile
-                    | \
-                    span.idea-category Idea Category: Lorem Ipsum
+                    span.idea-category Idea Category:
+                    = @idea.category.name
                 .col-md-8
                   h3 = @idea.title
                   = @idea.description
@@ -82,7 +82,7 @@
                       center
                         i.fa.fa-eye
                         br/
-                        span.c-font-13 9,999
+                        span.c-font-13 = @idea.views
                     .col-sm-4.col-xs-3 style="cursor:pointer;"
                       center
                         i.fa.fa-thumbs-o-up
@@ -127,7 +127,8 @@
                   .col-lg-4
                     .col-md-12.mtres20
                       p
-                        span9 More from John Doe
+                        span9 More from
+                        = @idea.user.username
                     .col-md-6.text-center.mb15
                       = image_tag asset_path('thumbs-img1.jpg')
                     .col-md-6.text-center.mb15
@@ -145,6 +146,4 @@
                     .col-md-2.col-xs-4 Link1
                     .col-md-2.col-xs-4 Link1
                   .clearfix
-        .col-md-12
-          span.viewmore View More
       = render 'closed_idea'

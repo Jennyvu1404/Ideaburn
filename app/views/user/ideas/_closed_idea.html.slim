@@ -18,25 +18,9 @@
           p
             a href="#"  Closed Ideas
       .clearfix
-      .idea_no
-        h1 Idea 1 Name
-        p Description about that...
-      .idea_no
-        h1 Idea 1 Name
-        p Description about that...
-      .idea_no
-        h1 Idea 1 Name
-        p Description about that...
-      .idea_no
-        h1 Idea 1 Name
-        p Description about that...
-      .idea_no
-        h1 Idea 1 Name
-        p Description about that...
-      .idea_no
-        h1 Idea 1 Name
-        p Description about that...
-      .idea_no
-        h1 Idea 1 Name
-        p Description about that...
+      - Idea.limit(10).each do |idea|
+        .idea_no
+          h1
+            = link_to idea.title, user_idea_path(idea)
+          p = idea.description.truncate(70)
 .clearfix
