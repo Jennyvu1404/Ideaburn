@@ -1,0 +1,49 @@
+<% if action_name == 'show' %>
+<div class="col-md-3" >
+  <div class="totalviews">
+    <%= image_tag asset_path('Totalviews-icon.png') %>
+    <span>Total Views</span> <%= @idea.views %>
+  </div>
+</div>
+<% end %>
+<div class="col-md-3 pl0" id="idea-bar">
+  <div class="post-idea">
+    <div class="col-xs-3 activity-img">
+      <%= image_tag asset_path('Postyouridea-icon-black.png'), class: 'img-responsive' %>
+    </div>
+    <div class="col-xs-9 pl0 activity-desc">
+
+      <h5 class="mt7" >
+        <%= link_to 'POST YOUR IDEA', new_user_idea_path %>
+      </h5>
+
+    </div>
+
+    <div class="clearfix"> </div>
+  </div>
+  <div class="switch-right-grid">
+    <div class="switch-right-grid1">
+      <div class="col-md-12 close-idea">
+
+        <div class="col-xs-12 activity-desc">
+          <p>
+            <%= link_to 'Closed Ideas', "#" %>
+          </p>
+
+        </div>
+
+
+      </div>
+      <div class="clearfix"> </div>
+      <%= Idea.limit(10).each do |idea| %>
+      <div class="idea_no">
+        <h1>
+          <%= link_to idea.title, user_idea_path(idea) %>
+        </h1>
+        <p><%= idea.description.truncate(70) %></p>
+      </div>
+      <% end %>
+    </div>
+  </div>
+
+</div>

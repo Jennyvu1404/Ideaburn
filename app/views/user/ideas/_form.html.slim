@@ -6,7 +6,7 @@
   .form-group
     label.col-sm-5.control-label for="selector1"  Idea Category*
     .col-sm-7
-      = f.select :category_id, Category.all.collect {|p| [ p.name, p.id ] }, { include_blank: '- Select Idea Category -' }, class: 'form-control1', id: 'select3'
+      = f.select :category_id, Category.all.collect {|p| [ p.name, p.id ] }, { include_blank: '- Select Idea Category -' }, class: 'form-control1', id: 'category_id'
   .form-group
     label.col-sm-5.control-label for="disabledinput"  Idea Title*
     .col-sm-7

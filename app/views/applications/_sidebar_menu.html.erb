@@ -1,0 +1,57 @@
+<div id="left_scroll" class="left-side sticky-left-side">
+  <div class="logo">
+    <span1>
+      <%= link_to image_tag('Ideaburn-logo.png'), root_path %>
+    </span1>
+    <span>
+      <%= link_to image_tag('logo-collapsed.png'), root_path %>
+    </span>
+  </div>
+  <div class="logo-icon text-center" style="background-image: url(<%= current_user.avatar %>)">
+    <h1><%= current_user.username %></h1>
+    <p><%= current_user.user_type.capitalize %></p>
+    <div class="edit-icon">
+      <p>
+      <a href="<%= edit_user_registration_path %>">
+          <span>
+            <%= image_tag('Side-Nav-photo-Edit-icons.png') %>
+          </span>
+          <span2>
+            Edit
+          </span2>
+        </a>
+      </p>
+    </div>
+  </div>
+  <div class="left-side-inner">
+    <ul class="nav nav-pills nav-stacked custom-nav">
+      <li id="tbl1" class="<%= 'active' if controller_name == 'ideas' && action_name == 'index' %>">
+        <a href="<%= user_ideas_path %>">
+          <%= image_tag('SideNav-Icons-1.png', style: "visibility:hidden;") %><span>Dashboard</span><span1>
+          <%= image_tag('arrow-right.png') %>
+        </span1></a></li>
+
+        <li id="tbl2" class="<%= 'active' if controller_name == 'ideas' && action_name == 'new' %>">
+          <a href="<%= new_user_idea_path %>" >
+            <%= image_tag('SideNav-Icons-2-Normal.png', style: "visibility:hidden;") %><span>Ideas Posting</span><span2>
+            <%= image_tag('arrow-left.png') %>
+          </span2></a></li>
+          <li id="tbl3">
+            <a href="#">
+              <%= image_tag('SideNav-Icons-3-Normal.png', style: "visibility:hidden;") %><span>Investers</span><span3>
+              <%= image_tag('arrow-left.png') %>
+            </span4>
+          </a>
+        </li>
+        <li id="tbl4" class="menu-list">
+          <a href="#">
+            <%= image_tag('SideNav-Icons-4-Normal.png', style: "visibility:hidden;") %><span>Analytics</span>
+            <span4>
+              <%= image_tag('arrow-left.png') %>
+            </span4></a>
+
+          </li>
+
+        </ul>
+      </div>
+    </div>

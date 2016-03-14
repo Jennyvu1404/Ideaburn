@@ -1,0 +1,77 @@
+<div class="header-section">
+
+
+  <div class="menu-right">
+    <div class="user-panel-top">
+     <div class="col-md-12">
+       <div class="col-md-1 col-xs-1"><a class="toggle-btn  menu-collapsed"><!--<i class="fa fa-bars"></i>--></a></div>
+       <div class="col-md-3 col-xs-10">
+        <div class="profile_details_left">
+          <ul class="nofitications-dropdown">
+
+            <li class="login_box" id="loginContainer">
+
+              <form id="searchform" action="/user/ideas">
+                <div class="fieldcontainer">
+                  <input type="text" class="search-keywords" placeholder="type keywords" name="q" value="<%= params[:q] %>" />
+                  <input type="submit" value="" id="searchbtn" name="searchbtn">
+                </div>
+
+              </form>
+
+            </li>
+
+          </ul>
+        </div>
+        <div class="clearfix"></div>
+      </div>
+      <div class="col-md-7 col-xs-12 right-menu">
+        <div class="profile_details">
+          <ul>
+            <li class="dropdown profile_details_drop">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                <div class="profile_img">
+                  <center ><span class="prof-img"> </span>
+                    <div class="user"><div class="user-name">
+                      <p><%= current_user.username %></p>
+                    </div>
+                    <i class="lnr lnr-chevron-down"></i>
+                    <i class="lnr lnr-chevron-up"></i>
+                  </div>
+                  <div class="clearfix"></div>
+                </div>
+              </a>
+              <ul class="dropdown-menu drp-mnu">
+                <!-- <li> <a href="#"><img src="images/myaccount.png"> My Account</a> </li> -->
+                <li>
+                  <%= link_to edit_user_registration_path do %>
+                  <%= image_tag('updateProfile.png') %>Update Profile
+                  <% end %>
+                </li>
+                <li>
+                  <%= link_to destroy_user_session_path do %>
+                  <%= image_tag('Logout-Icons.png') %>Logouts
+                  <% end %>
+                </li>
+              </ul>
+            </li>
+
+            <li><center>
+              <div class="notifications-icon"><center><span class="badge11"></span></center></div>
+
+              <div >Notifications</div></center></li>
+              <li><center>
+                <div class="msg-icon"><center><span class="badge11"></span></center></div>
+
+                <div >Messages</div></center></li>
+
+                <div class="clearfix"> </div>
+              </ul>
+            </div>  </div>
+          </div>
+
+          <div class="clearfix"></div>
+        </div>
+      </div>
+
+    </div>
