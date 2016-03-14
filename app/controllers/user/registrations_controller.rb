@@ -21,6 +21,9 @@ class User::RegistrationsController < Devise::RegistrationsController
       @user.build_entrepreneur if @user.entrepreneur.nil?
     elsif current_user.startup?
       @user.build_startup if @user.startup.nil?
+    elsif current_user.investor?
+      @user.build_investor if @user.investor.nil?
+      @business_lines = @user.investor.business_line.present? ? @user.investor.business_line.gsub(/(\[\"|\"\])/, '').split('", "') : nil
     end
   end
 
@@ -36,6 +39,12 @@ class User::RegistrationsController < Devise::RegistrationsController
         startup_update_params = params[:user][:startup_attributes].permit(:name, :founded, :bussines_category, :website, :strength, :mission, :work, :register_under, :reg_company_name, :facebook, :twitter, :linkedin, :ios_app, :adroid_app, :window_app, :address_line_1, :address_line_2, :team_name, :team_designation, :team_joined_date, :team_email_d, :team_mobile, :team_linkedin, :team_skype, :funding_type, :funding_amout, :funding_date, :funding_by_investor, :about)
         startup = Startup.new(startup_update_params)
         current_user.startup = startup
+      elsif current_user.investor?
+        investor_update_params = params[:user][:investor_attributes].permit(:name, :founded, :category, :website, :mission, :work, :register_under, :description, :team_name, :team_designation, :team_joined_date, :team_email_id, :team_mobile, :team_linkedin, :team_skype, :address_line_1, :address_line_2, :startup_name, :startup_logo, :funding_round, :funding_amount, :facebook, :twitter, :linkedin, :ios_app, :adroid_app, :windows_app, :investor_type, :portfolio_website, {:business_line => []}, :linkedin)
+        #bussiness_lines = params[:user][:investor_attributes][:business_line].reject { |c| c.empty? }.join(',')
+        #investor = Investor.new(investor_update_params.merge(business_line: bussiness_lines))
+        investor = Investor.new(investor_update_params)
+        current_user.investor = investor
       end
       current_user.save!
     end

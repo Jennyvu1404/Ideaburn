@@ -3,7 +3,7 @@
     #tab1.tab-pane.fade.in.active
       .j-row
         .col-md-6.col-xs-12.unit
-          label.label Startup Name
+          label.label Invester Type
           .input
             label.icon-right for="name"
               i.fa.fa-user
@@ -74,7 +74,7 @@
           .input
             label.icon-right for="team-email"
               i.fa.fa-envelope-o
-            = startup.text_field :team_email_d, id: 'web', placeholder: 'Email ID', required: true
+            = startup.text_field :team_email_d, id: 'email', placeholder: 'email@domain.com', required: true
         .col-md-6.col-xs-12.unit
           label.label Mobile
           .input
@@ -87,13 +87,13 @@
           .input
             label.icon-right for="skype-id"
               i.fa.fa-skype
-            = startup.text_field :team_skype, id: 'web', placeholder: 'Skype ID', required: true
+            = startup.text_field :team_skype, id: 'skype', placeholder: 'Skype ID', required: true
         .col-md-12.col-xs-12.unit
           label.label Linkedin Profile
           .input
             label.icon-right for="linkedin"
               i.fa.fa-linkedin
-            = startup.text_field :team_linkedin, id: 'web', placeholder: 'e.g. www.linkedin.com/somthing/', required: true
+            = startup.text_field :team_linkedin, id: 'linkedin', placeholder: 'e.g. www.linkedin.com/somthing/', required: true
     #tab3.tab-pane.fade.in
       .j-row
         .col-md-6.col-xs-12.unit
@@ -105,7 +105,7 @@
           .input
             label.icon-right for="amount"
               i.fa.fa-money
-            = startup.text_field :funding_amout, id: 'web', placeholder: 'Amount', required: true
+            = startup.text_field :funding_amout, id: 'amount', placeholder: 'Amount', required: true
         .col-md-6.col-xs-12.unit
           label.label Date
           .input
@@ -117,7 +117,7 @@
           .input
             label.icon-right for="By-Investor"
               i.fa.fa-user
-            = startup.text_field :funding_by_investor, id: 'web', placeholder: 'By Investor', required: true
+            = startup.text_field :funding_by_investor, id: 'by_invester', placeholder: 'By Investor', required: true
     #tab4.tab-pane.fade.in
       .j-row
         .col-md-6.col-xs-12.unit

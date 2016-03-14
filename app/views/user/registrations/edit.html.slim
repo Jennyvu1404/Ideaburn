@@ -1,5 +1,5 @@
 #page-wrapper
-  = simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, class: 'j-formsa j-forms', id: 'j-forms' }) do |f|
+  = simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, class: 'j-formsa j-forms', id: '' }) do |f|
     .switches
       .col-4
         .col-md-12.p0
@@ -46,9 +46,22 @@
                             a data-toggle="tab" href="#tab4"  Office Headquarters
                           li
                             a data-toggle="tab" href="#tab5"  Social & Webapps
+                      - if current_user.investor?
+                        ul.nav.nav-tabs.tabsec
+                          li.active
+                            a data-toggle="tab" href="#tab1"  Invester Details
+                          li
+                            a data-toggle="tab" href="#tab2"  Add Team +
+                          li
+                            a data-toggle="tab" href="#tab3"  Office Headquarters
+                          li
+                            a data-toggle="tab" href="#tab4"  Add Portfolio +
+                          li
+                            a data-toggle="tab" href="#tab5"  Social & Webapps
 
                       = render partial: "entrepreneur", locals: {f: f} if current_user.entrepreneur?
                       = render partial: "startup", locals: {f: f} if current_user.startup?
+                      = render partial: "investor", locals: {f: f} if current_user.investor?
                     .footer
                       button.primary-btn.btn-next data-button-next='' type="button"  Next
                       button.primary-btn.btn-submit.hide data-button-next='' type="submit"  Submit

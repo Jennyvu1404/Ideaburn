@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160314112013) do
+ActiveRecord::Schema.define(version: 20160314173718) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -64,8 +64,31 @@ ActiveRecord::Schema.define(version: 20160314112013) do
     t.text     "mission"
     t.text     "work"
     t.integer  "register_under"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.text     "description"
+    t.string   "team_name"
+    t.integer  "team_designation"
+    t.date     "team_joined_date"
+    t.string   "team_email_id"
+    t.string   "team_mobile"
+    t.string   "team_linkedin"
+    t.string   "team_skype"
+    t.string   "address_line_1"
+    t.string   "address_line_2"
+    t.string   "startup_name"
+    t.string   "startup_logo"
+    t.string   "funding_round"
+    t.string   "funding_amount"
+    t.string   "facebook"
+    t.string   "twitter"
+    t.string   "linkedin"
+    t.string   "ios_app"
+    t.string   "adroid_app"
+    t.string   "windows_app"
+    t.string   "business_line"
+    t.integer  "investor_type"
+    t.string   "portfolio_website"
   end
 
   add_index "investors", ["user_id"], name: "index_investors_on_user_id", using: :btree
