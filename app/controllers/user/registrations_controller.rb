@@ -17,17 +17,25 @@ class User::RegistrationsController < Devise::RegistrationsController
   # GET /resource/edit
   def edit
     @user = User.find(current_user.id)
-    @user.build_entrepreneur if @user.entrepreneur.nil?
-   end
+    if current_user.entrepreneur?
+      @user.build_entrepreneur if @user.entrepreneur.nil?
+    elsif current_user.startup?
+      @user.build_startup if @user.startup.nil?
+    end
+  end
 
   # PUT /resource
   def update
     super
     if current_user.present?
       if current_user.entrepreneur?
-        entrepreneur_update_params = params[:user][:entrepreneur_attributes].permit(:first_name, :last_name, :age, :dob, :entrepreneur_type, :gender, :profession_type, :profession_company, :profession_skill, :profession_experience, :graduation, :university, :mobile, :address, :website, :email_second, :about, :inspire_quote, :linkedin )
+        entrepreneur_update_params = params[:user][:entrepreneur_attributes].permit(:first_name, :last_name, :age, :dob, :entrepreneur_type, :gender, :profession_type, :profession_company, :profession_skill, :profession_experience, :graduation, :university, :mobile, :address, :website, :email_second, :about, :inspire_quote, :linkedin, :skype )
         entrepreneur = Entrepreneur.new(entrepreneur_update_params)
         current_user.entrepreneur = entrepreneur
+      elsif current_user.startup?
+        startup_update_params = params[:user][:startup_attributes].permit(:name, :founded, :bussines_category, :website, :strength, :mission, :work, :register_under, :reg_company_name, :facebook, :twitter, :linkedin, :ios_app, :adroid_app, :window_app, :address_line_1, :address_line_2, :team_name, :team_designation, :team_joined_date, :team_email_d, :team_mobile, :team_linkedin, :team_skype, :funding_type, :funding_amout, :funding_date, :funding_by_investor, :about)
+        startup = Startup.new(startup_update_params)
+        current_user.startup = startup
       end
       current_user.save!
     end

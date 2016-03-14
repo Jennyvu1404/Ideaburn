@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160314075319) do
+ActiveRecord::Schema.define(version: 20160314112013) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(version: 20160314075319) do
     t.string   "linkedin"
     t.datetime "created_at",            null: false
     t.datetime "updated_at",            null: false
+    t.string   "skype"
   end
 
   add_index "entrepreneurs", ["user_id"], name: "index_entrepreneurs_on_user_id", using: :btree
@@ -72,15 +73,36 @@ ActiveRecord::Schema.define(version: 20160314075319) do
   create_table "startups", force: :cascade do |t|
     t.integer  "user_id"
     t.string   "name"
-    t.integer  "founded"
+    t.string   "founded"
     t.integer  "bussines_category"
     t.string   "website"
-    t.datetime "strength"
+    t.string   "strength"
     t.text     "mission"
     t.text     "work"
     t.integer  "register_under"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.string   "reg_company_name"
+    t.string   "facebook"
+    t.string   "twitter"
+    t.string   "linkedin"
+    t.string   "ios_app"
+    t.string   "adroid_app"
+    t.string   "window_app"
+    t.string   "address_line_1"
+    t.string   "address_line_2"
+    t.string   "team_name"
+    t.integer  "team_designation"
+    t.date     "team_joined_date"
+    t.string   "team_email_d"
+    t.string   "team_mobile"
+    t.string   "team_linkedin"
+    t.string   "team_skype"
+    t.integer  "funding_type"
+    t.string   "funding_amout"
+    t.string   "funding_date"
+    t.string   "funding_by_investor"
+    t.text     "about"
   end
 
   add_index "startups", ["user_id"], name: "index_startups_on_user_id", using: :btree

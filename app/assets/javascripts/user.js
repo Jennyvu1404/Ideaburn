@@ -5,7 +5,7 @@
 //= require bootstrap-sprockets
 
 $(document).ready(function() {
-  $( "#datepicker" ).datepicker({
+  $( "#datepicker, #datepicker2, #datepicker3" ).datepicker({
       yearRange: '2006:2020',
       buttonText: "",
       changeMonth: true,
