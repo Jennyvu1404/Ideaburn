@@ -21,17 +21,11 @@
  <script>
    $(function() {
     $('#idea-bar').scrollFix();
-    $('select').combobox();
-    $('#set1')
-    .button()
-    .click(function () {
-     $('#state1').combobox('value', 'NY');
-   });
   });
 </script>
 </head>
 
-<body class="sticky-header left-side-collapsed"  onload="initMap()">
+<body class="sticky-header left-side-collapsed">
   <section>
     <%= render 'applications/sidebar_menu' %>
     <div class="main-content">
@@ -51,18 +45,6 @@
  <%= javascript_include_tag 'idea/scripts' %>
  <%= javascript_include_tag 'idea/bootstrap.min' %>
  <%= javascript_include_tag 'idea/ns.hover' %>
- <script>
-   window.onload = function () {
-     jQuery(document).ready(function ($) {
-       $('.container7').nsHover({
-         bgcolor: '#000',
-         bganim: 'fade'
-       });
-
-     });
-   }
-
- </script>
  <script type="text/javascript">
 
   function DropDown(el) {

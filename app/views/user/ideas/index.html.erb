@@ -1,3 +1,8 @@
+<script>
+  $(function() {
+    $('.state').combobox();
+  })
+</script>
 <div id="page-wrapper">
 
   <div class="switches">
@@ -9,7 +14,7 @@
           <form id="searchform2">
             <div class="fieldcontainers">
               <div id="dd" class="wrapper-dropdown-3" tabindex="1">
-                <select id="state1" >
+                <select class="state" >
                   <option value=""></option>
                   <option value="AL">Alabama</option>
                   <option value="AK">Alaska</option>
@@ -26,7 +31,7 @@
               <div class="fieldcontainers">
                 <div id="dd" class="wrapper-dropdown-3" tabindex="1">
 
-                  <select id="state1" >
+                  <select class="state" >
                     <option value=""></option>
                     <option value="AL">Industry1</option>
                     <option value="AK">Industry2</option>
@@ -70,7 +75,7 @@
                       <%= idea.created_at.strftime('%B %d, %Y') %></p>
                     </div>
                     <div class="col-md-12 switch-right-grid-desc">
-                    <h3><%= idea.title.truncate(50) %></h3>
+                      <h3><%= idea.title.truncate(50) %></h3>
                       <p> <%= idea.description.truncate(250) %></p>
                       <p>
                         <%= link_to 'Read More', user_idea_path(idea), class: 'readmore' %>

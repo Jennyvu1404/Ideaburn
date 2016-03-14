@@ -5,7 +5,12 @@ class User::IdeasController < ApplicationController
   # GET /ideas
   # GET /ideas.json
   def index
-    @ideas = current_user.ideas.page(params[:page]).order('created_at desc')
+    if params[:q]
+      ideas = current_user.ideas.by_keyword(params[:q])
+    else
+      ideas = current_user.ideas
+    end
+    @ideas = ideas.page(params[:page]).order('created_at desc')
   end
 
   # GET /ideas/1
@@ -73,4 +78,4 @@ class User::IdeasController < ApplicationController
     def idea_params
       params.require(:idea).permit(:category_id, :title, :description, :attachment)
     end
-end
+  end

@@ -11,9 +11,9 @@
 
             <li class="login_box" id="loginContainer">
 
-              <form id="searchform">
+              <form id="searchform" action="/user/ideas">
                 <div class="fieldcontainer">
-                  <input type="text" class="search-keywords" placeholder="type keywords" />
+                  <input type="text" class="search-keywords" placeholder="type keywords" name="q" value="<%= params[:q] %>" />
                   <input type="submit" value="" id="searchbtn" name="searchbtn">
                 </div>
 

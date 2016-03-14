@@ -12,7 +12,9 @@
 //
 //= require ./idea/jquery-1.10.2.min
 //= require ./idea/jquery-ui
-//= require ./idea/jquery.ui.combobox
 //= require ./idea/Chart
 //= require ./idea/wow.min
 //= require ./idea/scrollfix
+//= require ./idea/select2.full
+//= require ./idea/star-rating
+//= require ./idea/jquery.ui.combobox

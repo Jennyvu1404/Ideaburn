@@ -1,22 +1,22 @@
 <style>
-   .fa-thumbs-up::before
-   {
-       color:#FFD000;
-       cursor:pointer;
-   }
-   .fa-comments-o
-   {
-       cursor:pointer;
-   }
-   .rating
-   {
-       color:White;
-   }
-   .fa-star
-   {
-       color:#FFD000;
-       font-size:22px;
-   }
+ .fa-thumbs-up::before
+ {
+     color:#FFD000;
+     cursor:pointer;
+ }
+ .fa-comments-o
+ {
+     cursor:pointer;
+ }
+ .rating
+ {
+     color:White;
+ }
+ .fa-star
+ {
+     color:#FFD000;
+     font-size:22px;
+ }
 </style>
 <script>
     $(document).ready(function () {
@@ -50,7 +50,7 @@
     <div class="switches">
         <div class="col-4">
 
-           <div class="col-md-9 p0">
+         <div class="col-md-9 p0">
             <div class="col-md-6 col-xs-12">  <h3 class="c-font-17" style="line-height:2;">IDEA DETAILS</h3></div>
            <!--  <div class="col-md-6 col-xs-12"><form id="searchform2"><div class="fieldcontainers"><input type="text" class="search-industry"  placeholder="Search By Industry" />
             <input type="submit" value="" id="icon-search" name="searchbtn"> </div>
@@ -65,54 +65,86 @@
             <div class="switch-right-grid ">
                 <div class="switch-right-grid1">
                     <div class="col-md-12 activity-rows1">
-                        <div class="col-xs-3 activity-img activity-image1"><img src="images/ideabox-user-icon.png" class="img-resposive img-circle"></div>
+                        <div class="col-xs-3 activity-img activity-image1">
+                            <%= image_tag asset_path(@idea.user.avatar), class: 'img-resposive img-circle', style: 'width:70px;height:70px' %>
+                        </div>
                         <div class="col-xs-9 activity-desc">
                             <div class="col-md-4 plr0">
-                                <h5 class="mt0"><a href="#">John Doen</a></h5>
-                                <p><SPAN><img src="images/location-icon.png"  /></SPAN>New Yark City, USA.</p>
-                                <p><SPAN><img src="images/posted-icon.png"  /></SPAN>Posted on:30-12-15</p>
+                                <h5 class="mt0">
+                                    <%= link_to @idea.user.username, "#" %>
+                                </h5>
+                                <p><SPAN>
+                                    <%= image_tag asset_path('location-icon.png') %>
+                                </SPAN>New Yark City, USA.</p>
+                                <p><SPAN>
+                                    <%= image_tag asset_path('posted-icon.png') %>
+                                </SPAN><%= @idea.created_at.strftime('%d-%m-%Y') %></p>
                             </div>
 
 
-                            <div class="col-md-3 rating"><br /><div class="rating_star"><i class="fa fa-star"></i></div><div class="rating_content c-font-12"><span class="t_rate">6.7</span><span>/10</span><br /><br /><span>216,487</span></div></div>
-                            <div class="col-md-5 col-xs-12"><br /><div class="stars"><span class="rating">Rate This</span><input id="input-21d" value="2" type="number" class="rating" min=0 max=5 step=0.5 data-size="sm"></div></div>
+                            <div class="col-md-3 rating">
+                                <br />
+                                <div class="rating_star">
+                                    <i class="fa fa-star"></i>
+                                </div>
+                                <div class="rating_content c-font-12">
+                                    <span class="t_rate">6.7</span>
+                                    <span>/10</span>
+                                    <br />
+                                    <br />
+                                    <span>216,487</span>
+                                </div>
+                            </div>
+                            <div class="col-md-5 col-xs-12">
+                                <br />
+                                <div class="stars">
+                                    <span class="rating">Rate This</span>
+                                    <input id="input-21d" value="2" type="number" class="rating" min=0 max=5 step=0.5 data-size="sm">
+                                </div>
+                            </div>
                         </div>
                         <div class="clearfix"></div>
                     </div>
                     <div class="clearfix"></div>
                     <div class="idea-details">
-                        <div class="col-md-12"><p style="color:#ccc;"><span class="idea-type" >Idea Type: Automobile </span>| <span class="idea-category">Idea Category: Lorem Ipsum</span></p></div>
+                        <div class="col-md-12">
+                            <p style="color:#ccc;">
+                                <span class="idea-type" >Idea Type: Automobile </span>|
+                                <span class="idea-category">Idea Category: <%= @idea.category.name %></span>
+                            </p>
+                        </div>
                         <div class="col-md-8">
-                            <h3>Service Start up Idea</h3>
+                            <h3><%= @idea.title %></h3>
 
-                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged</p>
-                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                            <p><%= @idea.description %></p>
                         </div>
 
                         <div class="col-md-4 mt25">
                           <div style="border-left:1px solid #dcdcdc;padding-left:15px;">
-                           <center><div class="c100 p55 small">
-                            <span>55%</span>
-                            <div class="slice">
-                                <div class="bar"></div>
-                                <div class="fill"></div>
-                            </div>
-                        </div></center>
+                             <center><div class="c100 p55 small">
+                                <span>55%</span>
+                                <div class="slice">
+                                    <div class="bar"></div>
+                                    <div class="fill"></div>
+                                </div>
+                            </div></center>
 
-                        <img src="images/IdeaDetails-img.jpg" style="width:100%;" class="img-responsive" /></div>    </div>
-                        <div class="clearfix"></div>
-                        <div class="comments mt25">
+                            <%= image_tag asset_path('IdeaDetails-img.jpg'), class: 'img-responsive', style: 'width:100%' %>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="comments mt25">
 
-                          <div class="col-md-9 plr0"><div class="col-md-3 plr0">
-                              <div class="comments-button">Comments</div>
+                      <div class="col-md-9 plr0"><div class="col-md-3 plr0">
+                          <div class="comments-button">Comments</div>
 
-                          </div>
-                          <div class="col-md-9 plr0" style="font-size:12px;line-height:35px;"><span style="color:#78C2E9;cursor:pointer;">Hilton Mayor</span> and 57 others likes this</div>
+                      </div>
+                      <div class="col-md-9 plr0" style="font-size:12px;line-height:35px;">
+                          <span style="color:#78C2E9;cursor:pointer;">Hilton Mayor</span> and 57 others likes this</div>
 
                       </div>
                       <div class="col-md-3"><div class="col-sm-4 col-xs-3"><center><i class="fa fa-eye"></i><br>
-                        <span class="c-font-13">9,999</span>
+                        <span class="c-font-13"><%= @idea.views %></span>
                     </center>
                 </div><div class="col-sm-4 col-xs-3" style="cursor:pointer;"><center><i class="fa fa-thumbs-o-up"></i><br>
                 <span class="c-font-12">15000</span>
@@ -250,59 +282,10 @@
 </div>
 
 
-<div class="col-md-12"><span class="viewmore">View More</span></div>
-</div>
-<div class="col-md-3"><div class="totalviews"><img src="images/Totalviews-icon.png" /><span>Total Views</span> 99,999</div></div>
-
-<div class="col-md-3 pl0">
-    <div class="post-idea">
-        <div class="col-xs-3 activity-img"><img src='images/Postyouridea-icon-black.png' class="img-responsive" alt=""/></div>
-        <div class="col-xs-9 pl0 activity-desc">
-            <h5 class="mt7" ><a href="#">POST YOUR IDEA</a></h5>
-
-        </div>
-
-        <div class="clearfix"> </div>
-    </div>
-    <div class="switch-right-grid">
-        <div class="switch-right-grid1">
-            <div class="col-md-12 close-idea">
-
-                <div class="col-xs-12 activity-desc">
-                    <p><a href="#">Closed Ideas</a></p>
-
-                </div>
-
-
-            </div>
-            <div class="clearfix"> </div>
-            <div class="idea_no"><h1> Idea 1 Name</h1>
-                <p>Description about that...</p>
-            </div>
-            <div class="idea_no"><h1> Idea 1 Name</h1>
-                <p>Description about that...</p>
-            </div>
-            <div class="idea_no"><h1> Idea 1 Name</h1>
-                <p>Description about that...</p>
-            </div>
-            <div class="idea_no"><h1> Idea 1 Name</h1>
-                <p>Description about that...</p>
-            </div>
-            <div class="idea_no"><h1> Idea 1 Name</h1>
-                <p>Description about that...</p>
-            </div>
-            <div class="idea_no"><h1> Idea 1 Name</h1>
-                <p>Description about that...</p>
-            </div>
-            <div class="idea_no"><h1> Idea 1 Name</h1>
-                <p>Description about that...</p>
-            </div>
-
-
-        </div>
-    </div>
 
 </div>
+
+<%= render 'closed_ideas' %>
 <div class="clearfix"></div>
 </div>
 </div>
