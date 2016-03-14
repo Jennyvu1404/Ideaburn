@@ -1,16 +1,17 @@
 class User::IdeasController < ApplicationController
-  layout 'user'
+  layout 'idea'
   before_action :set_idea, only: [:show, :edit, :update, :destroy]
 
   # GET /ideas
   # GET /ideas.json
   def index
-    @ideas = Idea.all
+    @ideas = current_user.ideas.page(params[:page]).order('created_at desc')
   end
 
   # GET /ideas/1
   # GET /ideas/1.json
   def show
+    @idea.update_attributes(views: @idea.views + 1)
   end
 
   # GET /ideas/new
