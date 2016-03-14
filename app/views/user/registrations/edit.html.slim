@@ -211,7 +211,8 @@
                             /! end response from server
                       /! end /.content
                     .footer
-                      button.primary-btn data-button-next='' type="submit"  Submit
+                      button.primary-btn.btn-next data-button-next='' type="button"  Next
+                      button.primary-btn.btn-submit.hide data-button-next='' type="submit"  Submit
                     /! end /.footer
   .clearfix
 javascript:
@@ -222,3 +223,13 @@ javascript:
     };
     reader.readAsDataURL(this.files[0]);
   };
+
+
+  $('.btn-next').click(function(){
+    var currentTab = $('.nav-tabs > .active').find('a').attr('href');
+    if (currentTab == '#tab4'){
+      $('.btn-submit').removeClass('hide');
+      $('.btn-next').addClass('hide');
+    }
+    $('.nav-tabs > .active').next('li').find('a').trigger('click');
+  });
