@@ -41,8 +41,6 @@ class User::RegistrationsController < Devise::RegistrationsController
         current_user.startup = startup
       elsif current_user.investor?
         investor_update_params = params[:user][:investor_attributes].permit(:name, :founded, :category, :website, :mission, :work, :register_under, :description, :team_name, :team_designation, :team_joined_date, :team_email_id, :team_mobile, :team_linkedin, :team_skype, :address_line_1, :address_line_2, :startup_name, :startup_logo, :funding_round, :funding_amount, :facebook, :twitter, :linkedin, :ios_app, :adroid_app, :windows_app, :investor_type, :portfolio_website, {:business_line => []}, :linkedin)
-        #bussiness_lines = params[:user][:investor_attributes][:business_line].reject { |c| c.empty? }.join(',')
-        #investor = Investor.new(investor_update_params.merge(business_line: bussiness_lines))
         investor = Investor.new(investor_update_params)
         current_user.investor = investor
       end
