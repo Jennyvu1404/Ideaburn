@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   root to: 'home#index'
+  get 'home/entrepreneur'
 
   devise_for :users, path: 'user',
   module: :user,
