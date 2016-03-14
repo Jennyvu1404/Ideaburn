@@ -6,6 +6,7 @@
 
 $(document).ready(function() {
   $( "#datepicker" ).datepicker({
+      yearRange: '2006:2020',
       buttonText: "",
       changeMonth: true,
       changeYear: true});
