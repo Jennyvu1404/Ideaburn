@@ -1,21 +1,192 @@
-= f.fields_for @user.build_startup do |startup|
-  .form-group.startup.form-hide
-    = startup.text_field :name, class: 'form-control input-lg c-square', placeholder: 'Startup Name'
-  .form-group.startup.form-hide
-    = startup.select :founded, Startup.options, {}, class: 'form-control input-lg c-square'
-  .form-group.startup.form-hide
-    = startup.select :category, Category.all.collect {|p| [ p.name, p.id ] }, { include_blank: '- Select Business Category -' }, class: 'form-control input-lg c-square'
-  .form-group.startup.form-hide
-    = startup.text_field :website, class: 'form-control input-lg c-square', placeholder: 'Website'
-  .form-group.startup.form-hide
-    .row
-      .col-sm-2.text-middle
-        | Strength
-      .col-sm-10
-        = startup.date_field :strength, class: 'form-control input-lg c-square'
-  .form-group.startup.form-hide
-    = startup.text_area :mission, class: 'form-control input-lg c-square', placeholder: 'Mission & Vision'
-  .form-group.startup.form-hide
-    = startup.text_area :work, class: 'form-control input-lg c-square', placeholder: 'How it work'
-  .form-group.startup.form-hide
-    = startup.select :register_under, RegisterUnder.all.collect {|p| [ p.name, p.id ] }, { include_blank: '- Select Register Under -' }, class: 'form-control input-lg c-square'
+= f.fields_for :startup do |startup|
+  .tab-content
+    #tab1.tab-pane.fade.in.active
+      .j-row
+        .col-md-6.col-xs-12.unit
+          label.label Startup Name
+          .input
+            label.icon-right for="name"
+              i.fa.fa-user
+            = startup.text_field :name, placeholder: "Startup name", id: "first_name", required: true
+        .col-md-6.col-xs-12.unit
+          label.label Founded
+          .input
+            label.icon-right for="founded"
+            = startup.text_field :founded, id: "datepicker"
+            = image_tag asset_path('Date-Calendar_icon.png'), class: 'ui-datepicker-trigger'
+        .col-md-12.unit
+          label.label About Company
+          .input
+            = startup.text_area :about, spellcheck: "false"
+            span.tooltip.tooltip-right-top Any useful information about company
+        .col-md-6.col-xs-12.unit
+          label.label Primary Business Line
+          label.input.select
+            = startup.select :bussines_category, PrimaryBusinessLine.all.collect {|p| [ p.name, p.id ] }, { include_blank: '- Select Bussines Line -' }, class: '', required: true
+        .col-md-6.col-xs-12.unit
+          label.label Website
+          .input
+            label.icon-right for="website"
+              i.fa.fa-globe
+            = startup.text_field :website, id: 'web', placeholder: 'e.g. www.example.com', required: true
+        .col-md-12.unit
+          label.label How It Work
+          .input
+            = startup.text_area :work, spellcheck: "false"
+            span.tooltip.tooltip-right-top How it work ?
+        .col-md-6.col-xs-12.unit
+          label.label Register Company Name
+          .input
+            label.icon-right for="res-company-name"
+              i.fa.fa-globe
+            = startup.text_field :reg_company_name, id: 'web', placeholder: 'Register Company Name', required: true
+        .col-md-6.col-xs-12.unit
+          label.label Employee Strength
+          label.input.select
+            = startup.select :bussines_category, Startup.employee_strength_options, class: '', required: true
+        .col-md-12.col-xs-12.unit
+          label.label Mission & Vision
+          .input
+            label.icon-right for="mission"
+              i.fa.fa-globe
+            = startup.text_field :mission, id: 'web', placeholder: 'Mission & Vision', required: true
+
+    #tab2.tab-pane.fade.in
+      .j-row
+        .col-md-6.col-xs-12.unit
+          label.label Name
+          .input
+            label.icon-right for="team-name"
+              i.fa.fa-user
+            = startup.text_field :team_name, id: 'web', placeholder: 'Name', required: true
+        .col-md-6.col-xs-12.unit
+          label.label Designation
+          label.input.select
+            = startup.select :team_designation, Startup.designation_options, class: '', required: true
+        .col-md-6.col-xs-12.unit
+          label.label Joined Date
+          .input
+            label.icon-right for="joined-date"
+            = startup.text_field :team_joined_date, id: "datepicker2"
+            = image_tag asset_path('Date-Calendar_icon.png'), class: 'ui-datepicker-trigger'
+        .col-md-6.col-xs-12.unit
+          label.label Email ID
+          .input
+            label.icon-right for="team-email"
+              i.fa.fa-envelope-o
+            = startup.text_field :team_email_d, id: 'email', placeholder: 'email@domain.com', required: true
+        .col-md-6.col-xs-12.unit
+          label.label Mobile
+          .input
+            label.icon-right for="phone"
+              i.fa.fa-phone
+            = startup.text_field :team_mobile, id: 'phone', placeholder: 'phone/mobile', required: true
+            span.tooltip.tooltip-right-top Phone number
+        .col-md-6.col-xs-12.unit
+          label.label Skype ID
+          .input
+            label.icon-right for="skype-id"
+              i.fa.fa-skype
+            = startup.text_field :team_skype, id: 'skype', placeholder: 'Skype ID', required: true
+        .col-md-12.col-xs-12.unit
+          label.label Linkedin Profile
+          .input
+            label.icon-right for="linkedin"
+              i.fa.fa-linkedin
+            = startup.text_field :team_linkedin, id: 'linkedin', placeholder: 'e.g. www.linkedin.com/somthing/', required: true
+    #tab3.tab-pane.fade.in
+      .j-row
+        .col-md-6.col-xs-12.unit
+          label.label Type of Funding
+          label.input.select
+            = startup.select :funding_type, Startup.type_of_funding_options, class: '', required: true
+        .col-md-6.col-xs-12.unit
+          label.label Amount
+          .input
+            label.icon-right for="amount"
+              i.fa.fa-money
+            = startup.text_field :funding_amout, id: 'amount', placeholder: 'Amount', required: true
+        .col-md-6.col-xs-12.unit
+          label.label Date
+          .input
+            label.icon-right for="date"
+            = startup.text_field :funding_date, id: "datepicker3"
+            = image_tag asset_path('Date-Calendar_icon.png'), class: 'ui-datepicker-trigger'
+        .col-md-6.col-xs-12.unit
+          label.label By Investor
+          .input
+            label.icon-right for="By-Investor"
+              i.fa.fa-user
+            = startup.text_field :funding_by_investor, id: 'by_invester', placeholder: 'By Investor', required: true
+    #tab4.tab-pane.fade.in
+      .j-row
+        .col-md-6.col-xs-12.unit
+          label.label Adress Line 1
+          .input
+            label.icon-right for="Adress Line 1"
+              i.fa.fa-map-marker
+            = startup.text_field :address_line_1, id: 'address-line-1', placeholder: 'Adress Line 1', required: true
+        .col-md-6.col-xs-12.unit
+          label.label Adress Line 2
+          .input
+            label.icon-right for="Adress Line 2"
+              i.fa.fa-map-marker
+            = startup.text_field :address_line_2, id: 'address-line-1', placeholder: 'Adress Line 2', required: true
+        .col-md-6.col-xs-12.unit
+          label.label Country
+          label.input.select
+            = f.country_select :country, {priority: %w(US CA), prompt: '- Slect A Country -'}, class: 'country', required: true, 'data-country_select' => ''
+
+        .col-md-6.col-xs-12.unit
+          /! start budget
+          label.label State
+          label.input.select
+            = render partial: 'subregion_select', locals: {parent_region: f.object.country}
+            i
+          i
+      .j-row
+        .col-md-6.col-xs-12.unit
+          label.label City
+          .input
+            label.icon-right for="city"
+              i.fa.fa-map-marker
+            = f.text_field :city, id: 'city', placeholder: 'e.g New York', required: true
+            i
+    #tab5.tab-pane.fade.in
+      .j-row
+        .col-md-6.col-xs-12.unit
+          label.label Facebook
+          .input
+            label.icon-right for="Facebook"
+              i.fa.fa-facebook
+            = startup.text_field :facebook, id: 'facebook', placeholder: 'https://facebook.com/something', required: true
+        .col-md-6.col-xs-12.unit
+          label.label Twitter
+          .input
+            label.icon-right for="Twitter"
+              i.fa.fa-twitter
+            = startup.text_field :twitter, id: 'twitter', placeholder: 'https://twitter.com/something', required: true
+        .col-md-6.col-xs-12.unit
+          label.label Linkedin
+          .input
+            label.icon-right for="Linkedin"
+              i.fa.fa-linkedin
+            = startup.text_field :twitter, id: 'twitter', placeholder: 'https://twitter.com/something', required: true
+        .col-md-6.col-xs-12.unit
+          label.label IOS App
+          .input
+            label.icon-right for="IOS App"
+              i.fa.fa-apple
+            = startup.text_field :ios_app, id: 'ios_app', placeholder: 'https://itunes.apple.com/something', required: true
+        .col-md-6.col-xs-12.unit
+          label.label Adroid App
+          .input
+            label.icon-right for="Adroid App"
+              i.fa.fa-android
+            = startup.text_field :adroid_app, id: 'adroid_app', placeholder: 'https://play.google.com/something', required: true
+        .col-md-6.col-xs-12.unit
+          label.label Windows App
+          .input
+            label.icon-right for="Windows App"
+              i.fa.fa-windows
+            = startup.text_field :window_app, id: 'window_app', placeholder: 'https://something.com', required: true

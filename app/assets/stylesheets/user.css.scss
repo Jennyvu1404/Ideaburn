@@ -2,8 +2,6 @@
 *= require_directory ./user
 *= require font-awesome
 */
-@import "bootstrap-sprockets";
-@import "bootstrap";
 
 body {
     margin: 0;
@@ -53,4 +51,52 @@ ul, li { list-style: none; }
 
 .personal-details{
     background: #FFFFFF;
+}
+
+#startup-logo::-webkit-file-upload-button {
+    visibility: hidden;
+}
+#startup-logo::before {
+    content: 'Choose file';
+    display: inline-block;
+
+    border: 1px solid #999;
+    border-radius: 5px;
+    padding: 5px 8px;
+    outline: none;
+    white-space: nowrap;
+    -webkit-user-select: none;
+    cursor: pointer;
+    font-weight: normal;
+    font-size: 10pt;
+    vertical-align: middle;
+}
+
+#business_lines {
+    height: 100px;
+}
+.left-side-collapsed {
+    li#tbl1 {
+      background: asset_url('SideNav-Icons-1.png') no-repeat 10px 9px;
+      display:block;
+    }
+    li#tbl1.active {
+      background: asset_url('SideNav-Icons-1-hover.png') no-repeat 25px 9px;
+      display:block;
+    }
+}
+ul.nav li a {
+    span1 {
+        padding-left: 3em;
+    }
+    span2 {
+        padding-left: 1.8em;
+    }
+    span3, span4 {
+        padding-left: 3.3em;
+    }
+
+}
+.type2 {
+    display: none;
 }
