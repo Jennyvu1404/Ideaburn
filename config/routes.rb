@@ -30,5 +30,7 @@ Rails.application.routes.draw do
       end
     end
   end
-  get 'entrepreneurs', to: 'user/entrepreneurs#index'
+  get 'entrepreneurs' => 'user/entrepreneurs#index'
+  get 'investers' => 'user/investers#index'
+  get 'startups' => 'user/startups#index'
 end

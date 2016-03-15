@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
   accepts_nested_attributes_for :startup, reject_if: proc { |attributes| attributes['name'].blank? },
     allow_destroy: true
 
-  has_one :investor, dependent: :destroy
+  has_one :investor, dependent: :destroy, :autosave => true
   accepts_nested_attributes_for :investor, reject_if: proc { |attributes| attributes['name'].blank? }, allow_destroy: true
 
   has_one :entrepreneur, dependent: :destroy, :autosave => true
@@ -25,6 +25,14 @@ class User < ActiveRecord::Base
   validates :password, length: {minimum: 8, maximum: 120}, on: :update, allow_blank: true
 
   mount_uploader :photo, UserUploader
+
+  def location
+    locations = []
+    locations << self.country if self.country
+    locations << self.region if self.region
+    locations << self.city if self.city
+    locations.join(', ')
+  end
 
   def avatar
     return 'Profile-Picture-Change-icon.png' if self.photo.blank?
