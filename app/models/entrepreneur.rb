@@ -18,7 +18,7 @@ class Entrepreneur < ActiveRecord::Base
   end
 
   def self.pro_exp_options
-    [["- Startup Experience -", nil]].concat((0..9).collect{|y| "#{y} years" })
+    [["- Startup Experience -", nil]].concat((0..9).collect{|y| ["#{y} years", y] })
   end
 
   def self.pro_type_options

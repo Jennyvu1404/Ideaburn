@@ -5,18 +5,52 @@
         .col-md-6.col-xs-12.unit
           label.label Invester Type
           label.input.select
-            = investor.select :investor_type, Investor.type_options, class: '', required: true
-        .col-md-6.col-xs-12.unit
+            = investor.select :investor_type, Investor.type_options, required: true
+        .col-md-6.col-xs-12.unit.type3
           label.label Organization Name
           .input
             label.icon-right for="name"
               i.fa.fa-user
             = investor.text_field :name, placeholder: "Organization Name", id: "name", required: true
-        .col-md-6.col-xs-12.unit
+        .col-md-6.col-xs-12.unit.type2
+          label.label First Name
+          .input
+            label.icon-right for="name"
+              i.fa.fa-user
+            = investor.text_field :first_name, placeholder: "First Name", id: "first_name", required: true
+        .col-md-6.col-xs-12.unit.type2
+          label.label Last Name
+          .input
+            label.icon-right for="name"
+              i.fa.fa-user
+            = investor.text_field :last_name, placeholder: "Last Name", id: "last_name", required: true
+        .col-md-6.col-xs-12.unit.type2
+          label.label Email Primary
+          .input
+            label.icon-right for="email"
+              i.fa.fa-envelope-o
+            = f.email_field :email, autofocus: "", placeholder: "email@domain.com", id: "email", disabled: ''
+        .col-md-6.col-xs-12.unit.type2
+          /! start budget
+          label.label Gender
+          label.input
+            = investor.radio_button :gender, true
+            | &nbsp;Male
+            | &nbsp;&nbsp;
+            = investor.radio_button :gender, false
+            | &nbsp;Female
+            i
+        .col-md-6.col-xs-12.unit.type2
+          label.label DOB
+          .input
+            label.icon-right for="dob"
+            = investor.text_field :dob, id: "datepicker"
+            = image_tag asset_path('Date-Calendar_icon.png'), class: 'ui-datepicker-trigger'
+        .col-md-6.col-xs-12.unit.type3
           label.label Founded(year)
           label.input.select
             = investor.select :founded, Investor.year_options, class: '', required: true
-        .col-md-6.col-xs-12.unit
+        .col-md-6.col-xs-12.unit.type3
           label.label Website
           .input
             label.icon-right for="website"
@@ -31,12 +65,13 @@
           .input
             = investor.text_area :description, spellcheck: "false"
             span.tooltip.tooltip-right-top Description
-        .col-md-12.col-xs-12.unit
+        .col-md-6.col-xs-12.unit
           label.label Mission & Vision
           .input
             label.icon-right for="mission"
               i.fa.fa-globe
             = investor.text_field :mission, id: 'web', placeholder: 'Mission & Vision', required: true
+
 
     #tab2.tab-pane.fade.in
       .j-row
@@ -110,6 +145,18 @@
             label.icon-right for="city"
               i.fa.fa-map-marker
             = f.text_field :city, id: 'city', placeholder: 'e.g New York', required: true
+        .col-md-6.col-xs-12.unit.type2
+          label.label Skype ID
+          .input
+            label.icon-right for="skype-id"
+              i.fa.fa-skype
+            = investor.text_field :skype, id: 'web', placeholder: 'Skype ID', required: true
+        .col-md-6.col-xs-12.unit.type2
+          label.label Website
+          .input
+            label.icon-right for="website-secondary"
+              i.fa.fa-globe
+            = investor.text_field :website_secondary, id: 'web', placeholder: 'e.g. www.example.com', required: true
     #tab4.tab-pane.fade.in
       .j-row
         .col-md-6.col-xs-12.unit
@@ -158,21 +205,22 @@
             label.icon-right for="Linkedin"
               i.fa.fa-linkedin
             = investor.text_field :twitter, id: 'twitter', placeholder: 'https://twitter.com/something', required: true
-        .col-md-6.col-xs-12.unit
+        .col-md-6.col-xs-12.unit.type3
           label.label IOS App
           .input
             label.icon-right for="IOS App"
               i.fa.fa-apple
             = investor.text_field :ios_app, id: 'ios_app', placeholder: 'https://itunes.apple.com/something', required: true
-        .col-md-6.col-xs-12.unit
+        .col-md-6.col-xs-12.unit.type3
           label.label Adroid App
           .input
             label.icon-right for="Adroid App"
               i.fa.fa-android
             = investor.text_field :adroid_app, id: 'adroid_app', placeholder: 'https://play.google.com/something', required: true
-        .col-md-6.col-xs-12.unit
+        .col-md-6.col-xs-12.unit.type3
           label.label Windows App
           .input
             label.icon-right for="Windows App"
               i.fa.fa-windows
             = investor.text_field :windows_app, id: 'window_app', placeholder: 'https://something.com', required: true
+

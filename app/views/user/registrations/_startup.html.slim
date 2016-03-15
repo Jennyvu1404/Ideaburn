@@ -3,7 +3,7 @@
     #tab1.tab-pane.fade.in.active
       .j-row
         .col-md-6.col-xs-12.unit
-          label.label Invester Type
+          label.label Startup Name
           .input
             label.icon-right for="name"
               i.fa.fa-user
@@ -78,10 +78,10 @@
         .col-md-6.col-xs-12.unit
           label.label Mobile
           .input
-            label.icon-right for="team-mobile"
+            label.icon-right for="phone"
               i.fa.fa-phone
             = startup.text_field :team_mobile, id: 'phone', placeholder: 'phone/mobile', required: true
-            span.tooltip.tooltip-right-top Mobile phone number
+            span.tooltip.tooltip-right-top Phone number
         .col-md-6.col-xs-12.unit
           label.label Skype ID
           .input

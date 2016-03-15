@@ -67,6 +67,12 @@
                       button.primary-btn.btn-submit.hide data-button-next='' type="submit"  Submit
                     /! end /.footer
   .clearfix
+- if @investor_type == 1 || @investor_type == 2
+  javascript:
+      $('ul.tabsec > li:nth-child(3)').find('a').text('Contact');
+      $('ul.tabsec > li:nth-child(2)').hide();
+      $('.tab-content').find('.type2').show();
+      $('.tab-content').find('.type3').hide();
 
 javascript:
   document.getElementById("my_file").onchange = function () {
@@ -108,3 +114,17 @@ javascript:
       url = "/api/subregion_options?parent_region=" + country_code;
       select_wrapper.load(url);
     });
+  $('select#user_investor_attributes_investor_type').on('change', function(){
+    var type = parseInt((this).value);
+    if(type === 1 || type == 2){
+      $('ul.tabsec > li:nth-child(3)').find('a').text('Contact');
+      $('ul.tabsec > li:nth-child(2)').hide();
+      $('.tab-content').find('.type2').show();
+      $('.tab-content').find('.type3').hide();
+    }else{
+      $('ul.tabsec > li:nth-child(3)').find('a').text('Office Headquarters');
+      $('ul.tabsec > li:nth-child(2)').show();
+      $('.tab-content').find('.type2').hide();
+      $('.tab-content').find('.type3').show();
+    }
+  });
