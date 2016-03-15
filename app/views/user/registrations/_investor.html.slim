@@ -24,7 +24,7 @@
             = investor.text_field :website, id: 'web', placeholder: 'e.g. www.example.com', required: true
         .col-md-12.col-xs-12.unit
           label.label Business Lines
-          label.input.select
+          label.input
             = investor.select :business_line,  options_for_select(BusinessLine.all.collect {|p| [ p.name, p.id ] }, @business_lines), { include_blank: '- Select Business Line -' }, id: 'business_lines', required: true, :multiple => true
         .col-md-12.col-xs-12.unit
           label.label Description
