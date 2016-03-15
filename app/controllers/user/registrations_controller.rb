@@ -17,17 +17,33 @@ class User::RegistrationsController < Devise::RegistrationsController
   # GET /resource/edit
   def edit
     @user = User.find(current_user.id)
-    @user.build_entrepreneur if @user.entrepreneur.nil?
-   end
+    if current_user.entrepreneur?
+      @user.build_entrepreneur if @user.entrepreneur.nil?
+    elsif current_user.startup?
+      @user.build_startup if @user.startup.nil?
+    elsif current_user.investor?
+      @user.build_investor if @user.investor.nil?
+      @business_lines = @user.investor.business_line.present? ? @user.investor.business_line.gsub(/(\[\"|\"\])/, '').split('", "') : nil
+      @investor_type = @user.investor.investor_type
+    end
+  end
 
   # PUT /resource
   def update
     super
     if current_user.present?
       if current_user.entrepreneur?
-        entrepreneur_update_params = params[:user][:entrepreneur_attributes].permit(:first_name, :last_name, :age, :dob, :entrepreneur_type, :gender, :profession_type, :profession_company, :profession_skill, :profession_experience, :graduation, :university, :mobile, :address, :website, :email_second, :about, :inspire_quote, :linkedin )
+        entrepreneur_update_params = params[:user][:entrepreneur_attributes].permit(:first_name, :last_name, :age, :dob, :entrepreneur_type, :gender, :profession_type, :profession_company, :profession_skill, :profession_experience, :graduation, :university, :mobile, :address, :website, :email_second, :about, :inspire_quote, :linkedin, :skype )
         entrepreneur = Entrepreneur.new(entrepreneur_update_params)
         current_user.entrepreneur = entrepreneur
+      elsif current_user.startup?
+        startup_update_params = params[:user][:startup_attributes].permit(:name, :founded, :bussines_category, :website, :strength, :mission, :work, :register_under, :reg_company_name, :facebook, :twitter, :linkedin, :ios_app, :adroid_app, :window_app, :address_line_1, :address_line_2, :team_name, :team_designation, :team_joined_date, :team_email_d, :team_mobile, :team_linkedin, :team_skype, :funding_type, :funding_amout, :funding_date, :funding_by_investor, :about)
+        startup = Startup.new(startup_update_params)
+        current_user.startup = startup
+      elsif current_user.investor?
+        investor_update_params = params[:user][:investor_attributes].permit(:name, :founded, :category, :website, :mission, :work, :register_under, :description, :team_name, :team_designation, :team_joined_date, :team_email_id, :team_mobile, :team_linkedin, :team_skype, :address_line_1, :address_line_2, :startup_name, :startup_logo, :funding_round, :funding_amount, :facebook, :twitter, :linkedin, :ios_app, :adroid_app, :windows_app, :investor_type, :portfolio_website, {:business_line => []}, :linkedin, :first_name, :last_name, :gender, :dob, :website_secondary, :skype)
+        investor = Investor.new(investor_update_params)
+        current_user.investor = investor
       end
       current_user.save!
     end
@@ -58,7 +74,7 @@ class User::RegistrationsController < Devise::RegistrationsController
   def configure_account_update_params
     #devise_parameter_sanitizer.for(:account_update) << [:county, :city, :home_town]
     devise_parameter_sanitizer.for(:account_update) do |u|
-      u.permit(:country, :city, :home_town, :photo, entrepreneur_attributes: [:first_name, :last_name])
+      u.permit(:country, :city, :region, :photo, entrepreneur_attributes: [:first_name, :last_name])
     end
   end
 
