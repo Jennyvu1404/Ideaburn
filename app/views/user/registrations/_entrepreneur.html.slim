@@ -27,8 +27,12 @@
         .col-md-6.col-xs-12.unit
           /! start budget
           label.label Gender
-          label.input.select
-            = entrepreneur.select :gender, Entrepreneur.gender_options, id: 'gender', required: true
+          label.input
+            = entrepreneur.radio_button :gender, true
+            | &nbsp;Male
+            | &nbsp;&nbsp;
+            = entrepreneur.radio_button :gender, false
+            | &nbsp;Female
             i
       /! end email phone
       /! start email phone
