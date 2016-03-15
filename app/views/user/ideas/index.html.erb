@@ -92,13 +92,13 @@
                       <div class="col-md-4 col-xs-4"><center>
                         <%= image_tag asset_path('Like-icons-small.png') %>
                         <br />
-                        <span>15000</span>
+                        <span><%= idea.likes.count %></span>
                       </center>
                     </div>
                     <div class="col-md-4 col-xs-3"><center>
                       <%= image_tag asset_path('comments-icons-small.png') %>
                       <br />
-                      <span>2190</span>
+                      <span><%= idea.comments.count %></span>
                     </center>
                   </div>
                   <div class="clear"></div>

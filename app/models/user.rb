@@ -5,6 +5,8 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :ideas
+  has_many :comments
+  has_many :likes
   has_one :startup, dependent: :destroy, :autosave => true
   accepts_nested_attributes_for :startup, reject_if: proc { |attributes| attributes['name'].blank? },
     allow_destroy: true
@@ -27,6 +29,10 @@ class User < ActiveRecord::Base
   def avatar
     return 'Profile-Picture-Change-icon.png' if self.photo.blank?
     self.photo
+  end
+
+  def like?(idea_id)
+    return self.likes.exists?(idea_id: idea_id)
   end
 
 end

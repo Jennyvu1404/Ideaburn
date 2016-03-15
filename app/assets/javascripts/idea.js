@@ -18,3 +18,4 @@
 //= require ./idea/select2.full
 //= require ./idea/star-rating
 //= require ./idea/jquery.ui.combobox
+//= require ./idea/page

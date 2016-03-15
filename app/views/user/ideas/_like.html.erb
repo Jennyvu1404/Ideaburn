@@ -1,0 +1,14 @@
+<center>
+  <% if current_user %>
+  <% if current_user.like?(@idea.id) %>
+  <i class="fa fa-thumbs-o-up" style="color: #FFD000;cursor:pointer;"; onclick="likeIdea(<%= @idea.id %>, 0)"></i><br>
+  <span class="c-font-12"><%= @idea.likes.count %></span>
+  <% else %>
+  <i class="fa fa-thumbs-o-up" onclick="likeIdea(<%= @idea.id %>, 1)" style="cursor:pointer;"></i><br>
+  <span class="c-font-12"><%= @idea.likes.count %></span>
+  <% end %>
+  <% else %>
+  <i class="fa fa-thumbs-o-up" style="cursor:pointer;"></i><br>
+  <span class="c-font-12"><%= @idea.likes.count %></span>
+  <% end %>
+</center>

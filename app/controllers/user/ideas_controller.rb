@@ -1,4 +1,5 @@
 class User::IdeasController < ApplicationController
+  before_action :authenticate_user!
   layout 'idea'
   before_action :set_idea, only: [:show, :edit, :update, :destroy]
 
@@ -66,6 +67,30 @@ class User::IdeasController < ApplicationController
       format.html { redirect_to ideas_url, notice: 'Idea was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def like
+    @idea = Idea.find(params[:idea_id])
+    if params[:status].to_i.zero?
+      current_user.likes.where(idea_id: @idea.id).delete_all
+    else
+      like = current_user.likes.where(idea_id: @idea.id).first_or_create
+      like.save
+    end
+    render 'user/ideas/_like', layout: false
+  end
+
+  def create_comment
+    @comment = current_user.comments.build(idea_id: params[:idea_id], message: params[:message])
+    @comment.save
+    render 'user/ideas/_comment', layout: false
+  end
+
+  def create_reply
+    comment = current_user.comments.find(params[:comment_id])
+    @comment = comment.dup
+    @comment.update_attributes(user_id: current_user.id, message: params[:message], parent_id: comment.id)
+    render 'user/ideas/_reply', layout: false
   end
 
   private
