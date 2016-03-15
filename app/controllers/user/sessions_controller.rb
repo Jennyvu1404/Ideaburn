@@ -24,6 +24,10 @@ class User::SessionsController < Devise::SessionsController
   # end
 
   def after_sign_in_path_for(resource)
-    user_ideas_path
+    if current_user.entrepreneur?
+      user_ideas_path
+    elsif current_user.startup?
+      edit_user_registration_path
+    end
   end
 end
