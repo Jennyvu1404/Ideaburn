@@ -1,8 +1,5 @@
-//= require jquery
 //= require jquery_ujs
 //= require_tree ./user
-//= require jquery.nicescroll
-//= require bootstrap-sprockets
 
 $(document).ready(function() {
   $( "#datepicker, #datepicker2, #datepicker3" ).datepicker({
