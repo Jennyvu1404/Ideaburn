@@ -1,0 +1,18 @@
+.entrepreneur-section
+  .entrepreneur-title.container-fluid
+    h4.title-link
+      | Ideaburns
+      .icon-caret
+    h4.title-text Entrepreneurs
+  .entrepreneur-content.container-fluid
+    - @entrepreneurs.each do |user|
+      - entrepreneur = user.entrepreneur
+      .entrepreneur-element
+        = image_tag 'image-entrepreneur.png'
+        .entrepreneur-info
+          h4 = "#{entrepreneur.first_name} #{entrepreneur.last_name}"
+          h5 = "#{user.country}, #{user.region}, #{user.city}"
+          .line
+          a Read More
+
+= paginate @entrepreneurs

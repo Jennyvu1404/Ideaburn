@@ -27,10 +27,9 @@ footer.c-layout-footer.c-layout-footer-6.c-bg-grey-1 {
 // Entrepreneur
 .entrepreneur-section{
   width: 100%;
-  margin-top: 70px;
   padding: 20px 40px 40px;
   .entrepreneur-title{
-    .title-link{ 
+    .title-link{
       color: white;
       background-color: #333333;
       float: left;
@@ -166,7 +165,7 @@ footer.c-layout-footer.c-layout-footer-6.c-bg-grey-1 {
 @media screen and (max-width: 486px) {
   .entrepreneur-section{
     .entrepreneur-title{
-      .title-link{ 
+      .title-link{
         font-size: 16px;
         float: none;
         .icon-caret{

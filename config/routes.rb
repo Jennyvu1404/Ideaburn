@@ -28,5 +28,6 @@ Rails.application.routes.draw do
         post '/like' => 'ideas#like'
       end
     end
+    get 'entrepreneur', to: 'users#entrepreneur'
   end
 end
