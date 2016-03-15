@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   namespace :api do
     get 'states/:country', to: 'location#states'
     get 'cities/:country/:state', to: 'location#cities'
+    get 'subregion_options', to: 'location#subregion_options'
   end
   namespace :user do
   resources :ideas

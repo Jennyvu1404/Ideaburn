@@ -6,4 +6,8 @@ class Api::LocationController < ApplicationController
   def cities
     render json: CS.cities(params[:state], params[:country]).to_json
   end
+
+  def subregion_options
+    render partial: 'user/registrations/subregion_select'
+  end
 end

@@ -44,27 +44,27 @@
             = entrepreneur.text_field :dob, id: "datepicker"
             = image_tag asset_path('Date-Calendar_icon.png'), class: 'ui-datepicker-trigger'
         .col-md-6.col-xs-12.unit
-          /! start budget
-          label.label Region
-          label.input
-          label.icon-right for="dob" style="margin-top:20px"
-            i.fa.fa-map-marker
-          = f.text_field :region, id: "town", placeholder: "Region"
-          i
+          label.label Country
+          label.input.select
+            = f.country_select :country, {priority: %w(US CA), prompt: '- Slect A Country -'}, class: 'country', required: true, 'data-country_select' => ''
+            i
       /! end email phone
       /! start email phone
       .j-row
+        .col-md-6.col-xs-12.unit
+          label.label Region
+          label.input.select
+            = render partial: 'subregion_select', locals: {parent_region: f.object.country}
+            i
+
         .col-md-6.col-xs-12.unit
           label.label City
           .input
             label.icon-right for="city"
               i.fa.fa-map-marker
             = f.text_field :city, id: 'city', placeholder: 'e.g New York', required: true
-        .col-md-6.col-xs-12.unit
-          label.label Country
-          label.input.select
-            = f.country_select :country, {priority: %w(US CA), prompt: '- Slect A Country -'}, class: 'country', required: true, 'data-country_select' => ''
-            i
+
+
       /! end email phone
     #tab2.tab-pane.fade
       .j-row
