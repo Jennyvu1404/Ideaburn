@@ -14,6 +14,9 @@ namespace :data do
         user_type: :entrepreneur,
         email: "entrepreneur#{index}@ideaburn.com",
         password: '12345678',
+        country: 'US',
+        city: 'Alaska',
+        region: 'AK',
         photo: Rails.root.join('app/assets/images/avatar_sample.png').open
         })
       10.times do

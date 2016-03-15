@@ -1,4 +1,5 @@
 class User::EntrepreneursController < ApplicationController
+  before_action :authenticate_user!
   layout "idea"
 
   def index
