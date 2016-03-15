@@ -22,7 +22,7 @@
         .col-md-6.col-xs-12.unit
           label.label Primary Business Line
           label.input.select
-            = startup.select :bussines_category, PrimaryBusinessLine.all.collect {|p| [ p.name, p.id ] }, { include_blank: '- Select Bussines Line -' }, class: '', required: true
+            = startup.select :category, PrimaryBusinessLine.all.collect {|p| [ p.name, p.id ] }, { include_blank: '- Select Bussines Line -' }, class: '', required: true
         .col-md-6.col-xs-12.unit
           label.label Website
           .input
@@ -43,7 +43,7 @@
         .col-md-6.col-xs-12.unit
           label.label Employee Strength
           label.input.select
-            = startup.select :bussines_category, Startup.employee_strength_options, class: '', required: true
+            = startup.select :strength, Startup.employee_strength_options, class: '', required: true
         .col-md-12.col-xs-12.unit
           label.label Mission & Vision
           .input

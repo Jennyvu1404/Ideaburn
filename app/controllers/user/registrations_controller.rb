@@ -37,7 +37,7 @@ class User::RegistrationsController < Devise::RegistrationsController
         entrepreneur = Entrepreneur.new(entrepreneur_update_params)
         current_user.entrepreneur = entrepreneur
       elsif current_user.startup?
-        startup_update_params = params[:user][:startup_attributes].permit(:name, :founded, :bussines_category, :website, :strength, :mission, :work, :register_under, :reg_company_name, :facebook, :twitter, :linkedin, :ios_app, :adroid_app, :window_app, :address_line_1, :address_line_2, :team_name, :team_designation, :team_joined_date, :team_email_d, :team_mobile, :team_linkedin, :team_skype, :funding_type, :funding_amout, :funding_date, :funding_by_investor, :about)
+        startup_update_params = params[:user][:startup_attributes].permit(:name, :founded, :category, :website, :strength, :mission, :work, :register_under, :reg_company_name, :facebook, :twitter, :linkedin, :ios_app, :adroid_app, :window_app, :address_line_1, :address_line_2, :team_name, :team_designation, :team_joined_date, :team_email_d, :team_mobile, :team_linkedin, :team_skype, :funding_type, :funding_amout, :funding_date, :funding_by_investor, :about)
         startup = Startup.new(startup_update_params)
         current_user.startup = startup
       elsif current_user.investor?
