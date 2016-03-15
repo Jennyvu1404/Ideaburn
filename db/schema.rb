@@ -11,10 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160310203631) do
+ActiveRecord::Schema.define(version: 20160315054358) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "comments", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "idea_id"
+    t.text     "message"
+    t.integer  "parent_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "entrepreneurs", force: :cascade do |t|
     t.integer  "user_id"
@@ -39,6 +48,7 @@ ActiveRecord::Schema.define(version: 20160310203631) do
     t.string   "linkedin"
     t.datetime "created_at",            null: false
     t.datetime "updated_at",            null: false
+    t.string   "skype"
   end
 
   add_index "entrepreneurs", ["user_id"], name: "index_entrepreneurs_on_user_id", using: :btree
@@ -49,9 +59,9 @@ ActiveRecord::Schema.define(version: 20160310203631) do
     t.string   "title"
     t.text     "description"
     t.string   "attachment"
-    t.integer  "views",       default: 0
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+    t.integer  "views"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "investors", force: :cascade do |t|
@@ -63,24 +73,81 @@ ActiveRecord::Schema.define(version: 20160310203631) do
     t.text     "mission"
     t.text     "work"
     t.integer  "register_under"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.text     "description"
+    t.string   "team_name"
+    t.integer  "team_designation"
+    t.date     "team_joined_date"
+    t.string   "team_email_id"
+    t.string   "team_mobile"
+    t.string   "team_linkedin"
+    t.string   "team_skype"
+    t.string   "address_line_1"
+    t.string   "address_line_2"
+    t.string   "startup_name"
+    t.string   "startup_logo"
+    t.string   "funding_round"
+    t.string   "funding_amount"
+    t.string   "facebook"
+    t.string   "twitter"
+    t.string   "linkedin"
+    t.string   "ios_app"
+    t.string   "adroid_app"
+    t.string   "windows_app"
+    t.string   "business_line"
+    t.integer  "investor_type"
+    t.string   "portfolio_website"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.boolean  "gender"
+    t.date     "dob"
+    t.string   "website_secondary"
+    t.string   "skype"
   end
 
   add_index "investors", ["user_id"], name: "index_investors_on_user_id", using: :btree
 
+  create_table "likes", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "idea_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "startups", force: :cascade do |t|
     t.integer  "user_id"
     t.string   "name"
-    t.integer  "founded"
-    t.integer  "category"
+    t.string   "founded"
+    t.integer  "bussines_category"
     t.string   "website"
-    t.datetime "strength"
+    t.string   "strength"
     t.text     "mission"
     t.text     "work"
     t.integer  "register_under"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.string   "reg_company_name"
+    t.string   "facebook"
+    t.string   "twitter"
+    t.string   "linkedin"
+    t.string   "ios_app"
+    t.string   "adroid_app"
+    t.string   "window_app"
+    t.string   "address_line_1"
+    t.string   "address_line_2"
+    t.string   "team_name"
+    t.integer  "team_designation"
+    t.date     "team_joined_date"
+    t.string   "team_email_d"
+    t.string   "team_mobile"
+    t.string   "team_linkedin"
+    t.string   "team_skype"
+    t.integer  "funding_type"
+    t.string   "funding_amout"
+    t.string   "funding_date"
+    t.string   "funding_by_investor"
+    t.text     "about"
   end
 
   add_index "startups", ["user_id"], name: "index_startups_on_user_id", using: :btree
@@ -102,7 +169,7 @@ ActiveRecord::Schema.define(version: 20160310203631) do
     t.integer  "user_type"
     t.string   "country"
     t.string   "city"
-    t.string   "home_town"
+    t.string   "region"
     t.string   "photo"
   end
 

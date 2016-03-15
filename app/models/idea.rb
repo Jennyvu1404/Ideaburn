@@ -2,7 +2,11 @@ class Idea < ActiveRecord::Base
 
   belongs_to :user
   belongs_to :category
+  has_many :comments
+  has_many :likes
   mount_uploader :attachment, UserUploader
+
+  scope :by_keyword, -> (q){where("title LIKE '%#{q}%'")}
 
   validates :category_id, presence: true
   validates :title, presence: true
@@ -10,5 +14,10 @@ class Idea < ActiveRecord::Base
 
   def category
     Category.find(self.category_id)
+  end
+
+  def like_per_views
+    return 0 if self.likes.count.zero?
+    self.likes.count / self.views
   end
 end

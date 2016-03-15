@@ -1,0 +1,16 @@
+<div class="col-md-12 mt20 plr0" style="border-bottom:1px solid #ccc;">
+  <div class="col-sm-1 col-xs-2 pl0">
+    <%= image_tag @comment.user.avatar, width: 39, height: 37 %>
+  </div>
+  <div class="col-sm-11 col-xs-10 pr0">
+    <div class="form-group">
+      <%= @comment.message %>
+      <p>
+        <span style="color:#78C2E9;cursor:pointer;" onclick="$('#form_reply_<%= @comment.id %>').toggleClass('d_none')">Reply </span>
+        <span><%= @comment.created_at.strftime('%d-%m-%Y') %>
+        </span>
+      </p>
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</div>

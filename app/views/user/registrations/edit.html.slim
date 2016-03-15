@@ -1,5 +1,5 @@
 #page-wrapper
-  = simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, class: 'j-formsa j-forms', id: 'j-forms' }) do |f|
+  = simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, class: 'j-formsa j-forms', id: '' }) do |f|
     .switches
       .col-4
         .col-md-12.p0
@@ -22,198 +22,58 @@
                     .content
                       .col-md-12.col-xs-12
                         h3.c-font-17.mob-center.text-left style="line-height:2;"  UPDATE PROFILE
-                      ul.nav.nav-tabs.tabsec
-                        li.active
-                          a data-toggle="tab" href="#tab1"  Personal
-                        li
-                          a data-toggle="tab" href="#tab2"  Professional
-                        li
-                          a data-toggle="tab" href="#tab3"  Education
-                        li
-                          a data-toggle="tab" href="#tab4"  communication
-                        li
-                          a data-toggle="tab" href="#tab5"  Describe
-                      = f.fields_for :entrepreneur do |entrepreneur|
-                        .tab-content
-                          #tab1.tab-pane.fade.in.active
-                            /! start name
-                            .j-row
-                              .col-md-6.col-xs-12.unit
-                                label.label First name
-                                .input
-                                  label.icon-right for="first_name"
-                                    i.fa.fa-user
-                                  = entrepreneur.text_field :first_name, placeholder: "e.g John", id: "first_name", required: true
-                              .col-md-6.col-xs-12.unit
-                                label.label Last name
-                                .input
-                                  label.icon-right for="last_name"
-                                    i.fa.fa-user
-                                  = entrepreneur.text_field :last_name, placeholder: "e.g. Doe", id: "e.g. Doe", required: true
-                            /! end name
-                            /! start email phone
-                            .j-row
-                              .col-md-6.col-xs-12.unit
-                                label.label Email
-                                .input
-                                  label.icon-right for="email"
-                                    i.fa.fa-envelope-o
-                                  = f.email_field :email, autofocus: "", placeholder: "email@domain.com", id: "email", required: true
-                              .col-md-6.col-xs-12.unit
-                                /! start budget
-                                label.label Gender
-                                label.input.select
-                                  = entrepreneur.select :gender, Entrepreneur.gender_options, id: 'gender', required: true
-                                  i
-                            /! end email phone
-                            /! start email phone
-                            .j-row
-                              .col-md-6.col-xs-12.unit
-                                label.label DOB
-                                .input
-                                  label.icon-right for="dob"
-                                  = entrepreneur.text_field :dob, id: "datepicker"
-                                  = image_tag asset_path('Date-Calendar_icon.png'), class: 'ui-datepicker-trigger'
-                              .col-md-6.col-xs-12.unit
-                                /! start budget
-                                label.label Home Town
-                                label.input
-                                label.icon-right for="dob" style="margin-top:20px"
-                                  i.fa.fa-map-marker
-                                = f.text_field :home_town, id: "town", placeholder: "HomeTown"
-                                i
-                            /! end email phone
-                            /! start email phone
-                            .j-row
-                              .col-md-6.col-xs-12.unit
-                                label.label City
-                                .input
-                                  label.icon-right for="city"
-                                    i.fa.fa-map-marker
-                                  = f.text_field :city, id: 'city', placeholder: 'e.g New York', required: true
-                              .col-md-6.col-xs-12.unit
-                                label.label Country
-                                label.input.select
-                                  = f.country_select :country, {priority: %w(US CA), prompt: '- Slect A Country -'}, class: 'country', required: true, 'data-country_select' => ''
-                                  i
-                            /! end email phone
-                          #tab2.tab-pane.fade
-                            .j-row
-                              /! start country
-                              .col-md-6.col-xs-12.unit
-                                label.label Profession Type
-                                label.input.select
-                                  = entrepreneur.select :profession_type, Entrepreneur.pro_type_options, id: 'prof', required: true
-                                  i
-                              .col-md-6.col-xs-12.unit
-                                label.label Company
-                                .input
-                                  label.icon-right for="company"
-                                    i.fa.fa-building-o
-                                  = entrepreneur.text_field :profession_company, id: 'company', placeholder: 'e.g Company', required: true
-                            /! end country
-                            /! start city post code
-                            .j-row
-                              .col-md-6.col-xs-12.unit
-                                label.label Skills
-                                label.input.select
-                                  = entrepreneur.select :profession_skill, Entrepreneur.pro_skill_options, id: 'skills'
-                                  i
-                              .col-md-6.col-xs-12.unit
-                                label.label Startup Experience
-                                label.input.select
-                                  = entrepreneur.select :profession_experience, Entrepreneur.pro_exp_options, id: 'exp', required: true
-                                  i
-                            /! end city post code
-                          #tab3.tab-pane.fade
-                            /! start country
-                            .col-md-12.unit
-                              label.label Graduation
-                              label.input.select
-                                = entrepreneur.select :graduation, Entrepreneur.graduation_options, id: 'graduation', required: true
-                                i
-                            /! end country
-                            /! start address
-                            .col-md-12.unit
-                              label.label University / College
-                              .input
-                                label.icon-right for="address"
-                                  i.fa.fa-building-o
-                                = entrepreneur.text_field :university, id: 'univ', placeholder: 'e.g. Some University', required: true
-                            /! end address
-                          #tab4.tab-pane.fade
-                            /! start mobile
-                            .col-md-6.col-xs-12.unit
-                              label.label Mobile
-                              .input
-                                label.icon-right for="phone"
-                                  i.fa.fa-phone
-                                = entrepreneur.text_field :mobile, id: 'phone', placeholder: 'phone/mobile', required: true
-                                span.tooltip.tooltip-right-top Your contact phone number
-                            /! end mobile
-                            /! start position
-                            .col-md-6.col-xs-12.unit
-                              label.label Address
-                              .input
-                                label.icon-right for="address"
-                                  i.fa.fa-map-marker
-                                = entrepreneur.text_field :address, id: 'address', placeholder: 'e.g. 443 Seventh Avenue, 16th Floor', required: true
-                            /! end position
-                            /! start position
-                            .col-md-6.col-xs-12.unit
-                              label.label Website
-                              .input
-                                label.icon-right for="website"
-                                  i.fa.fa-globe
-                                = entrepreneur.text_field :website, id: 'web', placeholder: 'e.g. www.example.com', required: true
-                            /! end position
-                            /! start position
-                            .col-md-6.col-xs-12.unit
-                              label.label Email
-                              .input
-                                label.icon-right for="email"
-                                  i.fa.fa-envelope-o
-                                = entrepreneur.email_field :email_second, id: 'email-s', placeholder: 'email@domain.com', required: true
-                            /! end position
-                          #tab5.tab-pane.fade
-                            /! start message
-                            .col-md-12.unit
-                              label.label About you
-                              .input
-                                = entrepreneur.text_area :about, spellcheck: "false"
-                                span.tooltip.tooltip-right-top Any useful information about you
-                            /! end message
-                            /! start message
-                            .col-md-12.unit
-                              label.label Inspire Quote
-                              .input
-                                = entrepreneur.text_area :inspire_quote, spellcheck: "false"
-                                span.tooltip.tooltip-right-top Inspire Quote..
-                            /! end message
-                            /! start position
-                            .col-md-6.col-xs-12.unit
-                              label.label Website
-                              .input
-                                label.icon-right for="website-2"
-                                  i.fa.fa-globe
-                                = entrepreneur.text_field :website, id: 'web-2', placeholder: 'e.g. www.example.com', required: true
-                            /! end position
-                            /! start message
-                            .col-md-6.col-xs-12.unit
-                              label.label Linkedin
-                              .input
-                                label.icon-right for="website"
-                                  i.fa.fa-linkedin
-                                = entrepreneur.text_field :linkedin, id: 'linkedin', placeholder: 'e.g. www.linkedin.com/somthing/', required: true
-                            /! end message
-                            /! start response from server
-                            #response
-                            /! end response from server
-                      /! end /.content
+                      - if current_user.entrepreneur?
+                        ul.nav.nav-tabs.tabsec
+                          li.active
+                            a data-toggle="tab" href="#tab1"  Personal
+                          li
+                            a data-toggle="tab" href="#tab2"  Profession
+                          li
+                            a data-toggle="tab" href="#tab3"  Education
+                          li
+                            a data-toggle="tab" href="#tab4"  Contact
+                          li
+                            a data-toggle="tab" href="#tab5"  Describe
+                      - if current_user.startup?
+                        ul.nav.nav-tabs.tabsec
+                          li.active
+                            a data-toggle="tab" href="#tab1"  Company
+                          li
+                            a data-toggle="tab" href="#tab2"  Add Team +
+                          li
+                            a data-toggle="tab" href="#tab3"  Add Funding +
+                          li
+                            a data-toggle="tab" href="#tab4"  Office Headquarters
+                          li
+                            a data-toggle="tab" href="#tab5"  Social & Webapps
+                      - if current_user.investor?
+                        ul.nav.nav-tabs.tabsec
+                          li.active
+                            a data-toggle="tab" href="#tab1"  Invester Details
+                          li
+                            a data-toggle="tab" href="#tab2"  Add Team +
+                          li
+                            a data-toggle="tab" href="#tab3"  Office Headquarters
+                          li
+                            a data-toggle="tab" href="#tab4"  Add Portfolio +
+                          li
+                            a data-toggle="tab" href="#tab5"  Social & Webapps
+
+                      = render partial: "entrepreneur", locals: {f: f} if current_user.entrepreneur?
+                      = render partial: "startup", locals: {f: f} if current_user.startup?
+                      = render partial: "investor", locals: {f: f} if current_user.investor?
                     .footer
-                      button.primary-btn data-button-next='' type="submit"  Submit
+                      button.primary-btn.btn-next data-button-next='' type="button"  Next
+                      button.primary-btn.btn-submit.hide data-button-next='' type="submit"  Submit
                     /! end /.footer
   .clearfix
+- if @investor_type == 1 || @investor_type == 2
+  javascript:
+      $('ul.tabsec > li:nth-child(3)').find('a').text('Contact');
+      $('ul.tabsec > li:nth-child(2)').hide();
+      $('.tab-content').find('.type2').show();
+      $('.tab-content').find('.type3').hide();
+
 javascript:
   document.getElementById("my_file").onchange = function () {
     var reader = new FileReader();
@@ -222,3 +82,49 @@ javascript:
     };
     reader.readAsDataURL(this.files[0]);
   };
+
+  var maxTab = "#tab" + ($('ul.tabsec > li').size() - 1);
+  var lastTab = "#tab" + ($('ul.tabsec > li').size());
+
+  $('.btn-next').click(function(){
+    var currentTab = $('.nav-tabs > .active').find('a').attr('href');
+    if (currentTab == maxTab){
+      $('.btn-submit').removeClass('hide');
+      $('.btn-next').addClass('hide');
+    }
+    $('.nav-tabs > .active').next('li').find('a').trigger('click');
+  });
+
+  $('ul.tabsec > li').on('click', function(){
+    var tab = $(this).find('a').attr('href');
+    if (tab === lastTab) {
+      $('.btn-submit').removeClass('hide');
+      $('.btn-next').addClass('hide');
+      }else{
+        $('.btn-submit').addClass('hide');
+        $('.btn-next').removeClass('hide');
+      }
+  });
+
+  $('select.country').on('change', function(){
+      console.log('sasasa');
+      select_wrapper = $('#order_state_code_wrapper');
+      $('select', select_wrapper).attr('disabled', true);
+      country_code = $(this).val();
+      url = "/api/subregion_options?parent_region=" + country_code;
+      select_wrapper.load(url);
+    });
+  $('select#user_investor_attributes_investor_type').on('change', function(){
+    var type = parseInt((this).value);
+    if(type === 1 || type == 2){
+      $('ul.tabsec > li:nth-child(3)').find('a').text('Contact');
+      $('ul.tabsec > li:nth-child(2)').hide();
+      $('.tab-content').find('.type2').show();
+      $('.tab-content').find('.type3').hide();
+    }else{
+      $('ul.tabsec > li:nth-child(3)').find('a').text('Office Headquarters');
+      $('ul.tabsec > li:nth-child(2)').show();
+      $('.tab-content').find('.type2').hide();
+      $('.tab-content').find('.type3').show();
+    }
+  });
