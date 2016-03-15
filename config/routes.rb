@@ -14,6 +14,7 @@ Rails.application.routes.draw do
     get 'user/logout' => 'user/sessions#destroy'
   end
   resources :users
+
   namespace :api do
     get 'states/:country', to: 'location#states'
     get 'cities/:country/:state', to: 'location#cities'
@@ -28,6 +29,6 @@ Rails.application.routes.draw do
         post '/like' => 'ideas#like'
       end
     end
-    get 'entrepreneur', to: 'users#entrepreneur'
   end
+  get 'entrepreneurs', to: 'user/entrepreneurs#index'
 end

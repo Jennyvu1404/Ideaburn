@@ -8,9 +8,9 @@
     - @entrepreneurs.each do |user|
       - entrepreneur = user.entrepreneur
       .entrepreneur-element
-        = image_tag 'image-entrepreneur.png'
+        = image_tag user.avatar
         .entrepreneur-info
-          h4 = "#{entrepreneur.first_name} #{entrepreneur.last_name}"
+          h4 = "#{user.username}"
           h5 = "#{user.country}, #{user.region}, #{user.city}"
           .line
           a Read More
