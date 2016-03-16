@@ -14,6 +14,8 @@ class User::RegistrationsController < Devise::RegistrationsController
     if @user.entrepreneur?
       @info = @user.entrepreneur
     end
+    ideas = current_user.ideas
+    @ideas = ideas.page(params[:page]).order('created_at desc')
   end
 
   # POST /resource
