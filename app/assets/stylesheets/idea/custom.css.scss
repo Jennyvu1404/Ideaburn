@@ -10,3 +10,28 @@
     opacity: 0.7;
   }
 }
+
+.sticky-header.left-side-collapsed {
+  li#tbl1 {
+    background: asset_url('SideNav-Icons-1.png') no-repeat 10px 9px !important;
+    display: block;
+  }
+  li#tbl1:hover {
+    background: asset_url('SideNav-Icons-1-hover.png') no-repeat 10px 9px !important;
+    display: block !important;
+  }
+  li#tbl2.active {
+    background: asset_url('SideNav-Icons-2-hover.png') no-repeat  10px 9px !important;
+    display: block;
+  }
+}
+.sticky-header {
+  li#tbl1:hover {
+    background: asset_url('SideNav-Icons-1-hover.png') no-repeat 25px 9px !important;
+    display: block;
+  }
+  li#tbl1:hover {
+    background: asset_url('SideNav-Icons-1-hover.png') no-repeat 25px 9px !important;
+    display: block !important;
+  }
+}

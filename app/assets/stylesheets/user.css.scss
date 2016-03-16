@@ -399,16 +399,6 @@ li {
     #business_lines {
         height: 100px;
     }
-    .left-side-collapsed {
-        li#tbl1 {
-            background: asset_url('SideNav-Icons-1.png') no-repeat 10px 9px;
-            display: block;
-        }
-        li#tbl1.active {
-            background: asset_url('SideNav-Icons-1-hover.png') no-repeat 25px 9px;
-            display: block;
-        }
-    }
 }
 
 ul.nav li a {
@@ -426,4 +416,26 @@ ul.nav li a {
 
 .type2 {
     display: none;
+}
+
+.sticky-header.left-side-collapsed {
+    li#tbl1 {
+        background: asset_url('SideNav-Icons-1.png') no-repeat 10px 9px !important;
+        display: block;
+    }
+    li#tbl1:hover {
+        background: asset_url('SideNav-Icons-1-hover.png') no-repeat 10px 9px !important;
+        display: block;
+    }
+    li#tbl2.active {
+        background: asset_url('SideNav-Icons-2-hover.png') no-repeat  10px 9px !important;
+        display: block;
+    }
+
+}
+.sticky-header {
+    li#tbl1:hover {
+        background: asset_url('SideNav-Icons-1-hover.png') no-repeat 25px 9px !important;
+        display: block;
+    }
 }
