@@ -1,9 +1,5 @@
 $(document).ready(function() {
-    $("#phone").mask("(+99) 99999-99999", {
-        placeholder: "x"
-    }), $("#post").mask("999-9999", {
-        placeholder: "x"
-    }), $("#j-forms").validate({
+    $('#editForm').validate({
         errorClass: "error-view",
         validClass: "success-view",
         errorElement: "span",
@@ -172,38 +168,6 @@ $(document).ready(function() {
         },
         errorPlacement: function(e, s) {
             $(s).is(":checkbox") || $(s).is(":radio") ? $(s).closest(".check").append(e) : $(s).closest(".unit").append(e)
-        },
-        submitHandler: function() {
-            /*$("#j-forms").ajaxSubmit({
-                target: "#j-forms #response",
-                error: function(e) {
-                    location.reload();
-                    //$("#j-forms #response").html("An error occured: " + e.status + " - " + e.statusText)
-                },
-                beforeSubmit: function() {
-                    $('#j-forms button[type="submit"]').attr("disabled", !0).addClass("processing")
-                },
-                success: function() {
-                    location.reload();
-                    /*$('#j-forms button[type="submit"]').attr("disabled", !1).removeClass("processing"), $("#j-forms .input").removeClass("success-view error-view"), $("#j-forms .check").removeClass("success-view error-view"), $("#j-forms .success-message").length && ($("#j-forms").resetForm(), $('#j-forms button[type="submit"]').attr("disabled", !0), $("#j-forms .multi-prev-btn").attr("disabled", !0), setTimeout(function() {
-                        $("#j-forms #response").removeClass("success-message").html(""), $('#j-forms button[type="submit"]').attr("disabled", !1), $("#j-forms .multi-prev-btn").attr("disabled", !1), $("#j-forms .multi-prev-btn").css("display", "none"), $("#j-forms .multi-submit-btn").css("display", "none"), $("#j-forms fieldset").removeClass("active-fieldset"), $("#j-forms fieldset").eq(0).addClass("active-fieldset"), $("#j-forms .multi-next-btn").css("display", "block")
-                    }, 5e3))
-                }
-
-            })*/
         }
-
-    }), $("form.j-multistep").length && $("form.j-multistep").each(function() {
-        var e = $(this).attr("id"),
-            s = $("#" + e + " fieldset").length,
-            t = $("#" + e + " .step").length,
-            i = $("#" + e + " .multi-next-btn"),
-            r = $("#" + e + " .multi-prev-btn"),
-            a = $("#" + e + " .multi-submit-btn");
-        $("#" + e + " fieldset").eq(0).addClass("active-fieldset"), t && $("#" + e + " .step").eq(0).addClass("active-step"), $("#" + e + " fieldset").eq(0).hasClass("active-fieldset") && (a.css("display", "none"), r.css("display", "none")), i.on("click", function() {
-            return 1 != $("#" + e).valid() ? !1 : ($("#" + e + " fieldset.active-fieldset").removeClass("active-fieldset").next("fieldset").addClass("active-fieldset"), t && $("#" + e + " .step.active-step").removeClass("active-step").addClass("passed-step").next(".step").addClass("active-step"), r.css("display", "block"), $("#" + e + " fieldset").eq(s - 1).hasClass("active-fieldset") && (a.css("display", "block"), i.css("display", "none")), void 0)
-        }), r.on("click", function() {
-            $("#" + e + " fieldset.active-fieldset").removeClass("active-fieldset").prev("fieldset").addClass("active-fieldset"), t && $("#" + e + " .step.active-step").removeClass("active-step").prev(".step").removeClass("passed-step").addClass("active-step"), $("#" + e + " fieldset").eq(0).hasClass("active-fieldset") && r.css("display", "none"), $("#" + e + " fieldset").eq(s - 2).hasClass("active-fieldset") && (a.css("display", "none"), i.css("display", "block"))
-        })
-    })
+    });
 });
