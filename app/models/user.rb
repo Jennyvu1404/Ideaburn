@@ -2,14 +2,14 @@ class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+  :recoverable, :rememberable, :trackable, :validatable
 
   has_many :ideas
   has_many :comments
   has_many :likes
   has_one :startup, dependent: :destroy, :autosave => true
   accepts_nested_attributes_for :startup, reject_if: proc { |attributes| attributes['name'].blank? },
-    allow_destroy: true
+  allow_destroy: true
 
   has_one :investor, dependent: :destroy, :autosave => true
   accepts_nested_attributes_for :investor, reject_if: proc { |attributes| attributes['name'].blank? }, allow_destroy: true
@@ -25,6 +25,16 @@ class User < ActiveRecord::Base
   validates :password, length: {minimum: 8, maximum: 120}, on: :update, allow_blank: true
 
   mount_uploader :photo, UserUploader
+
+  def fullname
+    if self.entrepreneur?
+      "#{self.entrepreneur.first_name} #{self.entrepreneur.last_name}" rescue self.username
+    elsif self.startup?
+      self.startup.name ||= self.username
+    elsif self.investor?
+      self.investor.name ||= self.username
+    end
+  end
 
   def location
     locations = []
