@@ -95,7 +95,7 @@ javascript:
     $('.nav-tabs > .active').next('li').find('a').trigger('click');
   });*/
 
-  $('ul.tabsec > li').on('click', function(){
+  $('ul.tabsec > li').on('click', function(event){
     var tab = $(this).find('a').attr('href');
     if (tab === lastTab) {
       $('.btn-submit').removeClass('hide');

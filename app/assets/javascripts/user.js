@@ -3,11 +3,19 @@
 //= require_tree ./user
 
 $(document).ready(function() {
-    $("#datepicker, #datepicker2, #datepicker3").datepicker({
-        yearRange: '2006:2020',
+    $("#datepicker").datepicker({
+        yearRange: '1930:2006',
         buttonText: "",
         changeMonth: true,
-        changeYear: true
+        changeYear: true,
+        dateFormat: 'yy-mm-dd'
+    });
+    $("#datepicker2, #datepicker3").datepicker({
+        yearRange: '2006:2016',
+        buttonText: "",
+        changeMonth: true,
+        changeYear: true,
+        dateFormat: 'yy-mm-dd'
     });
     try {
         document.getElementById('get_file').onclick = function() {

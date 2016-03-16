@@ -28,10 +28,10 @@
           /! start budget
           label.label Gender
           label.input
-            = entrepreneur.radio_button :gender, true
+            = entrepreneur.radio_button :gender, true, required: true
             | &nbsp;Male
             | &nbsp;&nbsp;
-            = entrepreneur.radio_button :gender, false
+            = entrepreneur.radio_button :gender, false, required: true
             | &nbsp;Female
             i
       /! end email phone
@@ -41,7 +41,7 @@
           label.label DOB
           .input
             label.icon-right for="dob"
-            = entrepreneur.text_field :dob, id: "datepicker"
+            = entrepreneur.text_field :dob, id: "datepicker", required: true
             = image_tag asset_path('Date-Calendar_icon.png'), class: 'ui-datepicker-trigger'
         .col-md-6.col-xs-12.unit
           label.label Country
@@ -54,7 +54,7 @@
         .col-md-6.col-xs-12.unit
           label.label Region
           label.input.select
-            = render partial: 'subregion_select', locals: {parent_region: f.object.country}
+            = render partial: 'subregion_select', locals: {parent_region: f.object.country}, required: true
             i
 
         .col-md-6.col-xs-12.unit
@@ -157,14 +157,14 @@
       .col-md-12.unit
         label.label About You
         .input
-          = entrepreneur.text_area :about, spellcheck: "false"
+          = entrepreneur.text_area :about, spellcheck: "false", required: true
           span.tooltip.tooltip-right-top Any useful information about you
       /! end message
       /! start message
       .col-md-12.unit
         label.label Inspire Quote
         .input
-          = entrepreneur.text_area :inspire_quote, spellcheck: "false"
+          = entrepreneur.text_area :inspire_quote, spellcheck: "false", required: true
           span.tooltip.tooltip-right-top Inspire Quote..
       /! end message
       /! start message

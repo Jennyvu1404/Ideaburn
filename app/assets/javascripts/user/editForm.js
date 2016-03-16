@@ -168,6 +168,25 @@ $(document).ready(function() {
         },
         errorPlacement: function(e, s) {
             $(s).is(":checkbox") || $(s).is(":radio") ? $(s).closest(".check").append(e) : $(s).closest(".unit").append(e)
+        },
+        submitHandler: function(form){
+            var currentTab = $('.nav-tabs > .active').find('a').attr('href');
+            if (currentTab == maxTab){
+              $('.btn-submit').removeClass('hide');
+              $('.btn-next').addClass('hide');
+            }
+            var lastTab = "#tab" + ($('ul.tabsec > li').size());
+            if(currentTab == lastTab)
+            {
+                form.submit();
+            }else{
+                $(currentTab).removeClass('active in');
+                $(currentTab).next().addClass('active in');
+                var currentLi = $('ul.tabsec').find('li.active');
+                currentLi.next().addClass('active');
+                currentLi.removeClass('active');
+                return false;
+            }
         }
     });
 });

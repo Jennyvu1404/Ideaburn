@@ -12,12 +12,12 @@
           label.label Founded
           .input
             label.icon-right for="founded"
-            = startup.text_field :founded, id: "datepicker"
+            = startup.text_field :founded, id: "datepicker", required: true
             = image_tag asset_path('Date-Calendar_icon.png'), class: 'ui-datepicker-trigger'
         .col-md-12.unit
           label.label About Company
           .input
-            = startup.text_area :about, spellcheck: "false"
+            = startup.text_area :about, spellcheck: "false", required: true
             span.tooltip.tooltip-right-top Any useful information about company
         .col-md-6.col-xs-12.unit
           label.label Primary Business Line
@@ -32,7 +32,7 @@
         .col-md-12.unit
           label.label How It Work
           .input
-            = startup.text_area :work, spellcheck: "false"
+            = startup.text_area :work, spellcheck: "false", required: true
             span.tooltip.tooltip-right-top How it work ?
         .col-md-6.col-xs-12.unit
           label.label Register Company Name
@@ -67,7 +67,7 @@
           label.label Joined Date
           .input
             label.icon-right for="joined-date"
-            = startup.text_field :team_joined_date, id: "datepicker2"
+            = startup.text_field :team_joined_date, id: "datepicker2", required: true
             = image_tag asset_path('Date-Calendar_icon.png'), class: 'ui-datepicker-trigger'
         .col-md-6.col-xs-12.unit
           label.label Email ID
@@ -110,7 +110,7 @@
           label.label Date
           .input
             label.icon-right for="date"
-            = startup.text_field :funding_date, id: "datepicker3"
+            = startup.text_field :funding_date, id: "datepicker3", required: true
             = image_tag asset_path('Date-Calendar_icon.png'), class: 'ui-datepicker-trigger'
         .col-md-6.col-xs-12.unit
           label.label By Investor
@@ -171,7 +171,7 @@
           .input
             label.icon-right for="Linkedin"
               i.fa.fa-linkedin
-            = startup.text_field :twitter, id: 'twitter', placeholder: 'https://twitter.com/something', required: true
+            = startup.text_field :linkedin, id: 'twitter', placeholder: 'https://twitter.com/something', required: true
         .col-md-6.col-xs-12.unit
           label.label IOS App
           .input
