@@ -9,6 +9,13 @@ class User::RegistrationsController < Devise::RegistrationsController
      @user = User.new
    end
 
+  def show
+    @user = User.find(params[:id])
+    if @user.entrepreneur?
+      @info = @user.entrepreneur
+    end
+  end
+
   # POST /resource
   #def create
   #  super
@@ -92,7 +99,7 @@ class User::RegistrationsController < Devise::RegistrationsController
   private
 
   def layout_by_action
-    action_name == "edit" || action_name == "update" ?  "user" : "application"
+    action_name == "edit" || action_name == "update" || action_name == "show" ?  "user" : "application"
   end
 
   def startup_params
