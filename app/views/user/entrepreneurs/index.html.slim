@@ -13,6 +13,7 @@
           h4 = user.fullname
           h5 = user.location
           .line
-          button Read More
+          button
+            = link_to "Read More", entrepreneur_path(user)
 
 = paginate @users

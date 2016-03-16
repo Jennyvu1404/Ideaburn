@@ -1,0 +1,82 @@
+#page-wrapper
+  .switches
+    .acount-section
+      .acount-title.container-fluid
+        h2 = @user.fullname
+        h3 Profile View
+      .profile
+        .profile-content
+          .profile-image
+            = image_tag 'image-profile.png'
+            .icon-share.container-fluid
+              button.left
+                i.fa.fa-linkedin
+              p unmamaheswar/profile
+              button.right
+                i.fa.fa-question
+            = image_tag 'icon-text-profile.png', :class => 'icon-text-profile'
+            p.text = @info.try(:inspire_quote)
+            /! p.text - Steve Jobs
+          .profile-info
+            h3 About
+            p = @info.try(:about)
+            ul.list-info.nav.nav-tabs role="tablist"
+              li.active
+                a  href="#personal_detail" aria-controls="personal_detail" role="tab" data-toggle="tab" Personal Details
+              li
+                a  href="#proffession" aria-controls="proffession" role="tab" data-toggle="tab" Proffession
+              li
+                a  href="#education" aria-controls="education" role="tab" data-toggle="tab" Education
+              li
+                a  href="#communication" aria-controls="communication" role="tab" data-toggle="tab"
+                  | Communication
+                  button
+                    i.fa.fa-question
+            .tab-content
+              .tab-pane.info-content.container-fluid#personal_detail role="tabpanel"
+                .info-element
+                  = image_tag '1.png'
+                  = @user.fullname
+                .info-element
+                  = image_tag '4.png'
+                  = @user.email
+                .info-element
+                  = image_tag '2.png'
+                  = "DOB: #{@info.try(:dob)}"
+                .info-element
+                  = image_tag '5.png'
+                  = @info.try(:address)
+                .info-element
+                  = image_tag '3.png'
+                  = @info.try(:profession_company)
+                .info-element
+                  = image_tag '7.png'
+                  = @user.country_name
+              .tab-pane.info-content.container-fluid#proffession role="tabpanel"
+                .info-element
+                  = image_tag '1.png'
+                  | Rahul Manohar Raj
+                .info-element
+                  = image_tag '4.png'
+                  | uma-5678@gmail.com
+                .info-element
+                  = image_tag '2.png'
+                  | DOB: 20-01-1978
+                .info-element
+                  = image_tag '5.png'
+                  | Mysore
+              .tab-pane.info-content.container-fluid#education role="tabpanel"
+                .info-element
+                  = image_tag '2.png'
+                  | DOB: 20-01-1978
+                .info-element
+                  = image_tag '5.png'
+                  | Mysore
+                .info-element
+                  = image_tag '3.png'
+                  | Bangalore
+                .info-element
+                  = image_tag '7.png'
+                  | India
+      /! = render partial: "user/ideas/closed_ideas"
+  .clearfix

@@ -89,6 +89,12 @@ footer.c-layout-footer.c-layout-footer-6.c-bg-grey-1 {
         button{
           padding: 0px;
           margin-top: 15px;
+
+          a {
+            &:hover {
+              color: #666666;
+            }
+          }
         }
         .line{
           width: 35px;
