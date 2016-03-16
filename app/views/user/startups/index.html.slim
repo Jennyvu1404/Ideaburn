@@ -10,9 +10,8 @@
       .entrepreneur-element
         = image_tag user.avatar, class: 'text-center'
         .entrepreneur-info
-          h4 = "#{user.username}"
-          h5 = "#{user.country}, #{user.region}, #{user.city}"
+          h4 = user.fullname
+          h5 = user.location
           .line
           button Read More
-
 = paginate @users

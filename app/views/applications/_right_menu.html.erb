@@ -10,7 +10,7 @@
           <li class="login_box" id="loginContainer">
             <form id="searchform" action="/user/ideas">
               <div class="fieldcontainer">
-                <input type="text" class="search-keywords" placeholder="type keywords" name="q" value="<%= params[:q] %>" />
+                <input type="text" class="search-keywords" placeholder="Type keywords" name="q" value="<%= params[:q] %>" />
                 <input type="submit" value="" id="searchbtn" name="searchbtn">
               </div>
 
@@ -32,7 +32,7 @@
               <div class="profile_img">
                 <center ><span class="prof-img"> </span>
                   <div class="user"><div class="user-name">
-                    <p><%= current_user.username %></p>
+                    <p><%= current_user.fullname %></p>
                   </div>
                   <i class="lnr lnr-chevron-down"></i>
                   <i class="lnr lnr-chevron-up"></i>
@@ -49,7 +49,7 @@
               </li>
               <li>
                 <%= link_to destroy_user_session_path do %>
-                <%= image_tag('Logout-Icons.png') %>Logouts
+                <%= image_tag('Logout-Icons.png') %>Logout
                 <% end %>
               </li>
             </ul>
