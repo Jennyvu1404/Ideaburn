@@ -1,6 +1,7 @@
 class User::RegistrationsController < Devise::RegistrationsController
   before_filter :configure_sign_up_params, only: [:create]
   before_filter :configure_account_update_params, only: [:update]
+  before_action :authenticate_user!, only: [:show]
   layout :layout_by_action
 
   # GET /resource/sign_up
@@ -123,5 +124,9 @@ class User::RegistrationsController < Devise::RegistrationsController
 
   def after_update_path_for(resource)
      edit_user_registration_path
+  end
+
+  def authenticate_user!
+    redirect_to new_user_session_path if current_user.nil?
   end
 end
