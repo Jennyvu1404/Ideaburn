@@ -11,11 +11,11 @@
             .icon-share.container-fluid
               button.left
                 i.fa.fa-linkedin
-              p = link_to @info.try(:linkedin).truncate(20),  @info.try(:linkedin), target: '_blank', class: 'blank_link'
+              p = link_to @info.try(:linkedin_name),  @info.try(:linkedin), target: '_blank', class: 'blank_link'
               button.right
                 i.fa.fa-question
             = image_tag 'icon-text-profile.png', :class => 'icon-text-profile'
-            p.text = @info.try(:inspire_quote).truncate(150)
+            p.text = @info.try(:inspire_quote).truncate(150) unless @info.try(:inspire_quote).nil?
             /! p.text - Steve Jobs
           .profile-info
             h3 About

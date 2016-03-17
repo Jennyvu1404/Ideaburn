@@ -38,4 +38,8 @@ class Entrepreneur < ActiveRecord::Base
     GRADUATION[self.graduation.to_i].first
   end
 
+  def linkedin_name
+    self.linkedin.split('/').last unless self.linkedin.nil?
+  end
+
 end
