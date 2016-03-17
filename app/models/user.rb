@@ -30,9 +30,9 @@ class User < ActiveRecord::Base
     if self.entrepreneur?
       "#{self.entrepreneur.first_name.capitalize} #{self.entrepreneur.last_name.capitalize}" rescue self.username
     elsif self.startup?
-      self.startup.name ||= self.username
+      "#{self.startup.name}" rescue self.username
     elsif self.investor?
-      self.investor.name ||= self.username
+      "#{self.investor.name}" rescue self.username
     end
   end
 
