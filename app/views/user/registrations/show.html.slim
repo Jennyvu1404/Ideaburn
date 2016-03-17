@@ -11,7 +11,7 @@
             .icon-share.container-fluid
               button.left
                 i.fa.fa-linkedin
-              p = @info.try(:linkedin)
+              p = link_to @info.try(:linkedin).truncate(20),  @info.try(:linkedin), target: '_blank', class: 'blank_link'
               button.right
                 i.fa.fa-question
             = image_tag 'icon-text-profile.png', :class => 'icon-text-profile'
