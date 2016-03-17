@@ -15,7 +15,7 @@
               button.right
                 i.fa.fa-question
             = image_tag 'icon-text-profile.png', :class => 'icon-text-profile'
-            p.text = @info.try(:inspire_quote)
+            p.text = @info.try(:inspire_quote).truncate(150)
             /! p.text - Steve Jobs
           .profile-info
             h3 About
