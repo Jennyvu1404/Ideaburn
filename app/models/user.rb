@@ -30,9 +30,9 @@ class User < ActiveRecord::Base
     if self.entrepreneur?
       "#{self.entrepreneur.first_name.capitalize} #{self.entrepreneur.last_name.capitalize}" rescue self.username
     elsif self.startup?
-      "#{self.startup.name}" rescue self.username
+      self.startup.name rescue self.username
     elsif self.investor?
-      "#{self.investor.name}" rescue self.username
+      self.investor.name rescue self.username
     end
   end
 
@@ -41,8 +41,8 @@ class User < ActiveRecord::Base
     subregions = country.subregions unless country.nil?
     region = subregions.coded(self.region) if self.region && subregions
     locations = []
-    locations << country.name rescue country
-    locations << region.name rescue region
+    locations << country.name if country
+    locations << region.name if region
     locations << self.city if self.city
     locations.join(', ')
   end

@@ -1,7 +1,6 @@
 class User::RegistrationsController < Devise::RegistrationsController
   before_filter :configure_sign_up_params, only: [:create]
   before_filter :configure_account_update_params, only: [:update]
-  before_action :authenticate_overview!, only: [:show]
   layout :layout_by_action
 
   # GET /resource/sign_up
@@ -9,15 +8,6 @@ class User::RegistrationsController < Devise::RegistrationsController
      super
      @user = User.new
    end
-
-  def show
-    @user = User.find(params[:id])
-    if @user.entrepreneur?
-      @info = @user.entrepreneur
-    end
-    ideas = current_user.ideas
-    @ideas = ideas.page(params[:page]).order('created_at desc')
-  end
 
   # POST /resource
   #def create
@@ -102,7 +92,7 @@ class User::RegistrationsController < Devise::RegistrationsController
   private
 
   def layout_by_action
-    action_name == "edit" || action_name == "update" || action_name == "show" ?  "user" : "application"
+    action_name == "edit" || action_name == "update" ?  "user" : "application"
   end
 
   def startup_params
@@ -126,7 +116,4 @@ class User::RegistrationsController < Devise::RegistrationsController
      edit_user_registration_path
   end
 
-  def authenticate_overview!
-    redirect_to new_user_session_path unless current_user
-  end
 end

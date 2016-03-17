@@ -12,7 +12,6 @@ Rails.application.routes.draw do
   }
   devise_scope :user do
     get 'user/logout' => 'user/sessions#destroy'
-    get 'profile/:id', to: 'user/registrations#show', as: 'profile'
   end
   resources :users
 
@@ -32,6 +31,7 @@ Rails.application.routes.draw do
     end
   end
   get 'entrepreneurs' => 'user/entrepreneurs#index'
+  get 'entrepreneur/:id', to: 'user/entrepreneurs#show', as: 'entrepreneur'
   get 'investers' => 'user/investers#index'
   get 'startups' => 'user/startups#index'
 end
