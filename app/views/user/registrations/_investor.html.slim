@@ -63,7 +63,7 @@
         .col-md-12.col-xs-12.unit
           label.label Description
           .input
-            = investor.text_area :description, spellcheck: "false"
+            = investor.text_area :description, spellcheck: "false", placeholder: 'Description', required: true
             span.tooltip.tooltip-right-top Description
         .col-md-6.col-xs-12.unit
           label.label Mission & Vision
@@ -141,10 +141,8 @@
             i
         .col-md-6.col-xs-12.unit
           label.label City
-          .input
-            label.icon-right for="city"
-              i.fa.fa-map-marker
-            = f.text_field :city, id: 'city', placeholder: 'e.g New York', required: true
+          label.input.select
+            = render partial: 'subcity_select', locals: {parent_region: f.object.country, parent_city: f.object.region}
         .col-md-6.col-xs-12.unit.type2
           label.label Skype ID
           .input

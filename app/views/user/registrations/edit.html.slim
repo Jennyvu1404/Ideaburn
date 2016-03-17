@@ -75,56 +75,12 @@
       $('.tab-content').find('.type3').hide();
 
 javascript:
-  document.getElementById("my_file").onchange = function () {
-    var reader = new FileReader();
-    reader.onload = function (e) {
-      document.getElementById("image-preview").src = e.target.result;
+  try{
+    document.getElementById("my_file").onchange = function () {
+      var reader = new FileReader();
+      reader.onload = function (e) {
+        document.getElementById("image-preview").src = e.target.result;
+      };
+      reader.readAsDataURL(this.files[0]);
     };
-    reader.readAsDataURL(this.files[0]);
-  };
-
-  var maxTab = "#tab" + ($('ul.tabsec > li').size() - 1);
-  var lastTab = "#tab" + ($('ul.tabsec > li').size());
-
-  $('.btn-next').click(function(){
-    var currentTab = $('.nav-tabs > .active').find('a').attr('href');
-    if (currentTab == maxTab){
-      $('.btn-submit').removeClass('hide');
-      $('.btn-next').addClass('hide');
-    }
-    $('.nav-tabs > .active').next('li').find('a').trigger('click');
-  });
-
-  $('ul.tabsec > li').on('click', function(){
-    var tab = $(this).find('a').attr('href');
-    if (tab === lastTab) {
-      $('.btn-submit').removeClass('hide');
-      $('.btn-next').addClass('hide');
-      }else{
-        $('.btn-submit').addClass('hide');
-        $('.btn-next').removeClass('hide');
-      }
-  });
-
-  $('select.country').on('change', function(){
-      console.log('sasasa');
-      select_wrapper = $('#order_state_code_wrapper');
-      $('select', select_wrapper).attr('disabled', true);
-      country_code = $(this).val();
-      url = "/api/subregion_options?parent_region=" + country_code;
-      select_wrapper.load(url);
-    });
-  $('select#user_investor_attributes_investor_type').on('change', function(){
-    var type = parseInt((this).value);
-    if(type === 1 || type == 2){
-      $('ul.tabsec > li:nth-child(3)').find('a').text('Contact');
-      $('ul.tabsec > li:nth-child(2)').hide();
-      $('.tab-content').find('.type2').show();
-      $('.tab-content').find('.type3').hide();
-    }else{
-      $('ul.tabsec > li:nth-child(3)').find('a').text('Office Headquarters');
-      $('ul.tabsec > li:nth-child(2)').show();
-      $('.tab-content').find('.type2').hide();
-      $('.tab-content').find('.type3').show();
-    }
-  });
+  }catch(err){}
