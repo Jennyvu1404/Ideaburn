@@ -99,6 +99,7 @@ GEM
     high_voltage (2.4.0)
     http-cookie (1.0.2)
       domain_name (~> 0.5)
+    httpclient (2.7.1)
     i18n (0.7.0)
     interception (0.5)
     jbuilder (2.4.1)
@@ -135,6 +136,11 @@ GEM
     pry-rescue (1.4.2)
       interception (>= 0.5)
       pry
+    pusher (0.17.0)
+      httpclient (~> 2.7)
+      multi_json (~> 1.0)
+      pusher-signature (~> 0.1.8)
+    pusher-signature (0.1.8)
     rack (1.6.4)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -250,6 +256,7 @@ DEPENDENCIES
   pg
   pry-rails
   pry-rescue
+  pusher
   rails (= 4.2.5.2)
   rails_12factor
   rails_layout

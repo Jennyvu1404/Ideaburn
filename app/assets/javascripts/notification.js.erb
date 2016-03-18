@@ -1,0 +1,44 @@
+var $notifications = $('ul.drp-notification');
+
+var pusher = new Pusher('5cc1643b6d3132075121', {
+  encrypted: true
+});
+
+var channel = pusher.subscribe('notification_channel');
+
+channel.bind('comment', function(data) {
+  console.log(data);
+  if(uid == data.author) {
+    notifications(data);
+  }
+});
+
+channel.bind('like', function(data) {
+  console.log(data);
+  if(uid == data.author) {
+    notifications(data);
+  }
+});
+
+function notifications(data) {
+  var hmtl = '<li class="sub-notification">';
+  hmtl += '<div class="sub-notification-left">';
+  hmtl += '<img src="'+data.commenterAvatar+'">';
+  hmtl += '</div>';
+  hmtl += '<div class="sub-notification-middle">';
+  hmtl += '<a href="#">'+data.message+'</a><br/>';
+  hmtl += '<i class="fa fa-commenting-o"></i> <i class="minutes">48 minutes ago</i>';
+  hmtl += '</div>';
+  hmtl += '<div class="sub-notification-right">';
+  hmtl += '<%= image_tag('thumbs-img4.jpg') %>';
+  hmtl += '</div>';
+  hmtl += '</li>';
+  $(hmtl).insertBefore($notifications.find('li:first'));
+  $notifications.find('li.no-notification').remove();
+  $('.notifications-icon span.badge11').css({"display": "block"});
+}
+
+$('.notifications-icon').on('click', function(){
+  $notifications.toggle();
+  $('.notifications-icon span.badge11').css({"display": "none"});
+});
