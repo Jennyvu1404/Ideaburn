@@ -4,6 +4,7 @@ class Idea < ActiveRecord::Base
   belongs_to :category
   has_many :comments
   has_many :likes
+  has_many :notifications
   mount_uploader :attachment, UserUploader
 
   scope :by_keyword, -> (q){where("title LIKE '%#{q}%'")}

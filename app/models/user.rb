@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
   has_many :ideas
   has_many :comments
   has_many :likes
+  has_many :notifications
   has_one :startup, dependent: :destroy, :autosave => true
   accepts_nested_attributes_for :startup, reject_if: proc { |attributes| attributes['name'].blank? },
   allow_destroy: true

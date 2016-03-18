@@ -20,6 +20,7 @@ Rails.application.routes.draw do
     get 'cities/:country/:state', to: 'location#cities'
     get 'subregion_options', to: 'location#subregion_options'
     get 'idea/comments/:id', to: 'idea#comments'
+    get 'notifications/all', to: 'notification#index'
   end
 
   namespace :user do

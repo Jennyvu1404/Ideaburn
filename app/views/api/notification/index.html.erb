@@ -1,0 +1,19 @@
+<% from_time = Time.now %>
+<% @notification.each do |notification| %>
+  <li class="sub-notification">
+    <div class="sub-notification-left">
+       <%= image_tag(notification.user.avatar) %>
+    </div>
+    <div class="sub-notification-middle">
+      <a><%= notification.message %></a>
+      <br/>
+      <i class="fa fa-commenting-o"></i> <i class="minutes"><%= distance_of_time_in_words(notification.created_at, from_time) %> ago</i>
+    </div>
+    <div class="sub-notification-right">
+       <%= image_tag('thumbs-img4.jpg') %>
+    </div>
+  </li>
+<% end %>
+<li class="see-all-notification">
+  <a>See All</a>
+</li>

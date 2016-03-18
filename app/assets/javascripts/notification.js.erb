@@ -33,12 +33,28 @@ function notifications(data) {
   hmtl += '<%= image_tag('thumbs-img4.jpg') %>';
   hmtl += '</div>';
   hmtl += '</li>';
-  $(hmtl).insertBefore($notifications.find('li:first'));
+  //$(hmtl).insertBefore($notifications.find('li:first'));
   $notifications.find('li.no-notification').remove();
   $('.notifications-icon span.badge11').css({"display": "block"});
 }
 
 $('.notifications-icon').on('click', function(){
+  var url =  "/api/notifications/all";
+  $notifications.load(url);
   $notifications.toggle();
   $('.notifications-icon span.badge11').css({"display": "none"});
+});
+
+$(document).ready(function() {
+  var url =  "/api/notifications/all";
+  $notifications.load(url);
+  /*var realtime =  setInterval(function(){
+    comments.load(url);
+  }, 30000);
+  $('textarea[name="message"]').focus(function(){
+    clearInterval(realtime);
+  });
+  $('.reply').click(function(){
+    clearInterval(realtime);
+  });*/
 });

@@ -82,8 +82,12 @@ class User::IdeasController < ApplicationController
         author: @idea.user.id,
         commenter: current_user.id,
         commenterAvatar: ActionController::Base.helpers.asset_path(current_user.avatar),
-        idea: @idea.attachment
+        idea: @idea.id
       })
+      noti = Notification.create(message: "#{current_user.fullname} liked your post", notification_type: 1,  )
+      noti.user = current_user
+      noti.idea = @idea
+      noti.save!
     end
     render 'user/ideas/_like', layout: false
   end
@@ -98,6 +102,10 @@ class User::IdeasController < ApplicationController
       commenterAvatar: ActionController::Base.helpers.asset_path(current_user.avatar),
       idea: @comment.idea.attachment
     })
+    noti = Notification.create(message: "#{current_user.fullname} commented on your post", notification_type: 1,  )
+    noti.user = current_user
+    noti.idea = @comment.idea
+    noti.save!
     render 'user/ideas/_comment', layout: false
   end
 
