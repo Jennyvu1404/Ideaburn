@@ -2000,3 +2000,8 @@
 	-moz-box-sizing:content-box;
 	box-sizing:content-box;
 }
+
+.j-row .icondelete{
+	position: absolute;
+	right: 0;
+}

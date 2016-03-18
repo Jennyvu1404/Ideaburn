@@ -1,0 +1,46 @@
+    .nested-fields
+      .j-row
+        = link_to_remove_association f do
+          = fa_icon 'trash', {class: 'fa-1g icondelete'}
+        .col-md-6.col-xs-12.unit
+          label.label Name
+          .input
+            label.icon-right for="team-name"
+              i.fa.fa-user
+            = f.text_field :name, id: 'web', placeholder: 'Name', required: true
+        .col-md-6.col-xs-12.unit
+          label.label Designation
+          label.input.select
+            = f.select :designation, Startup.designation_options, class: '', required: true
+        .col-md-6.col-xs-12.unit
+          label.label Joined Date
+          .input
+            label.icon-right for="joined-date"
+            = f.text_field :joined_date, id: "datepicker2"
+            = image_tag asset_path('Date-Calendar_icon.png'), class: 'ui-datepicker-trigger'
+        .col-md-6.col-xs-12.unit
+          label.label Email ID
+          .input
+            label.icon-right for="team-email"
+              i.fa.fa-envelope-o
+            = f.text_field :email, id: 'email', placeholder: 'email@domain.com', required: true
+        .col-md-6.col-xs-12.unit
+          label.label Mobile
+          .input
+            label.icon-right for="phone"
+              i.fa.fa-phone
+            = f.text_field :mobile, id: 'phone', placeholder: 'phone/mobile', required: true
+            span.tooltip.tooltip-right-top Phone number
+        .col-md-6.col-xs-12.unit
+          label.label Skype ID
+          .input
+            label.icon-right for="skype-id"
+              i.fa.fa-skype
+            = f.text_field :skype, id: 'skype', placeholder: 'Skype ID', required: true
+        .col-md-12.col-xs-12.unit
+          label.label Linkedin Profile
+          .input
+            label
+            .icon-right for="linkedin"
+              i.fa.fa-linkedin
+            = f.text_field :linkedin, id: 'linkedin', placeholder: 'e.g. www.linkedin.com/somthing/', required: true

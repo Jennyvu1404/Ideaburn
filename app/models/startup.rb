@@ -1,6 +1,7 @@
 class Startup < ActiveRecord::Base
   belongs_to :user
-
+  has_many :teams
+  accepts_nested_attributes_for :teams, reject_if: :all_blank, allow_destroy: true
   def self.options
     [["- Select Founded Year -", nil]].concat((2010..2020).collect{|y| "#{y}" })
   end
