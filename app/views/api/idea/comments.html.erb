@@ -1,0 +1,60 @@
+<% from_time = Time.now %>
+<% @idea.comments.where(parent_id: nil).order(id: :desc).each do |comment| %>
+  <% comment ||= @comment %>
+  <div class="col-md-12" style="margin-bottom:12px">
+    <div class="col-sm-1 col-xs-2 pl0">
+      <%= image_tag comment.user.avatar, width: 39, height: 37 %>
+    </div>
+    <div class="col-sm-10 mb15 col-xs-10">
+      <div style="border-bottom:1px solid #ccc;margin-bottom:12px;padding-bottom: 10px;">
+        <p class="c-font-18 mb5">
+          <span9><%= comment.user.fullname %></span9>
+        </p>
+        <%= comment.message %>
+        <p>
+          <span class="reply" style="color:#78C2E9;cursor:pointer;" onclick="$('#form_reply_<%= comment.id %>').toggleClass('d_none')">Reply </span>
+          <!--<span><%= comment.created_at.strftime('%d-%m-%Y') %>-->
+          <span><%= distance_of_time_in_words(comment.created_at, from_time) %> ago</span>
+          </span>
+        </p>
+        <div class="clearfix"></div>
+      </div>
+      <div style="margin-top:10px" id="reply_<%= comment.id %>">
+        <% comment.comments.each do |reply| %>
+        <div class="col-md-12 mt20 plr0" style="border-bottom:1px solid #ccc;margin-bottom:12px">
+          <div class="col-sm-1 col-xs-2 pl0">
+            <%= image_tag reply.user.avatar, width: 39, height: 37 %>
+          </div>
+          <div class="col-sm-11 col-xs-10 pr0">
+            <div class="form-group">
+              <p class="c-font-18 mb5">
+                <span9><%= reply.user.fullname %></span9>
+              </p>
+              <%= reply.message %>
+              <p>
+                <span class="reply" style="color:#78C2E9;cursor:pointer;" onclick="$('#form_reply_<%= comment.id %>').toggleClass('d_none')">Reply </span>
+                <!--<span><%= comment.created_at.strftime('%d-%m-%Y') %>-->
+                <span><%= distance_of_time_in_words(reply.created_at, from_time) %> ago</span>
+                </span>
+              </p>
+              <div class="clearfix"></div>
+            </div>
+          </div>
+        </div>
+        <% end %>
+      </div>
+
+      <div class="col-md-12 mt20 plr0 d_none" id="form_reply_<%= comment.id %>">
+        <div class="col-sm-11 col-xs-10 pr0">
+          <div class="form-group">
+            <%= form_tag '#', remote: true do %>
+            <%= text_area_tag 'message', '', class: 'col-sm-12', placeholder: "Write a comment", id: "message_#{comment.id}" %>
+            <%= button_tag "Reply", type: 'button', class: 'btn btn-default pull-right', onclick: "replyCommentIdea(#{comment.id})" %>
+            <% end %>
+            <div class="clearfix"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

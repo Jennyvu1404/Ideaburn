@@ -17,7 +17,7 @@
         .col-md-12.unit
           label.label About Company
           .input
-            = startup.text_area :about, spellcheck: "false"
+            = startup.text_area :about, spellcheck: "false", placeholder: 'About Company', required: true
             span.tooltip.tooltip-right-top Any useful information about company
         .col-md-6.col-xs-12.unit
           label.label Primary Business Line
@@ -32,7 +32,7 @@
         .col-md-12.unit
           label.label How It Work
           .input
-            = startup.text_area :work, spellcheck: "false"
+            = startup.text_area :work, spellcheck: "false", placeholder: 'How It Work', required: true
             span.tooltip.tooltip-right-top How it work ?
         .col-md-6.col-xs-12.unit
           label.label Register Company Name
@@ -112,11 +112,8 @@
       .j-row
         .col-md-6.col-xs-12.unit
           label.label City
-          .input
-            label.icon-right for="city"
-              i.fa.fa-map-marker
-            = f.text_field :city, id: 'city', placeholder: 'e.g New York', required: true
-            i
+          label.input.select
+            = render partial: 'subcity_select', locals: {parent_region: f.object.country, parent_city: f.object.region}
     #tab5.tab-pane.fade.in
       .j-row
         .col-md-6.col-xs-12.unit

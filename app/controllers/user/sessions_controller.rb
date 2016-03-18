@@ -28,6 +28,8 @@ class User::SessionsController < Devise::SessionsController
       user_ideas_path
     elsif current_user.startup?
       edit_user_registration_path
+    elsif current_user.investor?
+      edit_user_registration_path
     end
   end
 end

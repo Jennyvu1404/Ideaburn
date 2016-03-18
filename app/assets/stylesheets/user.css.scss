@@ -1,5 +1,6 @@
 /*
-*= require_directory ./user
+*= require_directory ./idea
+*= require ./idea/style
 *= require font-awesome
 */
 
@@ -268,6 +269,10 @@ li {
                 text-transform: uppercase;
                 font-size: 16px;
                 font-weight: 700;
+
+                a {
+                    color: #676767;
+                }
             }
         }
         .close-idea {
@@ -426,4 +431,12 @@ ul.nav li a {
 
 .type2 {
     display: none;
+}
+
+.blank_link {
+    color: #c9c9c9
+}
+
+#business_lines {
+    height: 100px;
 }

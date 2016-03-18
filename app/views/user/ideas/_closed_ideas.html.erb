@@ -2,7 +2,7 @@
 <div class="col-md-3" >
   <div class="totalviews">
     <%= image_tag asset_path('Totalviews-icon.png') %>
-    <span>Total Views</span> <%= @idea.views %>
+    <span>Total Views</span> <%= @idea.try(:views) %>
   </div>
 </div>
 <% end %>
