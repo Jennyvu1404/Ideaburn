@@ -1,0 +1,123 @@
+#page-wrapper
+  .switches
+    .acount-section
+      .acount-title.container-fluid
+        h2 = @user.fullname
+        h3 Profile View
+      .profile
+        .profile-content
+          .profile-image
+            = image_tag @user.avatar
+            .icon-share.container-fluid
+              button.left
+                i.fa.fa-linkedin
+              p = link_to @info.try(:linkedin_name),  @info.try(:linkedin), target: '_blank', class: 'blank_link'
+              button.right
+                i.fa.fa-question
+            = image_tag 'icon-text-profile.png', :class => 'icon-text-profile'
+            p.text = @info.try(:inspire_quote).truncate(150) unless @info.try(:inspire_quote).nil?
+            /! p.text - Steve Jobs
+          .profile-info
+            h3 About
+            p = @info.try(:about)
+            ul.list-info
+              li.active Personal Details
+              li Proffession
+              li Education
+              li
+                | Communication
+                button
+                  i.fa.fa-question
+            .info-content.container-fluid
+              .info-element
+                = image_tag '1.png'
+                = @user.fullname
+              .info-element
+                = image_tag '4.png'
+                = @user.email
+              .info-element
+                = image_tag '2.png'
+                = "DOB: #{@info.try(:dob)}"
+              .info-element
+                = image_tag '5.png'
+                = @info.try(:address)
+              .info-element
+                = image_tag '3.png'
+                = @info.try(:profession_company)
+              .info-element
+                = image_tag '7.png'
+                = @user.country_name
+            .info-content.container-fluid
+              .info-element
+                = image_tag '1.png'
+                = @info.try(:pro_type_name)
+              .info-element
+                = image_tag '4.png'
+                = @info.try(:pro_skill_name)
+              .info-element
+                = image_tag '2.png'
+                = @info.try(:profession_company)
+              .info-element
+                = image_tag '5.png'
+                = "#{@info.try(:profession_experience)} years" rescue "0 year"
+            .info-content.container-fluid
+              .info-element
+                = image_tag '2.png'
+                = @info.try(:graduation_name)
+              .info-element
+                = image_tag '5.png'
+                = @info.try(:university)
+            .info-content.container-fluid
+              .info-element
+                = image_tag '2.png'
+                = @info.try(:mobile)
+              .info-element
+                = image_tag '5.png'
+                = @info.try(:address)
+              .info-element
+                = image_tag '4.png'
+                = @info.try(:email_second)
+              .info-element
+                = image_tag '7.png'
+                = @info.try(:website)
+              .info-element
+                = image_tag '7.png'
+                = @info.try(:linkedin)
+              .info-element
+                = image_tag '7.png'
+                = @info.try(:skype)
+      ul.your-idea
+        li.title
+          = image_tag 'icon-postyouridea.png'
+          h4
+            = link_to 'POST YOUR IDEA', new_user_idea_path
+        li.close-idea Closed Ideas
+        - Idea.limit(10).each do |idea|
+          li.idea
+            = link_to user_idea_path(idea) do
+              h4 = idea.title
+            end
+            h5 = idea.description.truncate(70)
+
+        li.btn-plus
+          = link_to "#" do
+            button
+              i.fa.fa-plus
+          end
+  .clearfix
+
+javascript:
+  $(document).ready(function () {
+     //USER PROFILE
+     var current = $('.list-info > li:first-child');
+     var current_profile = 1;
+     var numProfile = $('.list-info > li').size();
+     $('.list-info > li').click(function() {
+         current.removeClass('active');
+         $('.profile-info > .info-content:nth-of-type(' + current_profile + ')').css('display', 'none');
+         current_profile = $(this).index() + 1;
+         current = $(this);
+         current.addClass('active');
+         $('.profile-info > .info-content:nth-of-type(' + current_profile + ')').css('display', 'block');
+     });
+  });

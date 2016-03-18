@@ -28,18 +28,21 @@ class User < ActiveRecord::Base
 
   def fullname
     if self.entrepreneur?
-      "#{self.entrepreneur.first_name} #{self.entrepreneur.last_name}" rescue self.username
+      "#{self.entrepreneur.first_name.capitalize} #{self.entrepreneur.last_name.capitalize}" rescue self.username
     elsif self.startup?
-      self.startup.name ||= self.username
+      self.startup.name rescue self.username
     elsif self.investor?
-      self.investor.name ||= self.username
+      self.investor.name rescue self.username
     end
   end
 
   def location
+    country = Carmen::Country.coded(self.country) if self.country
+    subregions = country.subregions unless country.nil?
+    region = subregions.coded(self.region) if self.region && subregions
     locations = []
-    locations << self.country if self.country
-    locations << self.region if self.region
+    locations << country.name if country
+    locations << region.name if region
     locations << self.city if self.city
     locations.join(', ')
   end
@@ -51,6 +54,11 @@ class User < ActiveRecord::Base
 
   def like?(idea_id)
     return self.likes.exists?(idea_id: idea_id)
+  end
+
+  def country_name
+    country = Carmen::Country.coded(self.country) if self.country
+    country.name rescue country
   end
 
 end

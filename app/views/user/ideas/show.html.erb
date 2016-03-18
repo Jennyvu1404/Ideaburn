@@ -161,14 +161,14 @@
               <div class="col-lg-8 plr0">
 
                 <%= form_tag comment_user_ideas_path, remote: true do %>
-                <%= text_area_tag 'message', '', class: 'col-sm-12', placeholder: "Write a comment" %>
-                <%= button_tag "Post", type: 'button', class: 'btn btn-default pull-right', onclick: "postCommentIdea(#{@idea.id})" %>
+                <%= text_area_tag 'message', '', class: 'col-sm-12 form-control', placeholder: "Write a comment" %>
+                <%= button_tag "Post", type: 'button', class: 'btn btn-default pull-right', onclick: "postCommentIdea(#{@idea.id})", style: "margin-top: 10px" %>
                 <% end %>
 
                 <div id="comments">
-                  <% @idea.comments.where(parent_id: nil).each do |comment| %>
+                  <!--<% @idea.comments.where(parent_id: nil).each do |comment| %>
                   <%= render 'comment', comment: comment %>
-                  <% end %>
+                  <% end %>-->
                 </div>
 
 
@@ -214,3 +214,20 @@
 </div>
 
 </div>
+
+<script>
+$(document).ready(function() {
+  var comments = $('#comments');
+  var url =  "/api/idea/comments/" + <%= @idea.id %>;
+  comments.load(url);
+  var realtime =  setInterval(function(){
+    comments.load(url);
+  }, 30000);
+  $('textarea[name="message"]').focus(function(){
+    clearInterval(realtime);
+  });
+  $('.reply').click(function(){
+    clearInterval(realtime);
+  });
+})
+</script>
