@@ -1,4 +1,9 @@
 <% from_time = Time.now %>
+<% if @notification.count < 1 %>
+  <li class="no-notification">
+    <i>You have 0 notifications</i>
+  </li>
+<% else %>
 <% @notification.each do |notification| %>
   <li class="sub-notification">
     <div class="sub-notification-left">
