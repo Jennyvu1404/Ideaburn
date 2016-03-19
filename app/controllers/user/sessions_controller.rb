@@ -25,11 +25,11 @@ class User::SessionsController < Devise::SessionsController
 
   def after_sign_in_path_for(resource)
     if current_user.entrepreneur?
-      user_ideas_path
+      session[:previous_url] || user_ideas_path
     elsif current_user.startup?
-      edit_user_registration_path
+      session[:previous_url] || edit_user_registration_path
     elsif current_user.investor?
-      edit_user_registration_path
+      session[:previous_url] || edit_user_registration_path
     end
   end
 end
