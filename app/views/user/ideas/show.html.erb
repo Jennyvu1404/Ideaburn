@@ -97,7 +97,7 @@
                     <br />
                     <div class="stars">
                       <span class="rating">Rate This</span>
-                      <input id="input-21d" value="2" type="number" class="rating" min=0 max=5 step=0.5 data-size="sm">
+                      <%= rating_for @idea, "visual_effects", stars: 10, enable_half: true, path: 'star_on', class: 'rating' %>
                     </div>
                   </div>
                 </div>

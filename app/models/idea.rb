@@ -13,6 +13,8 @@ class Idea < ActiveRecord::Base
   validates :title, presence: true
   validates :description, presence: true
 
+  ratyrate_rateable 'visual_effects', 'original_score', 'director', 'custome_design'
+
   def category
     Category.find(self.category_id)
   end

@@ -19,3 +19,5 @@
 //= require ./idea/star-rating
 //= require ./idea/jquery.ui.combobox
 //= require ./idea/page
+//= require jquery.raty
+//= require ratyrate
