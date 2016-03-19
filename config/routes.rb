@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  post '/rate' => 'rater#create', :as => 'rate'
   root to: 'home#index'
   get 'home/entrepreneur'
   get 'users/myacount'
@@ -37,4 +36,5 @@ Rails.application.routes.draw do
   get 'entrepreneur/:id', to: 'user/entrepreneurs#show', as: 'entrepreneur'
   get 'investers' => 'user/investers#index'
   get 'startups' => 'user/startups#index'
+  post '/rate' => 'rater#create', :as => 'rate'
 end
