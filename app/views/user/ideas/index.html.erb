@@ -70,7 +70,7 @@
                   <div class="col-md-12 bg-white p0">
                     <p class="col-md-6 text-left">
                       <%= image_tag asset_path('location-icon-grey.png'), style: 'vertical-align:top;' %>
-                      Bangalore</p><p class="col-md-6 text-right">
+                      <%= idea.user.location %></p><p class="col-md-6 text-right">
                       <%= image_tag asset_path('submitdate-icon.png'), style: 'vertical-align:top;' %>
                       <%= idea.created_at.strftime('%B %d, %Y') %></p>
                     </div>
@@ -104,13 +104,7 @@
                   <div class="clear"></div>
                 </div>
                 <div class="col-md-5 ">
-                  <div class="star">
-                    <%= image_tag asset_path('star-icon.png') %>
-                    <%= image_tag asset_path('star-icon.png') %>
-                    <%= image_tag asset_path('star-icon.png') %>
-                    <%= image_tag asset_path('star-icon.png') %>
-                    <%= image_tag asset_path('star-icon-grey.png') %>
-                  </div>
+                  <%= rating_for idea, "visual_effects", stars: 10, enable_half: true, path: 'star_on', class: 'rating' %>
                   <div class="clear"></div>
                 </div>
 
