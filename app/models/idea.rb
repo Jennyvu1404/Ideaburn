@@ -23,4 +23,14 @@ class Idea < ActiveRecord::Base
     return 0 if self.likes.count.zero?
     self.likes.count / self.views
   end
+
+  def total_rating
+    Rate.where(rateable_type: "Idea", rateable_id: self.id).count
+  end
+
+  def rating
+    total = Rate.where(rateable_type: "Idea", rateable_id: self.id).count
+    total_stars = Rate.where(rateable_type: "Idea", rateable_id: self.id).sum(:stars)
+    return total > 0 ? (( total_stars * 2 ) / total).round(1) : 0.0
+  end
 end
