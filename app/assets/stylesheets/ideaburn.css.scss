@@ -301,3 +301,11 @@ li.see-all-notification {
 span.badge11 {
   display: none;
 }
+
+.notifications-icon:hover, .notifications-icon:focus, .msg-icon:hover, .msg-icon:focus {
+  cursor: pointer;
+}
+
+i.minutes {
+  font-style: normal;
+}

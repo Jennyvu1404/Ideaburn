@@ -6,34 +6,25 @@ var pusher = new Pusher('5cc1643b6d3132075121', {
 
 var channel = pusher.subscribe('notification_channel');
 
-channel.bind('comment', function(data) {
-  console.log(data);
-  if(uid == data.author) {
-    notifications(data);
+channel.bind('commented', function(data) {
+  if(uid == data.author){
+    notifications();
   }
 });
 
-channel.bind('like', function(data) {
-  console.log(data);
-  if(uid == data.author) {
-    notifications(data);
+channel.bind('liked', function(data) {
+  if(uid == data.author){
+    notifications();
   }
 });
 
-function notifications(data) {
-  /*var hmtl = '<li class="sub-notification">';
-  hmtl += '<div class="sub-notification-left">';
-  hmtl += '<img src="'+data.commenterAvatar+'">';
-  hmtl += '</div>';
-  hmtl += '<div class="sub-notification-middle">';
-  hmtl += '<a href="#">'+data.message+'</a><br/>';
-  hmtl += '<i class="fa fa-commenting-o"></i> <i class="minutes">48 minutes ago</i>';
-  hmtl += '</div>';
-  hmtl += '<div class="sub-notification-right">';
-  hmtl += '<%= image_tag('thumbs-img4.jpg') %>';
-  hmtl += '</div>';
-  hmtl += '</li>';
-  $(hmtl).insertBefore($notifications.find('li:first'));*/
+channel.bind('rated', function(data) {
+  if(uid == data.author){
+    notifications();
+  }
+});
+
+function notifications() {
   $notifications.find('li.no-notification').remove();
   $('.notifications-icon span.badge11').css({"display": "block"});
 }
@@ -50,5 +41,9 @@ $(document).ready(function() {
   $notifications.load(url);
   $('.profile_details_drop, .prof-img, .msg-icon').on('click', function(){
     $notifications.css({"display":"none"});
+  });
+
+  $('#page-wrapper').click(function(){
+    $('ul.drp-notification').css({"display": "none"});
   });
 });

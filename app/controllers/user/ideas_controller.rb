@@ -77,17 +77,16 @@ class User::IdeasController < ApplicationController
     else
       like = current_user.likes.where(idea_id: @idea.id).first_or_create
       like.save
-      Pusher.trigger('notification_channel', 'like', {
-        message: "#{current_user.fullname} liked your post",
-        author: @idea.user.id,
-        commenter: current_user.id,
-        commenterAvatar: ActionController::Base.helpers.asset_path(current_user.avatar),
-        idea: @idea.id
-      })
-      noti = Notification.create(message: "#{current_user.fullname} liked your post", notification_type: 1,  )
-      noti.user = current_user
-      noti.idea = @idea
-      noti.save!
+      if current_user.id != @idea.user.id
+        Pusher.trigger('notification_channel', 'liked', {
+          message: true,
+          author: @idea.user.id
+        })
+        noti = Notification.create(message: "#{current_user.fullname} liked your post", notification_type: 2, author: @idea.user.id)
+        noti.user = current_user
+        noti.idea = @idea
+        noti.save!
+      end
     end
     render 'user/ideas/_like', layout: false
   end
@@ -95,17 +94,16 @@ class User::IdeasController < ApplicationController
   def create_comment
     @comment = current_user.comments.build(idea_id: params[:idea_id], message: params[:message])
     @comment.save
-    Pusher.trigger('notification_channel', 'comment', {
-      message: "#{current_user.fullname} commented on your post",
-      author: @comment.idea.user.id,
-      commenter: current_user.id,
-      commenterAvatar: ActionController::Base.helpers.asset_path(current_user.avatar),
-      idea: @comment.idea.attachment
-    })
-    noti = Notification.create(message: "#{current_user.fullname} commented on your post", notification_type: 1,  )
-    noti.user = current_user
-    noti.idea = @comment.idea
-    noti.save!
+    if current_user.id != @comment.idea.user.id
+      Pusher.trigger('notification_channel', 'commented', {
+        message: true,
+        author: @comment.idea.user.id
+      })
+      noti = Notification.create(message: "#{current_user.fullname} commented on your post", notification_type: 1, author: @comment.idea.user.id)
+      noti.user = current_user
+      noti.idea = @comment.idea
+      noti.save!
+    end
     render 'user/ideas/_comment', layout: false
   end
 
