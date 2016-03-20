@@ -51,7 +51,7 @@ class User < ActiveRecord::Base
   end
 
   def avatar
-    return 'Profile-Picture-Change-icon.png' if self.photo.blank?
+    return ActionController::Base.helpers.asset_path('Profile-Picture-Change-icon.png') if self.photo.blank?
     self.photo
   end
 
