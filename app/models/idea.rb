@@ -33,4 +33,15 @@ class Idea < ActiveRecord::Base
     total_stars = Rate.where(rateable_type: "Idea", rateable_id: self.id).sum(:stars)
     return total > 0 ? (( total_stars * 2 ) / total).round(1) : 0.0
   end
+
+  def like_description
+    if self.likes.count.zero?
+      description = "Be the first like this"
+    elsif self.likes.count == 1
+      description =  "<span style='color:#78C2E9;cursor:pointer;'>#{self.likes.first.user.fullname}</span> likes this".html_safe
+    else
+      offset = rand(self.likes.count)
+      description = "<span style='color:#78C2E9;cursor:pointer;'>#{self.likes.offset(offset).first.user.fullname}</span> and #{self.likes.count - 1} others likes this".html_safe
+    end
+  end
 end
