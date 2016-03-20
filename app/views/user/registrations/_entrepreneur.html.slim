@@ -59,10 +59,8 @@
 
         .col-md-6.col-xs-12.unit
           label.label City
-          .input
-            label.icon-right for="city"
-              i.fa.fa-map-marker
-            = f.text_field :city, id: 'city', placeholder: 'e.g New York', required: true
+          label.input.select
+            = render partial: 'subcity_select', locals: {parent_region: f.object.country, parent_city: f.object.region}
 
 
       /! end email phone

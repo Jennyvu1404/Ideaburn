@@ -19,6 +19,7 @@ Rails.application.routes.draw do
     get 'states/:country', to: 'location#states'
     get 'cities/:country/:state', to: 'location#cities'
     get 'subregion_options', to: 'location#subregion_options'
+    get 'idea/comments/:id', to: 'idea#comments'
   end
 
   namespace :user do
@@ -30,5 +31,8 @@ Rails.application.routes.draw do
       end
     end
   end
-  get 'entrepreneurs', to: 'user/entrepreneurs#index'
+  get 'entrepreneurs' => 'user/entrepreneurs#index'
+  get 'entrepreneur/:id', to: 'user/entrepreneurs#show', as: 'entrepreneur'
+  get 'investers' => 'user/investers#index'
+  get 'startups' => 'user/startups#index'
 end

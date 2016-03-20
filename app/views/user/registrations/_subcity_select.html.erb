@@ -3,8 +3,8 @@
   <% parent_city ||= params[:parent_city] %>
   <% cities = CS.cities(parent_city, parent_region) %>
   <% if cities.nil? %>
-
+    <%= text_field(:user, :city, placeholder: 'e.g New York', required: true) %>
   <% else %>
-    <%= text_field(:user, :city) %>
+     <%= select(:user, :city, cities) %>
   <% end %>
 </div>
