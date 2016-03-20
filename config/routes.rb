@@ -19,7 +19,7 @@ Rails.application.routes.draw do
     get 'states/:country', to: 'location#states'
     get 'cities/:country/:state', to: 'location#cities'
     get 'subregion_options', to: 'location#subregion_options'
-    get 'idea/comments/:id', to: 'idea#comments'
+    get 'idea/comments/:id/:limit', to: 'idea#comments'
     get 'notifications/all', to: 'notification#index'
     get 'notifications/seen', to: 'notification#seen'
   end
