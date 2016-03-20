@@ -30,3 +30,11 @@
   <%= link_to "See All", "" %>
 </li>
 <% end %>
+
+<script>
+<% if !@notification.last.seen %>
+$('.notifications-icon span.badge11').css({"display": "block"});
+<% else %>
+$('.notifications-icon span.badge11').css({"display": "none"});
+<% end %>
+</script>

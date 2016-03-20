@@ -21,6 +21,7 @@ Rails.application.routes.draw do
     get 'subregion_options', to: 'location#subregion_options'
     get 'idea/comments/:id', to: 'idea#comments'
     get 'notifications/all', to: 'notification#index'
+    get 'notifications/seen', to: 'notification#seen'
   end
 
   namespace :user do

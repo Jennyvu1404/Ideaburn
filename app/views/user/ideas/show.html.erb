@@ -224,9 +224,9 @@ $(document).ready(function() {
   var comments = $('#comments');
   var url =  "/api/idea/comments/" + <%= @idea.id %>;
   comments.load(url);
-  var realtime =  setInterval(function(){
+  /*var realtime =  setInterval(function(){
     comments.load(url);
-  }, 60000);
+  }, 60000);*/
   $('textarea[name="message"]').focus(function(){
     clearInterval(realtime);
   });
