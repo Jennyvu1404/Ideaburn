@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   root to: 'home#index'
   get 'home/entrepreneur'
   get 'users/myacount'
+  get 'users/notification'
 
   devise_for :users, path: 'user',
   module: :user,
