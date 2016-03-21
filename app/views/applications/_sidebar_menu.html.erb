@@ -25,7 +25,6 @@
   </div>
   <div class="left-side-inner">
     <ul class="nav nav-pills nav-stacked custom-nav">
-      <% if current_user.entrepreneur? %>
       <li id="tbl1" class="<%= 'active' if controller_name == 'ideas' && action_name == 'index' %>">
         <a href="<%= user_ideas_path %>">
           <%= image_tag('SideNav-Icons-1.png', style: "visibility:hidden;") %><span>Dashboard</span><span1>
@@ -39,21 +38,102 @@
           <%= image_tag('arrow-left.png') %>
         </span2></a>
       </li>
+      <li id="tbl2">
+        <a href="#">
+          <%= image_tag('SideNav-Icons-4-Normal.png', style: "visibility:hidden;") %><span>Public Ideas</span>
+          <span2>
+            <%= image_tag('arrow-left.png') %>
+          </span2>
+        </a>
+      </li>
+      <% if current_user.entrepreneur? %>
+        <li id="tbl2">
+          <a href="#">
+            <%= image_tag('SideNav-Icons-4-Normal.png', style: "visibility:hidden;") %><span>Post idea</span>
+            <span4>
+              <%= image_tag('arrow-left.png') %>
+            </span4>
+          </a>
+        </li>
       <% end %>
+
+      <% if current_user.startup? %>
+        <li id="tbl2">
+          <a href="#">
+            <%= image_tag('SideNav-Icons-4-Normal.png', style: "visibility:hidden;") %><span>Post idea (Public)</span>
+            <span2>
+              <%= image_tag('arrow-left.png') %>
+            </span2>
+          </a>
+        </li>
+        <li id="tbl2">
+          <a href="#">
+            <%= image_tag('SideNav-Icons-4-Normal.png', style: "visibility:hidden;") %><span>Submit B-Proposal</span>
+            <span2>
+              <%= image_tag('arrow-left.png') %>
+            </span2>
+          </a>
+        </li>
+      <% end %>
+
+      <% if current_user.investor? %>
+        <li id="tbl2">
+          <a href="#">
+            <%= image_tag('SideNav-Icons-4-Normal.png', style: "visibility:hidden;") %><span>Post idea (Public)</span>
+            <span2>
+              <%= image_tag('arrow-left.png') %>
+            </span2>
+          </a>
+        </li>
+        <li id="tbl2">
+          <a href="#">
+            <%= image_tag('SideNav-Icons-4-Normal.png', style: "visibility:hidden;") %><span> Business ideas</span>
+            <span2>
+              <%= image_tag('arrow-left.png') %>
+            </span2>
+          </a>
+        </li>
+      <% end %>
+
+      <li id="tbl3">
+          <a href="#">
+            <%= image_tag('SideNav-Icons-3-Normal.png', style: "visibility:hidden;") %><span>Investors</span><span3>
+            <%= image_tag('arrow-left.png') %>
+          </span4>
+        </a>
+      </li>
+
       <li id="tbl3">
         <a href="#">
-          <%= image_tag('SideNav-Icons-3-Normal.png', style: "visibility:hidden;") %><span>Investers</span><span3>
-          <%= image_tag('arrow-left.png') %>
-        </span4>
-      </a>
-    </li>
-    <li id="tbl4" class="menu-list">
-      <a href="#">
-        <%= image_tag('SideNav-Icons-4-Normal.png', style: "visibility:hidden;") %><span>Analytics</span>
-        <span4>
-          <%= image_tag('arrow-left.png') %>
-        </span4></a>
+          <%= image_tag('SideNav-Icons-3-Normal.png', style: "visibility:hidden;") %><span>Startups</span>
+          <span3>
+            <%= image_tag('arrow-left.png') %>
+          </span3>
+        </a>
+      </li>
+      <li id="tbl3">
+        <a href="#">
+          <%= image_tag('SideNav-Icons-3-Normal.png', style: "visibility:hidden;") %><span>Entreprenuers</span>
+          <span2>
+            <%= image_tag('arrow-left.png') %>
+          </span2>
+        </a>
+      </li>
+      <li id="tbl2">
+        <a href="#">
+          <%= image_tag('SideNav-Icons-4-Normal.png', style: "visibility:hidden;") %><span>MyIdeas</span>
+          <span4>
+            <%= image_tag('arrow-left.png') %>
+          </span4>
+        </a>
+      </li>
 
+      <li id="tbl4" class="menu-list">
+        <a href="#">
+          <%= image_tag('SideNav-Icons-4-Normal.png', style: "visibility:hidden;") %><span>Analytics</span>
+          <span4>
+            <%= image_tag('arrow-left.png') %>
+          </span4></a>
       </li>
 
     </ul>

@@ -82,7 +82,7 @@ class User::IdeasController < ApplicationController
           message: true,
           author: @idea.user.id
         })
-        noti = Notification.create(message: "#{current_user.fullname} liked your post", notification_type: 2, author: @idea.user.id)
+        noti = Notification.new(message: "#{current_user.fullname} liked your post", notification_type: 2, author: @idea.user.id)
         noti.user = current_user
         noti.idea = @idea
         noti.save!
@@ -99,7 +99,7 @@ class User::IdeasController < ApplicationController
         message: true,
         author: @comment.idea.user.id
       })
-      noti = Notification.create(message: "#{current_user.fullname} commented on your post", notification_type: 1, author: @comment.idea.user.id)
+      noti = Notification.new(message: "#{current_user.fullname} commented on your post", notification_type: 1, author: @comment.idea.user.id)
       noti.user = current_user
       noti.idea = @comment.idea
       noti.save!

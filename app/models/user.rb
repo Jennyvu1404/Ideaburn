@@ -42,7 +42,7 @@ class User < ActiveRecord::Base
   def location
     country = Carmen::Country.coded(self.country) if self.country
     subregions = country.subregions unless country.nil?
-    region = subregions.coded(self.region) if self.region && subregions
+    region = subregions.coded(self.region) if self.region && subregions.present?
     locations = []
     locations << country.name if country
     locations << region.name if region
