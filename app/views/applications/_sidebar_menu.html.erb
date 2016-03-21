@@ -42,19 +42,62 @@
       <% end %>
       <li id="tbl3">
         <a href="#">
-          <%= image_tag('SideNav-Icons-3-Normal.png', style: "visibility:hidden;") %><span>Investers</span><span3>
+          <%= image_tag('SideNav-Icons-3-Normal.png', style: "visibility:hidden;") %><span>Investors</span><span3>
           <%= image_tag('arrow-left.png') %>
         </span4>
       </a>
     </li>
+
+    <li id="tbl2">
+      <a href="#">
+        <%= image_tag('SideNav-Icons-3-Normal.png', style: "visibility:hidden;") %><span>Startups</span>
+        <span4>
+          <%= image_tag('arrow-left.png') %>
+        </span4>
+      </a>
+    </li>
+    <li id="tbl2">
+      <a href="#">
+        <%= image_tag('SideNav-Icons-3-Normal.png', style: "visibility:hidden;") %><span>Entreprenuers</span>
+        <span2>
+          <%= image_tag('arrow-left.png') %>
+        </span2>
+      </a>
+    </li>
+    <li id="tbl2">
+      <a href="#">
+        <%= image_tag('SideNav-Icons-4-Normal.png', style: "visibility:hidden;") %><span>MyIdeas</span>
+        <span4>
+          <%= image_tag('arrow-left.png') %>
+        </span4>
+      </a>
+    </li>
+    <li id="tbl2">
+      <a href="#">
+        <%= image_tag('SideNav-Icons-4-Normal.png', style: "visibility:hidden;") %><span>MyEvents</span>
+        <span4>
+          <%= image_tag('arrow-left.png') %>
+        </span4>
+      </a>
+    </li>
+    <% if current_user.entrepreneur? %>
+      <li id="tbl3">
+        <a href="#">
+          <%= image_tag('SideNav-Icons-4-Normal.png', style: "visibility:hidden;") %><span>Analytics</span>
+          <span4>
+            <%= image_tag('arrow-left.png') %>
+          </span4>
+        </a>
+      </li>
+    <% end %>
+
     <li id="tbl4" class="menu-list">
       <a href="#">
         <%= image_tag('SideNav-Icons-4-Normal.png', style: "visibility:hidden;") %><span>Analytics</span>
         <span4>
           <%= image_tag('arrow-left.png') %>
         </span4></a>
-
-      </li>
+    </li>
 
     </ul>
   </div>

@@ -441,3 +441,106 @@ ul.nav li a {
 #business_lines {
     height: 100px;
 }
+
+.personal-update {
+    min-height: 560px;
+    padding: 20px;
+
+    h3.form-tile {
+        font-size: 15px;
+        font-weight: bold;
+        color: #6B6B6D;
+    }
+
+    .form-content {
+        height: 500px;
+    }
+
+    hr {
+        max-width: 100%;
+        border-bottom: 1px solid #DBDBDB;
+    }
+
+    label {
+        font-size: 16px;
+        margin-top: 6px;
+        line-height: 16px;
+        height: 16px;
+        display: block;
+        color: inherit;
+        text-align: left;
+        white-space: nowrap;
+        vertical-align: baseline;
+    }
+
+    i {
+        font-size: 11px;
+        font-weight: normal;
+    }
+
+    input {
+        background: #fff;
+        border: 1px solid rgba(0,0,0,.12);
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        -o-border-radius: 3px;
+        border-radius: 3px;
+        color: rgba(0,0,0,.87);
+        display: block;
+        font-family: inherit;
+        font-size: 14px;
+        height: 40px;
+        padding: 5px 15px;
+        width: 100%;
+        outline: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        -webkit-transition: all.4s;
+        -moz-transition: all.4s;
+        -ms-transition: all.4s;
+        -o-transition: all.4s;
+        transition: all.4s;
+    }
+
+    input:focus {
+        border-color: #fed000;
+    }
+
+    button {
+        border: none;
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        -o-border-radius: 3px;
+        border-radius: 3px;
+        color: #000;
+        background: #fed000;
+        display: block;
+        cursor: pointer;
+        float: right;
+        font: 16px 'Open Sans',Helvetica,Arial,sans-serif;
+        height: 48px;
+        margin: 10px 0 10px 20px;
+        outline: none;
+        padding: 0 25px;
+        white-space: nowrap;
+        font-weight: 600;
+        position: relative;
+    }
+
+    button:hover {
+        background: #FFCA28;
+    }
+
+    .alert-danger {
+        h2 {
+            font-size: 16px;
+        }
+        li {
+            font-size: 13px;
+        }
+    }
+}

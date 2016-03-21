@@ -11,7 +11,7 @@ class RaterController < ApplicationController
           message: true,
           author: idea.user.id
         })
-        noti = Notification.create(message: "#{current_user.fullname} rated your post", notification_type: 3, author: idea.user.id)
+        noti = Notification.new(message: "#{current_user.fullname} rated your post", notification_type: 3, author: idea.user.id)
         noti.user = current_user
         noti.idea = idea
         noti.save!

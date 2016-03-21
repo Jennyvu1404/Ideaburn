@@ -57,6 +57,20 @@ class User::RegistrationsController < Devise::RegistrationsController
     end
   end
 
+  def edit_password
+    @user = User.find(current_user.id)
+  end
+
+  def update_password
+    @user = User.find(current_user.id)
+    if @user.update_with_password(update_pwd_params)
+      sign_in @user, :bypass => true
+      redirect_to root_path
+    else
+      render "edit_password"
+    end
+  end
+
   # DELETE /resource
   # def destroy
   #   super
@@ -100,7 +114,7 @@ class User::RegistrationsController < Devise::RegistrationsController
   private
 
   def layout_by_action
-    action_name == "edit" || action_name == "update" ?  "user" : "application"
+    action_name == "edit" || action_name == "update" || action_name == "edit_password" || action_name == "update_password" ?  "user" : "application"
   end
 
   def startup_params
@@ -114,6 +128,11 @@ class User::RegistrationsController < Devise::RegistrationsController
   def investor_params
     params[:user][:investor].permit(:name, :founded, :category, :website, :mission, :work, :register_under)
   end
+
+  def update_pwd_params
+    params.require(:user).permit(:current_password, :password, :password_confirmation)
+  end
+
   protected
 
   def update_resource(resource, params)
