@@ -8,6 +8,14 @@ $(document).ready(function () {
   //Aminate
   $('.c-theme-nav > li').click(function(){
     $('.c-layout-page').css({'animation-name':'animate_home', 'animation-duration':'5s'});
+    $('.c-pull-left').css({'animation-name':'animate_home', 'animation-duration':'5s'});
+    $('.entrepreneur-section').css({'animation-name':'animate_home', 'animation-duration':'5s'});
+    var index = $(this).index() + 1;
+    for(var i = 0; i <= $('.c-theme-nav > li').size(); i++){
+      if(i != index){
+        $('.c-theme-nav > li:nth-child(' + i + ')').css({'animation-name':'animate_home', 'animation-duration':'5s'});
+      }
+    }
   });
 
 
