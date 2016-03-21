@@ -117,7 +117,12 @@ class User::RegistrationsController < Devise::RegistrationsController
   private
 
   def layout_by_action
-    action_name == "edit" || action_name == "update" || action_name == "edit_password" || action_name == "update_password" || action_name == "notification" ?  "user" : "application"
+    actions = ['edit', 'update', 'edit_password', 'update_password', 'notification']
+    if actions.include? action_name
+      "user"
+    else
+      "application"
+    end
   end
 
   def startup_params
