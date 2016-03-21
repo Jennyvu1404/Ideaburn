@@ -5,9 +5,12 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable,
          :registerable, :confirmable
 
+  ratyrate_rater
+
   has_many :ideas
   has_many :comments
   has_many :likes
+  has_many :notifications
   has_one :startup, dependent: :destroy, :autosave => true
   accepts_nested_attributes_for :startup, reject_if: proc { |attributes| attributes['name'].blank? },
   allow_destroy: true
@@ -48,7 +51,7 @@ class User < ActiveRecord::Base
   end
 
   def avatar
-    return 'Profile-Picture-Change-icon.png' if self.photo.blank?
+    return ActionController::Base.helpers.asset_path('Profile-Picture-Change-icon.png') if self.photo.blank?
     self.photo
   end
 

@@ -1,7 +1,7 @@
 <% from_time = Time.now %>
-<% @idea.comments.where(parent_id: nil).order(id: :desc).each do |comment| %>
+<% @comments.each do |comment| %>
   <% comment ||= @comment %>
-  <div class="col-md-12" style="margin-bottom:12px">
+  <div class="col-md-12 children-comment" style="margin-bottom:12px">
     <div class="col-sm-1 col-xs-2 pl0">
       <%= image_tag comment.user.avatar, width: 39, height: 37 %>
     </div>
@@ -58,3 +58,6 @@
     </div>
   </div>
 <% end %>
+<script>
+  $('.load-more').css({"display":"none"});
+</script>

@@ -2,6 +2,7 @@ class Api::IdeaController < ApplicationController
   before_action :get_idea, only: [:comments]
 
   def comments
+    @comments = @idea.comments.where(parent_id: nil).order(id: :desc).limit(params[:limit])
     render layout: false
   end
 

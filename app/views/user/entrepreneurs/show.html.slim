@@ -24,7 +24,7 @@
               li.active Personal Details
               li Proffession
               li Education
-              li
+              li.disabled
                 | Communication
                 button
                   i.fa.fa-question
@@ -49,27 +49,27 @@
                 = @user.country_name
             .info-content.container-fluid
               .info-element
-                = image_tag '1.png'
+                i.fa.fa-info.img
                 = @info.try(:pro_type_name)
               .info-element
-                = image_tag '4.png'
+                i.fa.fa-hand-o-right.img
                 = @info.try(:pro_skill_name)
               .info-element
-                = image_tag '2.png'
+                = image_tag '3.png'
                 = @info.try(:profession_company)
               .info-element
-                = image_tag '5.png'
+                i.fa.fa-briefcase.img
                 = "#{@info.try(:profession_experience)} years" rescue "0 year"
             .info-content.container-fluid
               .info-element
-                = image_tag '2.png'
+                i.fa.fa-graduation-cap.img
                 = @info.try(:graduation_name)
               .info-element
-                = image_tag '5.png'
+                i.fa.fa-university.img
                 = @info.try(:university)
             .info-content.container-fluid
               .info-element
-                = image_tag '2.png'
+                i.fa.fa-phone.img &nbsp;
                 = @info.try(:mobile)
               .info-element
                 = image_tag '5.png'
@@ -78,13 +78,13 @@
                 = image_tag '4.png'
                 = @info.try(:email_second)
               .info-element
-                = image_tag '7.png'
+                i.fa.fa-globe.img &nbsp;
                 = @info.try(:website)
               .info-element
-                = image_tag '7.png'
+                i.fa.fa-linkedin.img &nbsp;
                 = @info.try(:linkedin)
               .info-element
-                = image_tag '7.png'
+                i.fa.fa-skype.img &nbsp;
                 = @info.try(:skype)
       ul.your-idea
         li.title
@@ -105,19 +105,3 @@
               i.fa.fa-plus
           end
   .clearfix
-
-javascript:
-  $(document).ready(function () {
-     //USER PROFILE
-     var current = $('.list-info > li:first-child');
-     var current_profile = 1;
-     var numProfile = $('.list-info > li').size();
-     $('.list-info > li').click(function() {
-         current.removeClass('active');
-         $('.profile-info > .info-content:nth-of-type(' + current_profile + ')').css('display', 'none');
-         current_profile = $(this).index() + 1;
-         current = $(this);
-         current.addClass('active');
-         $('.profile-info > .info-content:nth-of-type(' + current_profile + ')').css('display', 'block');
-     });
-  });
