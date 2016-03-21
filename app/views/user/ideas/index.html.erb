@@ -121,7 +121,10 @@
         </div>
 
         <% end %>
-        <%= paginate @ideas %>
+        <div class="col-md-12 idea-paginate">
+          <%= paginate @ideas, :theme => 'twitter-bootstrap' %>
+        </div>
+
       </div>
       <%= render 'closed_ideas' %>
       <div class="clearfix"></div>

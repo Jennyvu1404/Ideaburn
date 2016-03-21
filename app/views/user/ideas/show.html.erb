@@ -126,8 +126,9 @@
                       <div class="fill"></div>
                     </div>
                   </div></center>
-
-                  <%= image_tag asset_path('IdeaDetails-img.jpg'), class: 'img-responsive', style: 'width:100%' %>
+                  <% if @idea.attachment %>
+                    <%= image_tag asset_path(@idea.attachment), class: 'img-responsive', style: 'width:100%' %>
+                  <% end %>
                 </div>
               </div>
               <div class="clearfix"></div>
