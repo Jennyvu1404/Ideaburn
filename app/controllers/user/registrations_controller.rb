@@ -71,6 +71,9 @@ class User::RegistrationsController < Devise::RegistrationsController
     end
   end
 
+  def notification
+  end
+
   # DELETE /resource
   # def destroy
   #   super
@@ -114,7 +117,7 @@ class User::RegistrationsController < Devise::RegistrationsController
   private
 
   def layout_by_action
-    action_name == "edit" || action_name == "update" || action_name == "edit_password" || action_name == "update_password" ?  "user" : "application"
+    action_name == "edit" || action_name == "update" || action_name == "edit_password" || action_name == "update_password" || action_name == "notification" ?  "user" : "application"
   end
 
   def startup_params

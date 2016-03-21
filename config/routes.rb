@@ -15,6 +15,7 @@ Rails.application.routes.draw do
     get 'user/logout' => 'user/sessions#destroy'
     get 'user/my_acount' => 'user/registrations#edit_password', as: 'my_acount'
     post 'user/update_password' => 'user/registrations#update_password'
+    get 'user/notification' => 'user/registrations#notification', as: 'notification'
   end
   resources :users
 
