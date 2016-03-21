@@ -32,7 +32,7 @@
 <% end %>
 
 <script>
-<% if !@notification.last.seen %>
+<% if @notification.last &&  !@notification.last.seen %>
 $('.notifications-icon span.badge11').css({"display": "block"});
 <% else %>
 $('.notifications-icon span.badge11').css({"display": "none"});
