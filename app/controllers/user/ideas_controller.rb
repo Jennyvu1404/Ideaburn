@@ -1,6 +1,5 @@
 class User::IdeasController < ApplicationController
   before_action :authenticate_user!
-  before_action :authenticate_entrepreneur!
   layout 'idea'
   before_action :set_idea, only: [:show, :edit, :update, :destroy]
 
@@ -8,9 +7,9 @@ class User::IdeasController < ApplicationController
   # GET /ideas.json
   def index
     if params[:q]
-      ideas = current_user.ideas.by_keyword(params[:q])
+      ideas = Idea.by_keyword(params[:q])
     else
-      ideas = current_user.ideas
+      ideas = Idea.all
     end
     @ideas = ideas.page(params[:page]).order('created_at desc')
   end
