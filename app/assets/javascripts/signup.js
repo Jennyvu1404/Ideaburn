@@ -5,6 +5,12 @@ $(document).ready(function () {
       _renderFormUserType(userType);
   });*/
 
+  //Aminate
+  $('.c-theme-nav > li').click(function(){
+    $('.c-layout-page').css({'animation-name':'animate_home', 'animation-duration':'5s'});
+  });
+
+
   $('[data-country_select]').change(function () {
     var input_state = $('[data-state_select]');
     var first_city = ""
