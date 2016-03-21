@@ -1,4 +1,5 @@
 //= require jquery
+//= require cocoon
 //= require jquery_ujs
 //= require_tree ./user
 

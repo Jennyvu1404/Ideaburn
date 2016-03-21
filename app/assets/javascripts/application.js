@@ -17,3 +17,4 @@
 //= require signup
 //= require_tree ./plugins
 //= require_tree ./base
+//= require cocoon

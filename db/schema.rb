@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160315054358) do
+ActiveRecord::Schema.define(version: 20160318090813) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -136,13 +136,6 @@ ActiveRecord::Schema.define(version: 20160315054358) do
     t.string   "window_app"
     t.string   "address_line_1"
     t.string   "address_line_2"
-    t.string   "team_name"
-    t.integer  "team_designation"
-    t.date     "team_joined_date"
-    t.string   "team_email_d"
-    t.string   "team_mobile"
-    t.string   "team_linkedin"
-    t.string   "team_skype"
     t.integer  "funding_type"
     t.string   "funding_amout"
     t.string   "funding_date"
@@ -151,6 +144,19 @@ ActiveRecord::Schema.define(version: 20160315054358) do
   end
 
   add_index "startups", ["user_id"], name: "index_startups_on_user_id", using: :btree
+
+  create_table "teams", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "designation"
+    t.date     "joined_date"
+    t.string   "email"
+    t.string   "mobile"
+    t.string   "linkedin"
+    t.string   "skype"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "startup_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -171,8 +177,12 @@ ActiveRecord::Schema.define(version: 20160315054358) do
     t.string   "city"
     t.string   "region"
     t.string   "photo"
+    t.string   "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
   end
 
+  add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
