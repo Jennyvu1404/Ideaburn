@@ -8,6 +8,9 @@ class Idea < ActiveRecord::Base
   mount_uploader :attachment, UserUploader
 
   scope :by_keyword, -> (q){where("title LIKE '%#{q}%'")}
+  scope :by_category, -> (c){where(:category_id => c)}
+  scope :by_country, -> (c){joins(:user).where("users.country" => c)}
+  scope :by_country_category, -> (country, c){joins(:user).where("users.country" => country, :category_id => c)}
 
   validates :category_id, presence: true
   validates :title, presence: true

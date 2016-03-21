@@ -1,8 +1,19 @@
 <script>
   $(function() {
-    $('.state').combobox({
+    $('.category').combobox({
       valueField:'this.state.',
-      textField:'text'
+      textField:'text',
+      change:function(){
+        window.location = '?country=' + $('.country').val() + '&c=' + $(this).val();
+      }
+    });
+
+    $('.country').combobox({
+      valueField:'this.state.',
+      textField:'text',
+      change:function(){
+        window.location = '?country=' + $(this).val() + '&c=' + $('.category').val();
+      }
     });
   })
 </script>
@@ -17,10 +28,9 @@
           <form id="searchform2">
             <div class="fieldcontainers">
               <div id="dd" class="wrapper-dropdown-3 easyui-combobox" tabindex="1">
-                <select class="state" >
+                <select class="country" >
                   <option value=""></option>
-                  <option value="AL">Alabama</option>
-                  <option value="AK">Alaska</option>
+                  <%= options_for_select(CS.countries.collect {|k,v| [ v, k ] }, selected: params[:country]) %>
                 </select>
 
               </div>
@@ -34,14 +44,9 @@
               <div class="fieldcontainers">
                 <div id="dd" class="wrapper-dropdown-3" tabindex="1">
 
-                  <select class="state" >
+                  <select class="category" >
                     <option value=""></option>
-                    <option value="AL">Industry1</option>
-                    <option value="AK">Industry2</option>
-                    <option value="AZ">Industry3</option>
-                    <option value="AR">Industry4</option>
-                    <option value="CA">Industry5</option>
-
+                    <%= options_for_select(Category.all.collect {|p| [ p.name, p.id ] }, selected: params[:c]) %>
                   </select>
                 </div>
 

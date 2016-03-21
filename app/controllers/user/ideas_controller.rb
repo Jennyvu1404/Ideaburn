@@ -8,6 +8,12 @@ class User::IdeasController < ApplicationController
   def index
     if params[:q]
       ideas = Idea.by_keyword(params[:q])
+    elsif params[:c] && params[:country] == ''
+      ideas = Idea.by_category(params[:c])
+    elsif params[:country] && params[:c] == ''
+      ideas = Idea.by_country(params[:country])
+    elsif params[:c] && params[:country] &&  params[:c] != '' && params[:country] != ''
+      ideas = Idea.by_country_category(params[:country], params[:c])
     else
       ideas = Idea.all
     end
