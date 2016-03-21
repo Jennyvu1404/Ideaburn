@@ -3,14 +3,14 @@
     .switches
       .col-4
         .col-md-12.p0
-          .col-md-3.mb30.nopad align="center"
+          .col-md-2.mb30.nopad align="center"
             .change_picture
               center
                 = image_tag asset_path(@user.avatar), class: 'mb8', id: 'image-preview'
             .update_border
             input#get_file.update-p style=("text-align: center;") type="button" value=("Change Picture") /
             = f.file_field :photo, :as => :file, accept: 'image/png,image/gif,image/jpeg', id: 'my_file'
-          .col-md-7.mb30.p0
+          .col-md-9.mb30.p0
             .col-md-12.p0
               .personal-details
                 .tab-content
