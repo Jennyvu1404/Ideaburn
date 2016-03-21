@@ -6,17 +6,11 @@ class User::IdeasController < ApplicationController
   # GET /ideas
   # GET /ideas.json
   def index
-    if params[:q]
-      ideas = Idea.by_keyword(params[:q])
-    elsif params[:c] && params[:country] == ''
-      ideas = Idea.by_category(params[:c])
-    elsif params[:country] && params[:c] == ''
-      ideas = Idea.by_country(params[:country])
-    elsif params[:c] && params[:country] &&  params[:c] != '' && params[:country] != ''
-      ideas = Idea.by_country_category(params[:country], params[:c])
-    else
-      ideas = Idea.all
-    end
+    ideas = Idea.all
+    ideas = ideas.by_keyword(params[:q]) if params[:q].present?
+    ideas = ideas.by_category(params[:c]) if params[:c].present?
+    ideas = ideas.by_country(params[:country])if params[:country].present?
+    ideas = ideas.by_category(params[:c]) if params[:c].present?
     @ideas = ideas.page(params[:page]).order('created_at desc')
   end
 
