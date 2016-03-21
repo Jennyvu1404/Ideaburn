@@ -37,9 +37,17 @@ class User::RegistrationsController < Devise::RegistrationsController
         entrepreneur = Entrepreneur.new(entrepreneur_update_params)
         current_user.entrepreneur = entrepreneur
       elsif current_user.startup?
-        startup_update_params = params[:user][:startup_attributes].permit(:name, :founded, :category, :website, :strength, :mission, :work, :register_under, :reg_company_name, :facebook, :twitter, :linkedin, :ios_app, :adroid_app, :window_app, :address_line_1, :address_line_2, :team_name, :team_designation, :team_joined_date, :team_email_d, :team_mobile, :team_linkedin, :team_skype, :funding_type, :funding_amout, :funding_date, :funding_by_investor, :about)
-        startup = Startup.new(startup_update_params)
-        current_user.startup = startup
+        startup_update_params = params[:user][:startup_attributes].permit(:name, :founded, :category, :website, :strength, :mission, :work, :register_under, :reg_company_name, :facebook, :twitter, :linkedin, :ios_app, :adroid_app, :window_app, :address_line_1, :address_line_2, :funding_type, :funding_amout, :funding_date, :funding_by_investor, :about, teams_attributes: [:id, :name, :designation, :joined_date, :email, :mobile, :linkedin, :skype, :_destroy])
+
+        if current_user.startup.nil?
+          current_user.startup = Startup.new(startup_update_params)
+        elsif
+          if current_user.startup.teams.nil?
+            current_user.startup = Startup.new(startup_update_params)
+          else
+            current_user.startup.update_attributes(startup_update_params)
+          end
+        end
       elsif current_user.investor?
         investor_update_params = params[:user][:investor_attributes].permit(:name, :founded, :category, :website, :mission, :work, :register_under, :description, :team_name, :team_designation, :team_joined_date, :team_email_id, :team_mobile, :team_linkedin, :team_skype, :address_line_1, :address_line_2, :startup_name, :startup_logo, :funding_round, :funding_amount, :facebook, :twitter, :linkedin, :ios_app, :adroid_app, :windows_app, :investor_type, :portfolio_website, {:business_line => []}, :linkedin, :first_name, :last_name, :gender, :dob, :website_secondary, :skype)
         investor = Investor.new(investor_update_params)
@@ -47,6 +55,23 @@ class User::RegistrationsController < Devise::RegistrationsController
       end
       current_user.save!
     end
+  end
+
+  def edit_password
+    @user = User.find(current_user.id)
+  end
+
+  def update_password
+    @user = User.find(current_user.id)
+    if @user.update_with_password(update_pwd_params)
+      sign_in @user, :bypass => true
+      redirect_to root_path
+    else
+      render "edit_password"
+    end
+  end
+
+  def notification
   end
 
   # DELETE /resource
@@ -92,7 +117,12 @@ class User::RegistrationsController < Devise::RegistrationsController
   private
 
   def layout_by_action
-    action_name == "edit" || action_name == "update" ?  "user" : "application"
+    actions = ['edit', 'update', 'edit_password', 'update_password', 'notification']
+    if actions.include? action_name
+      "user"
+    else
+      "application"
+    end
   end
 
   def startup_params
@@ -106,6 +136,11 @@ class User::RegistrationsController < Devise::RegistrationsController
   def investor_params
     params[:user][:investor].permit(:name, :founded, :category, :website, :mission, :work, :register_under)
   end
+
+  def update_pwd_params
+    params.require(:user).permit(:current_password, :password, :password_confirmation)
+  end
+
   protected
 
   def update_resource(resource, params)

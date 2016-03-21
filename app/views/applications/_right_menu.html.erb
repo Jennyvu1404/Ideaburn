@@ -41,7 +41,10 @@
               </div>
             </a>
             <ul class="dropdown-menu drp-mnu">
-              <!-- <li> <a href="#"><img src="images/myaccount.png"> My Account</a> </li> -->
+              <li>
+                <%= link_to my_acount_path do  %>
+                  <%= image_tag('myaccount.png') %> My Account
+                <% end %>
               <li>
                 <%= link_to edit_user_registration_path do %>
                 <%= image_tag('updateProfile.png') %>Update Profile
@@ -55,14 +58,39 @@
             </ul>
           </li>
 
+          <li>
+            <center>
+              <div class="notifications-icon"><center><span class="badge11"></span></center></div>
+              <div >Notifications</div>
+              <ul class="dropdown-menu drp-notification">
+                <!--<li class="sub-notification">
+                  <div class="sub-notification-left">
+                     <%= image_tag('thumbs-img4.jpg') %>
+                  </div>
+                  <div class="sub-notification-middle">
+                    <a>Notifi</a>
+                    <b>when people like</b>
+                    <br/>
+                    <i class="fa fa-commenting-o"></i> <i class="minutes">48 minutes ago</i>
+                  </div>
+                  <div class="sub-notification-right">
+                     <%= image_tag('thumbs-img4.jpg') %>
+                  </div>
+                </li>-->
+                <li class="no-notification">
+                  <i>You have 0 notifications</i>
+                </li>
+                <li class="see-all-notification">
+                  <a>See All</a>
+                </li>
+              </ul>
+            </center>
+          </li>
+
           <li><center>
-            <div class="notifications-icon"><center><span class="badge11"></span></center></div>
-
-            <div >Notifications</div></center></li>
-            <li><center>
-              <div class="msg-icon"><center><span class="badge11"></span></center></div>
-
-              <div >Messages</div></center></li>
+            <div class="msg-icon"><center><span class="badge11"></span></center></div>
+            <div >Messages</div></center>
+          </li>
 
               <div class="clearfix"> </div>
             </ul>

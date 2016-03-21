@@ -2,6 +2,7 @@
 *= require_directory ./idea
 *= require ./idea/style
 *= require font-awesome
+*= require ideaburn
 */
 
 body {
@@ -416,6 +417,119 @@ li {
     }
 }
 
+//NOTIFICATION
+.notification{
+    width: 100%;
+    padding-right: 250px;
+    padding-left: 5px;
+    .content-notification{
+         background: white;
+         border: 1px solid #d7d7d7;
+        .type-notification{
+            list-type: none;
+            padding-left: 10px;
+            border-bottom: 1px solid #d7d7d7;
+            li{
+                float: left;
+                padding: 15px 20px;
+                margin-top: 2px;
+                &:last-child{
+                    float: right;
+                }
+                label{
+                    font-size: 17px;
+                    margin-right: 10px;
+                }
+                input{
+                    background: white;
+                    border: 1px solid #d7d7d7;
+                    border-radius: 0px;
+                    text-indent: 5px;
+                }
+                button{
+                    background: white;
+                    border: 1px solid #d7d7d7;
+                    border-radius: 0px;
+                    height: 28px;
+                    margin-left: -1px;
+                    i{
+                        color: #333;
+                    }
+                }
+            }
+        }
+        .notification-element{
+            margin-top: 20px;
+            margin-bottom: 40px;
+            position: relative;
+            img{
+                width: 200px;
+                height: 187px;
+                background: #717171;
+                float: left;
+            }
+            .noti-info{
+                overflow: hidden;
+                padding-left: 10px;
+                padding-right: 100px;
+                h6{
+                    color: #a5a5a5;
+                    a{
+                        color: #608533;
+                    }
+                }
+                h4{
+                    color: #000000;
+                    font-size: 20px;
+                }
+                h5{
+                    color: #000000;
+                    font-size: 17px;
+                }
+                p{
+                    color: #a5a5a5;
+                    font-size: 15px;
+                }
+                .author{
+                    margin-top: 20px;
+                    img{
+                        width: 40px;
+                        height: 40px;
+                        float: left
+                    }
+                    .auto-info{
+                        overflow: hidden;
+                        padding-left: 10px;
+                        h6{ 
+                            margin-bottom: 4px;
+                            i{
+                                margin: 0px 5px;
+                            }
+                            &:first-child{
+                                margin-top: 5px;
+                            }
+                        }
+                    }
+                }
+            }
+            .image-right{
+                float: right;
+                position: absolute;
+                top: 40px;
+                right: 10px;
+                img{
+                    width: 65px;
+                    height: 65px;
+                    margin-right: 20px;
+                }
+                i{
+                    color: #a5a5a5;
+                }
+            }
+        }
+    }
+}
+
 ul.nav li a {
     span1 {
         padding-left: 3em;
@@ -439,4 +553,107 @@ ul.nav li a {
 
 #business_lines {
     height: 100px;
+}
+
+.personal-update {
+    min-height: 560px;
+    padding: 20px;
+
+    h3.form-tile {
+        font-size: 15px;
+        font-weight: bold;
+        color: #6B6B6D;
+    }
+
+    .form-content {
+        height: 500px;
+    }
+
+    hr {
+        max-width: 100%;
+        border-bottom: 1px solid #DBDBDB;
+    }
+
+    label {
+        font-size: 16px;
+        margin-top: 6px;
+        line-height: 16px;
+        height: 16px;
+        display: block;
+        color: inherit;
+        text-align: left;
+        white-space: nowrap;
+        vertical-align: baseline;
+    }
+
+    i {
+        font-size: 11px;
+        font-weight: normal;
+    }
+
+    input {
+        background: #fff;
+        border: 1px solid rgba(0,0,0,.12);
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        -o-border-radius: 3px;
+        border-radius: 3px;
+        color: rgba(0,0,0,.87);
+        display: block;
+        font-family: inherit;
+        font-size: 14px;
+        height: 40px;
+        padding: 5px 15px;
+        width: 100%;
+        outline: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        -webkit-transition: all.4s;
+        -moz-transition: all.4s;
+        -ms-transition: all.4s;
+        -o-transition: all.4s;
+        transition: all.4s;
+    }
+
+    input:focus {
+        border-color: #fed000;
+    }
+
+    button {
+        border: none;
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        -o-border-radius: 3px;
+        border-radius: 3px;
+        color: #000;
+        background: #fed000;
+        display: block;
+        cursor: pointer;
+        float: right;
+        font: 16px 'Open Sans',Helvetica,Arial,sans-serif;
+        height: 48px;
+        margin: 10px 0 10px 20px;
+        outline: none;
+        padding: 0 25px;
+        white-space: nowrap;
+        font-weight: 600;
+        position: relative;
+    }
+
+    button:hover {
+        background: #FFCA28;
+    }
+
+    .alert-danger {
+        h2 {
+            font-size: 16px;
+        }
+        li {
+            font-size: 13px;
+        }
+    }
 }

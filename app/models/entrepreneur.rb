@@ -1,6 +1,6 @@
 class Entrepreneur < ActiveRecord::Base
   belongs_to :user
-  GRADUATION = [["- Select Graduation -", nil], ["UnderGraduate", 1], ["PostGraduate", 2], ["Phd", 3], ["Others", 4]]
+  GRADUATIONS = [["- Select Graduation -", nil], ["UnderGraduate", 1], ["PostGraduate", 2], ["Phd", 3], ["Others", 4]]
 
   def self.year_options
     [["- Select Age -", nil]].concat((1900..2009).collect{|y| "#{y}" })
@@ -11,7 +11,7 @@ class Entrepreneur < ActiveRecord::Base
   end
 
   def self.graduation_options
-    GRADUATION
+    GRADUATIONS
   end
 
   def self.pro_skill_options
@@ -35,7 +35,7 @@ class Entrepreneur < ActiveRecord::Base
   end
 
   def graduation_name
-    GRADUATION[self.graduation.to_i].first
+    GRADUATIONS[self.graduation.to_i].first
   end
 
   def linkedin_name

@@ -1,0 +1,40 @@
+<% from_time = Time.now %>
+<% if @notification.count < 1 %>
+  <li class="no-notification">
+    <i>You have 0 notifications</i>
+  </li>
+<% else %>
+<% @notification.take(6).each do |notification| %>
+  <li class="sub-notification">
+    <div class="sub-notification-left">
+       <%= image_tag(notification.user.avatar) %>
+    </div>
+    <div class="sub-notification-middle">
+      <%= link_to notification.message, user_idea_path(notification.idea) %>
+      <br/>
+      <% if notification.commented? %>
+        <i class="fa fa-commenting-o"></i>
+      <% elsif notification.liked? %>
+        <i class="fa fa-thumbs-up"></i>
+      <% elsif notification.rated? %>
+        <i class="fa fa-star-o"></i>
+      <% end %>
+      <i class="minutes"><%= distance_of_time_in_words(notification.created_at, from_time) %> ago</i>
+    </div>
+    <div class="sub-notification-right">
+       <%= image_tag(notification.idea.attachment) %>
+    </div>
+  </li>
+<% end %>
+<li class="see-all-notification">
+  <%= link_to "See All", notification_path %>
+</li>
+<% end %>
+
+<script>
+<% if @notification.last &&  !@notification.last.seen %>
+$('.notifications-icon span.badge11').css({"display": "block"});
+<% else %>
+$('.notifications-icon span.badge11').css({"display": "none"});
+<% end %>
+</script>
