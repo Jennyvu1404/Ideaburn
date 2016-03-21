@@ -1,18 +1,10 @@
 <script>
   $(function() {
-    $('.category').combobox({
+    $('.country, .category').combobox({
       valueField:'this.state.',
       textField:'text',
       change:function(){
-        window.location = '?country=' + $('.country').val() + '&c=' + $(this).val();
-      }
-    });
-
-    $('.country').combobox({
-      valueField:'this.state.',
-      textField:'text',
-      change:function(){
-        window.location = '?country=' + $(this).val() + '&c=' + $('.category').val();
+        window.location = '?country=' + $('.country').val() + '&c=' + $('.category').val();
       }
     });
   })
