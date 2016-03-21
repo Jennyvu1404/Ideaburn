@@ -28,6 +28,8 @@ footer.c-layout-footer.c-layout-footer-6.c-bg-grey-1 {
 .entrepreneur-section{
   width: 100%;
   padding: 20px 40px 40px;
+  animation-name: animate;
+  animation-duration: 1s;
   .entrepreneur-title{
     .title-link{
       color: white;
@@ -111,6 +113,16 @@ footer.c-layout-footer.c-layout-footer-6.c-bg-grey-1 {
       padding: 0px 15px;
     }
   }
+}
+
+@keyframes animate {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+@keyframes animate_home {
+    from {opacity: 1;}
+    to {opacity: 0;}
 }
 
 @media screen and (max-width: 986px) {

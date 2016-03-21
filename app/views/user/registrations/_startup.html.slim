@@ -58,6 +58,8 @@
         #links
           = link_to_add_association startup, :teams do
             = fa_icon 'user-plus', {class: 'fa-2x '}
+          = link_to_remove_association f do
+            = fa_icon 'trash', {class: 'fa-1g icondelete'}
 
     #tab3.tab-pane.fade.in
       .j-row

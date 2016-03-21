@@ -7,10 +7,10 @@ class User < ActiveRecord::Base
 
   ratyrate_rater
 
-  has_many :ideas
-  has_many :comments
-  has_many :likes
-  has_many :notifications
+  has_many :ideas, dependent: :destroy
+  has_many :comments, dependent: :destroy
+  has_many :likes, dependent: :destroy
+  has_many :notifications, dependent: :destroy
   has_one :startup, dependent: :destroy, :autosave => true
   accepts_nested_attributes_for :startup, reject_if: proc { |attributes| attributes['name'].blank? },
   allow_destroy: true
