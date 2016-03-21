@@ -6,11 +6,11 @@ class User::IdeasController < ApplicationController
   # GET /ideas
   # GET /ideas.json
   def index
-    if params[:q]
-      ideas = Idea.by_keyword(params[:q])
-    else
-      ideas = Idea.all
-    end
+    ideas = Idea.all
+    ideas = ideas.by_keyword(params[:q]) if params[:q].present?
+    ideas = ideas.by_category(params[:c]) if params[:c].present?
+    ideas = ideas.by_country(params[:country])if params[:country].present?
+    ideas = ideas.by_category(params[:c]) if params[:c].present?
     @ideas = ideas.page(params[:page]).order('created_at desc')
   end
 
