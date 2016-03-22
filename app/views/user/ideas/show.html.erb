@@ -223,6 +223,7 @@
 
 <script>
 $(document).ready(function() {
+  var idea = <%= @idea.id %>
   var comments = $('#comments');
   var url =  "/api/idea/comments/" + <%= @idea.id %> + "/10";
   comments.load(url);

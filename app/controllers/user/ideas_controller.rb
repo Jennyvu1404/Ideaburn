@@ -107,7 +107,7 @@ class User::IdeasController < ApplicationController
   end
 
   def create_reply
-    comment = current_user.comments.find(params[:comment_id])
+    comment = Comment.find(params[:comment_id])
     @comment = comment.dup
     @comment.update_attributes(user_id: current_user.id, message: params[:message], parent_id: comment.id)
     render 'user/ideas/_reply', layout: false
