@@ -13,6 +13,7 @@ channel.bind('commented', function(data) {
 });
 
 channel.bind('liked', function(data) {
+  console.log(data);
   if(uid == data.author){
     notifications();
   }

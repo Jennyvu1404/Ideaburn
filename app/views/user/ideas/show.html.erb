@@ -119,7 +119,7 @@
 
                 <div class="col-md-4 mt25">
                   <div style="border-left:1px solid #dcdcdc;padding-left:15px;">
-                   <center><div class="c100 p<%= @idea.like_per_views %> small">
+                   <center class= "like-page"><div class="c100 p<%= @idea.like_per_views %> small">
                     <span><%= @idea.like_per_views %>%</span>
                     <div class="slice">
                       <div class="bar"></div>
@@ -223,6 +223,17 @@
 
 <script>
 $(document).ready(function() {
+  var idea_id = <%= @idea.id %>
+  channel.bind('like_per_views', function(data) {
+  if (data.idea == idea_id){
+   $.get('/api/idea/like/'+ data.idea, function(data){
+      console.log(data);
+      $('.like-page').html(data);
+   });
+   //$('.like-page').html(html);
+  }
+
+});
   var comments = $('#comments');
   var url =  "/api/idea/comments/" + <%= @idea.id %> + "/10";
   comments.load(url);

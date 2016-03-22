@@ -6,9 +6,15 @@ class Api::IdeaController < ApplicationController
     render layout: false
   end
 
+  def like_page
+    @idea = Idea.find(params[:id])
+    render layout: false
+  end
+
   private
 
   def get_idea
     @idea = Idea.find(params[:id])
   end
+
 end

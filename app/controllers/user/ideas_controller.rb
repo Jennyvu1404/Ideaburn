@@ -73,13 +73,25 @@ class User::IdeasController < ApplicationController
     @idea = Idea.find(params[:idea_id])
     if params[:status].to_i.zero?
       current_user.likes.where(idea_id: @idea.id).delete_all
+      Pusher.trigger('notification_channel', 'like_per_views', {
+          message: true,
+          author: @idea.user.id,
+          idea: @idea.id
+        })
     else
       like = current_user.likes.where(idea_id: @idea.id).first_or_create
       like.save
+      Pusher.trigger('notification_channel', 'like_per_views', {
+          message: true,
+          author: @idea.user.id,
+          idea: @idea.id
+        })
+
       if current_user.id != @idea.user.id
         Pusher.trigger('notification_channel', 'liked', {
           message: true,
-          author: @idea.user.id
+          author: @idea.user.id,
+          idea: @idea.id
         })
         noti = Notification.new(message: "#{current_user.fullname} liked your post", notification_type: 2, author: @idea.user.id)
         noti.user = current_user

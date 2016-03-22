@@ -24,7 +24,7 @@ class Idea < ActiveRecord::Base
 
   def like_per_views
     return 0 if self.likes.count.zero?
-    self.likes.count / self.views
+    (self.likes.count.to_f / self.views.to_f * 100.0).to_i
   end
 
   def total_rating

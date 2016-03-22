@@ -26,6 +26,7 @@ Rails.application.routes.draw do
     get 'idea/comments/:id/:limit', to: 'idea#comments'
     get 'notifications/all', to: 'notification#index'
     get 'notifications/seen', to: 'notification#seen'
+    get 'idea/like/:id', to: 'idea#like_page'
   end
 
   namespace :user do
