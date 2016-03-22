@@ -60,7 +60,13 @@
                     </div>
                     <div class="col-xs-9 activity-desc pl0">
                       <h5>
-                        <%= link_to idea.user.fullname, "#" %>
+                        <% if idea.user.entrepreneur? %>
+                          <%= link_to idea.user.fullname, entrepreneur_path(idea.user) %>
+                        <% elsif idea.user.startup? %>
+                          <%= link_to idea.user.fullname, "#" %>
+                        <% else %>
+                          <%= link_to idea.user.fullname, "#" %>
+                        <% end %>
                       </h5>
                       <p><%= idea.category.name %></p>
                     </div>
