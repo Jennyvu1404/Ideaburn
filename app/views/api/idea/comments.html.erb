@@ -49,7 +49,7 @@
           <div class="form-group">
             <%= form_tag '#', remote: true do %>
             <%= text_area_tag 'message', '', class: 'col-sm-12', placeholder: "Write a comment", id: "message_#{comment.id}" %>
-            <%= button_tag "Reply", type: 'button', class: 'btn btn-default pull-right', onclick: "replyCommentIdea(#{comment.id})" %>
+            <%= link_to 'Reply', '#', class: '', onclick: "replyCommentIdea(#{comment.id})" %>
             <% end %>
             <div class="clearfix"></div>
           </div>

@@ -16,6 +16,7 @@ function postCommentIdea(idea_id){
   });
 }
 function replyCommentIdea(comment_id){
+  event.preventDefault();
   var message = $('#message_' + comment_id).val();
   if(message == '')
     return false;
