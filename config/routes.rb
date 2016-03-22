@@ -34,6 +34,7 @@ Rails.application.routes.draw do
         post '/comment' => 'ideas#create_comment'
         post '/reply' => 'ideas#create_reply'
         post '/like' => 'ideas#like'
+        post '/update_comment' => 'ideas#update_comment'
       end
     end
   end

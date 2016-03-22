@@ -113,6 +113,13 @@ class User::IdeasController < ApplicationController
     render 'user/ideas/_reply', layout: false
   end
 
+  def update_comment
+    comment = Comment.find(params[:comment_id])
+    comment.update(message: params[:message])
+    comment.save
+    render json: comment.message
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_idea

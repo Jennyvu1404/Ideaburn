@@ -6,11 +6,19 @@
       <%= image_tag comment.user.avatar, width: 39, height: 37 %>
     </div>
     <div class="col-sm-10 mb15 col-xs-10">
-      <div style="border-bottom:1px solid #ccc;margin-bottom:12px;padding-bottom: 10px;">
+      <div class="comment-main" style="border-bottom:1px solid #ccc;margin-bottom:12px;padding-bottom: 10px;">
         <p class="c-font-18 mb5">
           <span9><%= comment.user.fullname %></span9>
         </p>
-        <%= comment.message %>
+        <div id="comment-container-<%= comment.id %>" class="comment-container"><%= comment.message %></div>
+        <div class="edit-comment-hover"><a onclick="_editComment(<%= comment.id %>);" href="javascript:void(0);" data-toggle="tooltip" title="Edit"><i class="fa fa-pencil"></i></a></div>
+        <div id="comment-id-<%= comment.id %>" class="edit-comment-form">
+          <%= form_tag '#', remote: true do %>
+            <%= text_area_tag 'message', comment.message, class: 'col-sm-12 form-control edit-comment-area', placeholder: "Write a comment", id: "edit_comment_#{comment.id}", "data-id" => "#{comment.id}" %>
+          <% end %>
+          <div class="clearfix"></div>
+          <b>Press Esc to <i>cancel</i>.</b>
+        </div>
         <p>
           <span class="reply" style="color:#78C2E9;cursor:pointer;" onclick="$('#form_reply_<%= comment.id %>').toggleClass('d_none')">Reply </span>
           <!--<span><%= comment.created_at.strftime('%d-%m-%Y') %>-->
@@ -20,17 +28,25 @@
         <div class="clearfix"></div>
       </div>
       <div style="margin-top:10px" id="reply_<%= comment.id %>">
-        <% comment.comments.each do |reply| %>
+        <% comment.comments.order('created_at ASC').each do |reply| %>
         <div class="col-md-12 mt20 plr0" style="border-bottom:1px solid #ccc;margin-bottom:12px">
           <div class="col-sm-1 col-xs-2 pl0">
             <%= image_tag reply.user.avatar, width: 39, height: 37 %>
           </div>
-          <div class="col-sm-11 col-xs-10 pr0">
+          <div class="col-sm-11 col-xs-10 pr0 reply-main">
             <div class="form-group">
               <p class="c-font-18 mb5">
                 <span9><%= reply.user.fullname %></span9>
               </p>
-              <%= reply.message %>
+              <div id="comment-container-<%= reply.id %>" class="comment-container"><%= reply.message %></div>
+              <div class="edit-reply-hover"><a onclick="_editComment(<%= reply.id %>);" href="javascript:void(0);" data-toggle="tooltip" title="Edit"><i class="fa fa-pencil"></i></a></div>
+              <div id="comment-id-<%= reply.id %>" class="edit-comment-form">
+                <%= form_tag '#', remote: true do %>
+                  <%= text_area_tag 'message', reply.message, class: 'col-sm-12 form-control edit-comment-area', placeholder: "Write a comment", id: "edit_comment_#{reply.id}", "data-id" => "#{reply.id}" %>
+                <% end %>
+                <div class="clearfix"></div>
+                <b>Press Esc to <i>cancel</i>.</b>
+              </div>
               <p>
                 <span class="reply" style="color:#78C2E9;cursor:pointer;" onclick="$('#form_reply_<%= comment.id %>').toggleClass('d_none')">Reply </span>
                 <!--<span><%= comment.created_at.strftime('%d-%m-%Y') %>-->
@@ -45,13 +61,14 @@
       </div>
 
       <div class="col-md-12 mt20 plr0 d_none" id="form_reply_<%= comment.id %>">
-        <div class="col-sm-11 col-xs-10 pr0">
+        <div class="col-sm-11 col-xs-10 pr0 reply-comment-container">
           <div class="form-group">
             <%= form_tag '#', remote: true do %>
-            <%= text_area_tag 'message', '', class: 'col-sm-12', placeholder: "Write a comment", id: "message_#{comment.id}" %>
-            <%= link_to 'Reply', '#', class: '', onclick: "replyCommentIdea(#{comment.id})" %>
+            <%= text_area_tag 'message', '', class: 'col-sm-12 form-control reply-comment-area', placeholder: "Write a comment", id: "message_#{comment.id}", "data-id" => "#{comment.id}" %>
+            <% link_to 'Reply', '#', class: '', onclick: "replyCommentIdea(#{comment.id})" %>
             <% end %>
             <div class="clearfix"></div>
+            <b>Press Esc to <i>cancel</i>.</b>
           </div>
         </div>
       </div>
@@ -60,4 +77,30 @@
 <% end %>
 <script>
   $('.load-more').css({"display":"none"});
+  $('[data-toggle="tooltip"]').tooltip();
+  $('.edit-comment-area').keydown(function(e){
+    var edit_cmt_id = $(this).attr('data-id');
+    if (e.keyCode == 13  && !e.shiftKey){
+      e.preventDefault();
+      var comment = $(this).val();
+      _updateComment(edit_cmt_id, comment);
+      $('#comment-container-'+edit_cmt_id).text(comment);
+      $('#comment-id-'+edit_cmt_id).toggle();
+      $('#comment-container-'+edit_cmt_id).toggle();
+      return false;
+    }else if (e.keyCode == 27) {
+      _editComment(edit_cmt_id);
+    }
+  });
+
+  $('.reply-comment-area').keydown(function(e){
+    var cmt_id = $(this).attr('data-id');
+    if (e.keyCode == 13  && !e.shiftKey){
+      e.preventDefault();
+      replyCommentIdea(cmt_id);
+      return false;
+    }else if (e.keyCode == 27) {
+      $('#form_reply_'+cmt_id).toggleClass('d_none');
+    }
+  });
 </script>

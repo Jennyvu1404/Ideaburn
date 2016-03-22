@@ -27,7 +27,8 @@ function replyCommentIdea(comment_id){
     beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
     success: function(html) {
       $('#reply_' + comment_id).append(html);
-      $('#message_' + comment_id).val('');
+      /*$('#message_' + comment_id).val('');*/
+      $('#form_reply_'+comment_id).toggleClass('d_none');
     },
     error: function(e) {
     }
@@ -41,6 +42,25 @@ function likeIdea(idea_id, status){
     beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
     success: function(html) {
       $('.like-idea').html(html);
+    },
+    error: function(e) {
+    }
+  });
+}
+
+function _editComment(comment_id) {
+  $('#comment-id-'+comment_id).toggle();
+  $('#comment-container-'+comment_id).toggle();
+}
+
+function _updateComment(comment_id, message) {
+  $.ajax({
+    url: '/user/ideas/update_comment',
+    type: 'POST',
+    data: {comment_id: comment_id, message: message},
+    beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
+    success: function(html) {
+      reloadCmt();
     },
     error: function(e) {
     }

@@ -223,18 +223,36 @@
 
 <script>
 $(document).ready(function() {
+  $('[data-toggle="tooltip"]').tooltip();
   var idea = <%= @idea.id %>
   var comments = $('#comments');
   var url =  "/api/idea/comments/" + <%= @idea.id %> + "/10";
+  var realtime;
   comments.load(url);
-  var realtime =  setInterval(function(){
-    comments.load(url);
-  }, 60000);
+  reloadCmt();
+
   $('textarea[name="message"]').focus(function(){
     clearInterval(realtime);
   });
   $('.reply').click(function(){
     clearInterval(realtime);
+  });
+
+  $('.edit-comment-area').keydown(function(e){
+    var edit_cmt_id = $(this).attr('data-id');
+    if (e.keyCode == 13  && !e.shiftKey){
+      e.preventDefault();
+      var comment = $(this).val();
+      _updateComment(edit_cmt_id, comment);
+      $('#comment-container-'+edit_cmt_id).text(comment);
+      $('#comment-id-'+edit_cmt_id).toggle();
+      $('#comment-container-'+edit_cmt_id).toggle();
+      reloadCmt();
+      return false;
+    }else if (e.keyCode == 27) {
+      _editComment(edit_cmt_id);
+      reloadCmt();
+    }
   });
 
   $(window).scroll(function() {
@@ -245,5 +263,11 @@ $(document).ready(function() {
       comments.load(url);
     }
   });
+
+  function reloadCmt() {
+    realtime =  setInterval(function(){
+      comments.load(url);
+    }, 60000);
+  }
 })
 </script>
