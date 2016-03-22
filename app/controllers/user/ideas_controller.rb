@@ -14,6 +14,17 @@ class User::IdeasController < ApplicationController
     @ideas = ideas.page(params[:page]).order('created_at desc')
   end
 
+  def load_more
+    page = params[:page] + 1
+    ideas = Idea.all
+    ideas = ideas.by_keyword(params[:q]) if params[:q].present?
+    ideas = ideas.by_category(params[:c]) if params[:c].present?
+    ideas = ideas.by_country(params[:country])if params[:country].present?
+    ideas = ideas.by_category(params[:c]) if params[:c].present?
+    @ideas = ideas.page(page).order('created_at desc')
+    render layout: false
+  end
+
   # GET /ideas/1
   # GET /ideas/1.json
   def show

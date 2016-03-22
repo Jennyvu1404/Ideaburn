@@ -11,14 +11,16 @@
           <span9><%= comment.user.fullname %></span9>
         </p>
         <div id="comment-container-<%= comment.id %>" class="comment-container"><%= comment.message %></div>
-        <div class="edit-comment-hover"><a onclick="_editComment(<%= comment.id %>);" href="javascript:void(0);" data-toggle="tooltip" title="Edit"><i class="fa fa-pencil"></i></a></div>
-        <div id="comment-id-<%= comment.id %>" class="edit-comment-form">
-          <%= form_tag '#', remote: true do %>
-            <%= text_area_tag 'message', comment.message, class: 'col-sm-12 form-control edit-comment-area', placeholder: "Write a comment", id: "edit_comment_#{comment.id}", "data-id" => "#{comment.id}" %>
-          <% end %>
-          <div class="clearfix"></div>
-          <b>Press Esc to <i>cancel</i>.</b>
-        </div>
+        <% if current_user.id == comment.user.id %>
+          <div class="edit-comment-hover"><a onclick="_editComment(<%= comment.id %>);" href="javascript:void(0);" data-toggle="tooltip" title="Edit"><i class="fa fa-pencil"></i></a></div>
+          <div id="comment-id-<%= comment.id %>" class="edit-comment-form">
+            <%= form_tag '#', remote: true do %>
+              <%= text_area_tag 'message', comment.message, class: 'col-sm-12 form-control edit-comment-area', placeholder: "Write a comment", id: "edit_comment_#{comment.id}", "data-id" => "#{comment.id}" %>
+            <% end %>
+            <div class="clearfix"></div>
+            <b>Press Esc to <i>cancel</i>.</b>
+          </div>
+        <% end %>
         <p>
           <span class="reply" style="color:#78C2E9;cursor:pointer;" onclick="$('#form_reply_<%= comment.id %>').toggleClass('d_none')">Reply </span>
           <!--<span><%= comment.created_at.strftime('%d-%m-%Y') %>-->
@@ -39,14 +41,16 @@
                 <span9><%= reply.user.fullname %></span9>
               </p>
               <div id="comment-container-<%= reply.id %>" class="comment-container"><%= reply.message %></div>
-              <div class="edit-reply-hover"><a onclick="_editComment(<%= reply.id %>);" href="javascript:void(0);" data-toggle="tooltip" title="Edit"><i class="fa fa-pencil"></i></a></div>
-              <div id="comment-id-<%= reply.id %>" class="edit-comment-form">
-                <%= form_tag '#', remote: true do %>
-                  <%= text_area_tag 'message', reply.message, class: 'col-sm-12 form-control edit-comment-area', placeholder: "Write a comment", id: "edit_comment_#{reply.id}", "data-id" => "#{reply.id}" %>
-                <% end %>
-                <div class="clearfix"></div>
-                <b>Press Esc to <i>cancel</i>.</b>
-              </div>
+              <% if current_user.id == reply.user.id %>
+                <div class="edit-reply-hover"><a onclick="_editComment(<%= reply.id %>);" href="javascript:void(0);" data-toggle="tooltip" title="Edit"><i class="fa fa-pencil"></i></a></div>
+                <div id="comment-id-<%= reply.id %>" class="edit-comment-form">
+                  <%= form_tag '#', remote: true do %>
+                    <%= text_area_tag 'message', reply.message, class: 'col-sm-12 form-control edit-comment-area', placeholder: "Write a comment", id: "edit_comment_#{reply.id}", "data-id" => "#{reply.id}" %>
+                  <% end %>
+                  <div class="clearfix"></div>
+                  <b>Press Esc to <i>cancel</i>.</b>
+                </div>
+              <% end %>
               <p>
                 <span class="reply" style="color:#78C2E9;cursor:pointer;" onclick="$('#form_reply_<%= comment.id %>').toggleClass('d_none')">Reply </span>
                 <!--<span><%= comment.created_at.strftime('%d-%m-%Y') %>-->

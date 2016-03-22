@@ -125,10 +125,6 @@
         </div>
 
         <% end %>
-        <div class="col-md-12 idea-paginate">
-          <%= paginate @ideas, :theme => 'twitter-bootstrap' %>
-        </div>
-
       </div>
       <%= render 'closed_ideas' %>
       <div class="clearfix"></div>
@@ -140,4 +136,25 @@
   $(document).ready(function () {
     $('.state').next().find('input').attr('placeholder', 'Select A State');
   });
+  var page = 1;
+  $(window).scroll(function() {
+    if($(window).scrollTop() + $(window).height() > $(document).height() - 50) {
+      console.log('load-more');
+      //$('.load-more').css({"display":"block"});
+      url =  "/user/ideas/load_more/" + page;
+    }
+  });
+
+  function disabledScroll() {
+    $('body').on({
+      'mousewheel': function(e) {
+          if (e.target.id == 'el') return;
+          e.preventDefault();
+          e.stopPropagation();
+      }
+    });
+  }
+
+  function enabledScroll() {
+  }
 </script>
