@@ -9,6 +9,12 @@ $(document).ready(function() {
       buttonText: "",
       changeMonth: true,
       changeYear: true});
+  $( "#dob-datepicker" ).datepicker({
+      yearRange: '1930:2000',
+      buttonText: "",
+      changeMonth: true,
+      changeYear: true,
+      dateFormat: 'yy-mm-dd' });
   try {
     document.getElementById('get_file').onclick = function() {
       document.getElementById('my_file').click();
