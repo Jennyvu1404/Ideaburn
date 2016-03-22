@@ -155,14 +155,14 @@
       .col-md-12.unit
         label.label About You
         .input
-          = entrepreneur.text_area :about, spellcheck: "false"
+          = entrepreneur.text_area :about, spellcheck: "false", required: true
           span.tooltip.tooltip-right-top Any useful information about you
       /! end message
       /! start message
       .col-md-12.unit
         label.label Inspire Quote
         .input
-          = entrepreneur.text_area :inspire_quote, spellcheck: "false"
+          = entrepreneur.text_area :inspire_quote, spellcheck: "false", required: true
           span.tooltip.tooltip-right-top Inspire Quote..
       /! end message
       /! start message

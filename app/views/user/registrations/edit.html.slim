@@ -1,5 +1,5 @@
 #page-wrapper
-  = simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, class: 'j-formsa j-forms', id: '' }) do |f|
+  = simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, class: 'j-formsa j-forms', id: 'j-forms' }) do |f|
     .switches
       .col-4
         .col-md-12.p0
@@ -63,7 +63,7 @@
                       = render partial: "startup", locals: {f: f} if current_user.startup?
                       = render partial: "investor", locals: {f: f} if current_user.investor?
                     .footer
-                      button.primary-btn.btn-next data-button-next='' type="button"  Next
+                      button.primary-btn.btn-next data-button-next='' type="submit"  Next
                       button.primary-btn.btn-submit.hide data-button-next='' type="submit"  Submit
                     /! end /.footer
   .clearfix
