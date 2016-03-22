@@ -11,7 +11,7 @@
             .icon-share.container-fluid
               button.left
                 i.fa.fa-linkedin
-              p = link_to @info.try(:linkedin_name),  @info.try(:linkedin), target: '_blank', class: 'blank_link'
+              p = link_to @info.try(:linkedin_name),  @info.try(:linkedin), target: '_blank', class: 'blank_link disabled'
               button.right
                 i.fa.fa-question
             = image_tag 'icon-text-profile.png', :class => 'icon-text-profile'
@@ -32,9 +32,6 @@
               .info-element
                 = image_tag '1.png'
                 = @user.fullname
-              .info-element
-                = image_tag '4.png'
-                = @user.email
               .info-element
                 = image_tag '2.png'
                 = "DOB: #{@info.try(:dob)}"
@@ -71,6 +68,9 @@
               .info-element
                 i.fa.fa-phone.img &nbsp;
                 = @info.try(:mobile)
+              .info-element
+                = image_tag '4.png'
+                = @user.email
               .info-element
                 = image_tag '5.png'
                 = @info.try(:address)

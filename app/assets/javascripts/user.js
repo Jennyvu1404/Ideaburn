@@ -40,15 +40,6 @@ $(document).ready(function() {
   var maxTab = "#tab" + ($('ul.tabsec > li').size() - 1);
   var lastTab = "#tab" + ($('ul.tabsec > li').size());
 
-  /*$('.btn-next').click(function(){
-    var currentTab = $('.nav-tabs > .active').find('a').attr('href');
-    if (currentTab == maxTab){
-      $('.btn-submit').removeClass('hide');
-      $('.btn-next').addClass('hide');
-    }
-    $('.nav-tabs > .active').next('li').find('a').trigger('click');
-  });*/
-
   $('ul.tabsec > li').on('click', function(){
     var tab = $(this).find('a').attr('href');
     if (tab === lastTab) {
