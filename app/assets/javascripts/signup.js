@@ -26,6 +26,14 @@ $(document).ready(function () {
     $('.c-layout-header').animate({'opacity':'1'}, 2000);
   });
 
+  $('body').keydown(function(e){
+    if(e.keyCode == 27) {
+      $('.entrepreneur-section').animate({'opacity':'0','top':'-150%'}, 2000);
+      $('.c-layout-page').animate({'opacity':'1'}, 2000);
+      $('.c-layout-header').animate({'opacity':'1'}, 2000);
+    }
+  });
+
 
   $('[data-country_select]').change(function () {
     var input_state = $('[data-state_select]');
