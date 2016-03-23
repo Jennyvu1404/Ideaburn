@@ -185,7 +185,7 @@
                 <div class="col-md-12 mtres20"><p><span9>More from <%= @idea.user.fullname %></span9></p></div>
                 <% @ideas.each do | idea | %>
                   <div class="col-md-6 text-center mb15" style="margin-bottom: 10px">
-                    <%= image_tag(idea.image) %>
+                    <%= image_tag(idea.image, class: 'idea-thumbimg') %>
                   </div>
                 <% end %>
                 <!--<div class="col-md-6 text-center mb15">
@@ -196,7 +196,7 @@
                 <div class="col-md-12 mtres20"><p><span9>Top most viewed from <%= @idea.user.fullname %></span9></p></div>
                 <% @most_views.each do | idea | %>
                   <div class="col-md-6 text-center mb15" style="margin-bottom: 10px">
-                    <%= image_tag(idea.image) %>
+                    <%= image_tag(idea.image, class: 'idea-thumbimg') %>
                   </div>
                 <% end %>
 
