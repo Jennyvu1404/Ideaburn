@@ -1,0 +1,55 @@
+// Profile Circle
+$( document ).ready(function() {
+    var totalField = 1;
+    var numField = 0;
+    var $input = $('form.profile-update-form input');
+    var $select = $('form.profile-update-form select');
+    var $area = $('form.profile-update-form textarea');
+    var user_photo = $('.change_picture').attr('data-photo');
+    $input.each(function(){
+      var type = $(this).attr('type');
+      if (type != 'hidden' && type != 'file' && type != 'button' && type != 'radio') {
+        totalField++;
+        if ($(this).val() !== '') {
+          numField++;
+        }
+      }
+    });
+    if(user_photo !== ''){
+      numField++;
+    }
+
+    $select.each(function(){
+      totalField++;
+      if ($(this).val()) {
+        numField++;
+      }
+    });
+
+    $area.each(function(){
+      totalField++;
+      if ($(this).val() !== '') {
+        numField++;
+      }
+    });
+
+    try {
+      if($('input[type="radio"]')) {
+        totalField++;
+        $('input[type="radio"]').each(function(){
+          if($(this).is(':checked')){
+            numField++;
+          }
+        });
+      }
+    }catch(err){}
+
+    calPer(numField, totalField);
+});
+
+function calPer(current, total) {
+  var per = current / total ;
+  var c = Number((per).toFixed(2)) * 100;
+  $('.c100').addClass('p'+c);
+  $('.c100 > span').text(c + '%');
+}

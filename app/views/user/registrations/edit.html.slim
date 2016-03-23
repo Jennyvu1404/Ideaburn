@@ -1,10 +1,10 @@
 #page-wrapper
-  = simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, class: 'j-formsa j-forms', id: 'j-forms' }) do |f|
+  = simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, class: 'j-formsa j-forms profile-update-form', id: 'j-forms' }) do |f|
     .switches
       .col-4
         .col-md-12.p0
           .col-md-2.mb30.nopad align="center"
-            .change_picture
+            .change_picture data-photo="#{current_user.photo}"
               center
                 = image_tag asset_path(@user.avatar), class: 'mb8', id: 'image-preview'
             .update_border
@@ -22,12 +22,13 @@
                     .content
                       .col-md-12.col-xs-12
                         h3.c-font-17.mob-center.text-left style="line-height:2;"  UPDATE PROFILE
-                        center
-                          .c100.small
-                            span 10
-                          .slice
-                            .bar
-                            .fill
+                        .profile-circle
+                          center
+                            .c100.small
+                              span
+                              .slice
+                                .bar
+                                .fill
                       - if current_user.entrepreneur?
                         ul.nav.nav-tabs.tabsec
                           li.active
