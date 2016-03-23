@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   get 'home/entrepreneur'
   get 'users/myacount'
   get 'users/notification'
+  get 'users/startupdetail'
 
   devise_for :users, path: 'user',
   module: :user,
