@@ -29,6 +29,7 @@ class User::IdeasController < ApplicationController
   # GET /ideas/1.json
   def show
     @idea.update_attributes(views: @idea.views + 1)
+    @ideas = @idea.user.ideas.where.not(id: @idea.id).sample(4)
   end
 
   # GET /ideas/new

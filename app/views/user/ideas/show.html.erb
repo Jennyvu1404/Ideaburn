@@ -182,19 +182,15 @@
               </div>
               <div class="col-lg-4">
 
-                <div class="col-md-12 mtres20"><p><span9>More from <%= current_user.fullname %></span9></p></div>
-                <div class="col-md-6 text-center mb15">
+                <div class="col-md-12 mtres20"><p><span9>More from <%= @idea.user.fullname %></span9></p></div>
+                <% @ideas.each do | idea | %>
+                  <div class="col-md-6 text-center mb15">
+                    <%= image_tag(idea.image) %>
+                  </div>
+                <% end %>
+                <!--<div class="col-md-6 text-center mb15">
                   <%= image_tag('thumbs-img1.jpg') %>
-                </div>
-                <div class="col-md-6 text-center mb15">
-                  <%= image_tag('thumbs-img2.jpg') %>
-                </div>
-                <div class="col-md-6 text-center mb15">
-                  <%= image_tag('thumbs-img3.jpg') %>
-                </div>
-                <div class="col-md-6 text-center mb15">
-                  <%= image_tag('thumbs-img4.jpg') %>
-                </div>
+                </div>-->
                 <div class="col-md-12"><div class="border"></div></div>
               </div>
 

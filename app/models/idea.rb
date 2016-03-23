@@ -47,4 +47,9 @@ class Idea < ActiveRecord::Base
       description = "<span style='color:#78C2E9;cursor:pointer;'>#{self.likes.offset(offset).first.user.fullname}</span> and #{self.likes.count - 1} others likes this".html_safe
     end
   end
+
+  def image
+    imgs = ['thumbs-img1.jpg', 'thumbs-img2.jpg', 'thumbs-img3.jpg', 'thumbs-img4.jpg']
+    self.attachment.present? ? self.attachment : imgs.sample
+  end
 end
