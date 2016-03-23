@@ -1,14 +1,3 @@
-<script>
-  $(function() {
-    $('.country, .category').combobox({
-      valueField:'this.state.',
-      textField:'text',
-      change:function(){
-        window.location = '?country=' + $('.country').val() + '&c=' + $('.category').val();
-      }
-    });
-  })
-</script>
 <div id="page-wrapper">
 
   <div class="switches">
@@ -17,33 +6,29 @@
       <div class="col-md-9 p0">
         <div class="col-md-6 col-xs-12">  <h3 class="c-font-17" style="line-height:2;">DASHBOARD</h3></div>
         <div class="col-md-3 col-xs-12 p0">
-          <form id="searchform2">
+          <!--<form id="searchform2">
             <div class="fieldcontainers">
               <div id="dd" class="wrapper-dropdown-3 easyui-combobox" tabindex="1">
                 <select class="country" >
                   <option value=""></option>
-                  <%= options_for_select(CS.countries.collect {|k,v| [ v, k ] }, selected: params[:country]) %>
                 </select>
 
               </div>
 
             </div>
-          </form></div>
+          </form>-->
+          <select class="country form-control" >
+            <option value=""></option>
+            <%= options_for_select(CS.countries.collect {|k,v| [ v, k ] }, selected: params[:country]) %>
+          </select>
+          </div>
 
           <!-- SIXTH EXAMPLE -->
           <div class="col-md-3 col-xs-12 p0">
-            <form id="searchform2">
-              <div class="fieldcontainers">
-                <div id="dd" class="wrapper-dropdown-3" tabindex="1">
-
-                  <select class="category" >
-                    <option value=""></option>
-                    <%= options_for_select(Category.all.collect {|p| [ p.name, p.id ] }, selected: params[:c]) %>
-                  </select>
-                </div>
-
-                <!-- <input type="submit" value="" id="icon-search" name="searchbtn">  --></div>
-              </form>
+              <select class="category form-control" >
+                <option value=""></option>
+                <%= options_for_select(Category.all.collect {|p| [ p.name, p.id ] }, selected: params[:c]) %>
+              </select>
             </div>
             <div class="clear"></div>
 
@@ -137,6 +122,17 @@
 <script type="text/javascript">
   $(document).ready(function () {
     $('.state').next().find('input').attr('placeholder', 'Select A State');
+    $(".country").select2({
+      placeholder: "Select A Country",
+      allowClear: true
+    });
+    $(".category").select2({
+      placeholder: "Select A Category",
+      allowClear: true
+    });
+    $(".country, .category").on('change', function(){
+      window.location = '?country=' + $('.country').val() + '&c=' + $('.category').val();
+    });
   });
   var page = 1;
   $(window).scroll(function() {
