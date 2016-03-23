@@ -1,11 +1,11 @@
 class Api::NotificationController < ApplicationController
   def index
-     @notification =  Notification.where(author: current_user.id).order(id: 'desc')
+     @notification =  Notification.get_noti
      render layout: false
   end
 
   def seen
-    Notification.where(author: current_user.id).update_all(seen: true)
+    Notification.seen
     render json: true
   end
 end

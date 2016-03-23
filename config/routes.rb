@@ -16,6 +16,9 @@ Rails.application.routes.draw do
     get 'user/my_acount' => 'user/registrations#edit_password', as: 'my_acount'
     post 'user/update_password' => 'user/registrations#update_password'
     get 'user/notification' => 'user/registrations#notification', as: 'notification'
+    get 'user/message' => 'user/registrations#message', as: 'message'
+    get 'user/unread' => 'user/registrations#unread', as:'unread'
+    get 'user/loadmorenoti' => 'user/registrations#loadmorenoti', as:'loadmorenoti'
   end
   resources :users
 

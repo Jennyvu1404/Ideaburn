@@ -1,3 +1,13 @@
+function load_more_noti(){
+  var last_id = $('.notification-element').last().index();
+  $.ajax({
+    url: "/user/loadmorenoti",
+    data: {last_id: last_id},
+    success: function(result){
+      $("#load_detail").append(result);
+    }
+  })
+}
 var $notifications = $('ul.drp-notification');
 
 var pusher = new Pusher('5cc1643b6d3132075121', {

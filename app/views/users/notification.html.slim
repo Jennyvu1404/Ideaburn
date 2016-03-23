@@ -6,21 +6,21 @@
       .notification
         .content-notification
           ul.type-notification.container-fluid
-            li Recent (20)
+            li Recent (@noti.count)
             li Message Request
-            li Unread (05)
-            li 
+            li Unread (@noti.count)
+            li
               label Search
               input placeholder= "Search here"type='text'/
-              button 
+              button
                 i.fa.fa-search
           .notification-element.container-fluid
             = image_tag ''
             .noti-info
-              h6 
-                | Recommended by 
-                = link_to root_path do 
-                  Iain Tate, James Peterson, Janice Keller 
+              h6
+                | Recommended by
+                = link_to root_path do
+                  Iain Tate, James Peterson, Janice Keller
                 end
                 | and 3 more
               h4 The Other Olaf
@@ -29,12 +29,12 @@
               .author
                 = image_tag ''
                 .auto-info
-                  h6 
-                    | Published in 
+                  h6
+                    | Published in
                     = link_to 'Master'
-                    | , written by 
+                    | , written by
                     = link_to 'James Mohney'
-                  h6 
+                  h6
                     | Just now
                     i.fa.fa-bookmark
                     | 4 min read
@@ -50,9 +50,9 @@
               .author
                 = image_tag ''
                 .auto-info
-                  h6 
+                  h6
                     = link_to 'Sarah Cooper'
-                  h6 
+                  h6
                     | 5h ago
                     i.fa.fa-bookmark
                     | 3m read
@@ -65,43 +65,43 @@
           h4 Post your idea
         li.close-idea Closed Ideas
         li.idea
-          = link_to "#" do 
+          = link_to "#" do
             h4 Idea 1 Name
           end
           h5 Description about that...
         li.idea
-          = link_to "#" do 
+          = link_to "#" do
             h4 Idea 1 Name
           end
           h5 Description about that...
         li.idea
-          = link_to "#" do 
+          = link_to "#" do
             h4 Idea 1 Name
           end
           h5 Description about that...
         li.idea
-          = link_to "#" do 
+          = link_to "#" do
             h4 Idea 1 Name
           end
           h5 Description about that...
         li.idea
-          = link_to "#" do 
+          = link_to "#" do
             h4 Idea 1 Name
           end
           h5 Description about that...
         li.idea
-          = link_to "#" do 
+          = link_to "#" do
             h4 Idea 1 Name
           end
           h5 Description about that...
         li.idea
-          = link_to "#" do 
+          = link_to "#" do
             h4 Idea 1 Name
           end
           h5 Description about that...
         li.btn-plus
-          = link_to "#" do 
-            button 
+          = link_to "#" do
+            button
               i.fa.fa-plus
           end
   .clearfix

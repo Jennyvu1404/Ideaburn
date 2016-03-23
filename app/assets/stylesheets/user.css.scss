@@ -76,8 +76,19 @@ li {
 .acount-section {
     width: 100%;
     padding: 20px 10px;
-    height: 600px;
     position: relative;
+    .button-center{
+        width: 80%;
+        text-align: center;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        .btn{
+            background-color: #fff;
+            border: 1x solid #fff;
+            border-radius: 4px;
+        }
+    }
+
     .acount-title {
         h2 {
             color: #333333;
@@ -463,16 +474,29 @@ li {
             }
         }
         .notification-element{
-            margin-top: 20px;
-            margin-bottom: 40px;
-            position: relative;
-            img{
-                width: 200px;
-                height: 187px;
+            border-bottom: 1px solid #d7d7d7;
+            .noti-info-right{
+                margin-top: 20px;
+                margin-bottom: 20px;
+                float: right;
+                img{
+                width: 50px;
+                height: 50px;
                 background: #717171;
-                float: left;
+                border-radius: 50px;
+                }
+                h5{
+                    display: inline-block;
+                    color: #000000;
+                    font-size: 17px;
+                    width: 260px;
+                }
             }
-            .noti-info{
+            .noti-info-left{
+                margin-top: 20px;
+                margin-bottom: 20px;
+                display: inline-block;
+                float: left !important;
                 overflow: hidden;
                 padding-left: 10px;
                 padding-right: 100px;
@@ -487,33 +511,13 @@ li {
                     font-size: 20px;
                 }
                 h5{
+                    display: inline-block;
                     color: #000000;
                     font-size: 17px;
                 }
                 p{
                     color: #a5a5a5;
                     font-size: 15px;
-                }
-                .author{
-                    margin-top: 20px;
-                    img{
-                        width: 40px;
-                        height: 40px;
-                        float: left
-                    }
-                    .auto-info{
-                        overflow: hidden;
-                        padding-left: 10px;
-                        h6{
-                            margin-bottom: 4px;
-                            i{
-                                margin: 0px 5px;
-                            }
-                            &:first-child{
-                                margin-top: 5px;
-                            }
-                        }
-                    }
                 }
             }
             .image-right{

@@ -70,8 +70,39 @@ class User::RegistrationsController < Devise::RegistrationsController
       render "edit_password"
     end
   end
-
+  def loadmorenoti
+    last_id = params[:last_id].to_i
+    @noti = Notification.get_noti
+    if last_id.nil?
+      @noti = @noti.limit(5)
+    else
+      if (last_id+5) > @noti.count
+        @noti = @noti[last_id..@noti.count]
+      else
+        @noti = @noti[last_id..last_id+4]
+      end
+    end
+    render 'user/registrations/_loadmorenoti', layout: false
+  end
   def notification
+    @noti = Notification.get_noti
+    @noti_unread = Notification.get_unread
+    respond_to do |format|
+      format.html
+      format.js
+    end
+  end
+  def message
+    respond_to do |format|
+      format.html
+      format.js
+    end
+  end
+  def unread
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   # DELETE /resource

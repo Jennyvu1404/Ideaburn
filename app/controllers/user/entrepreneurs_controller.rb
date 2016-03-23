@@ -4,6 +4,7 @@ class User::EntrepreneursController < ApplicationController
 
   def index
     @users = User.entrepreneur.page(params[:page]).order('created_at desc')
+    @noti =  Notification.get_noti
   end
 
   def show
