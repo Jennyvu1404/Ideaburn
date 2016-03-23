@@ -163,12 +163,13 @@
               <div class="clear"></div>
             </div>
             <div class="comment-details">
-              <div class="col-lg-8 plr0">
+              <div class="col-lg-8 plr0 form-comment-section">
 
                 <%= form_tag comment_user_ideas_path, remote: true do %>
-                <%= text_area_tag 'message', '', class: 'col-sm-12 form-control', placeholder: "Write a comment" %>
-                <%= button_tag "Post", type: 'button', class: 'btn btn-default pull-right', onclick: "postCommentIdea(#{@idea.id})", style: "margin-top: 10px" %>
+                <%= text_area_tag 'message', '', class: 'col-sm-12 form-control form-comment', placeholder: "Write a comment", 'data-id' => "#{@idea.id}" %>
+                <% button_tag "Post", type: 'button', class: 'btn btn-default pull-right', onclick: "postCommentIdea(#{@idea.id})", style: "margin-top: 10px" %>
                 <% end %>
+                <b id="notice">Press Esc to <i>cancel</i>.</b>
 
                 <div id="comments">
                   <!--<% @idea.comments.where(parent_id: nil).each do |comment| %>
@@ -253,6 +254,20 @@ $(document).ready(function() {
     }else if (e.keyCode == 27) {
       _editComment(edit_cmt_id);
       reloadCmt();
+    }
+  });
+
+  $('#notice').hide();
+  $('.form-comment').keydown(function(e){
+    $('#notice').show();
+    if (e.keyCode == 13  && !e.shiftKey){
+      e.preventDefault();
+      postCommentIdea(idea);
+      $('#notice').hide();
+      return false;
+    }else if (e.keyCode == 27) {
+      $(this).val('');
+      $('#notice').hide();
     }
   });
 
