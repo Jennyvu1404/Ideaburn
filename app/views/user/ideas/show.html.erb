@@ -184,15 +184,24 @@
 
                 <div class="col-md-12 mtres20"><p><span9>More from <%= @idea.user.fullname %></span9></p></div>
                 <% @ideas.each do | idea | %>
-                  <div class="col-md-6 text-center mb15">
+                  <div class="col-md-6 text-center mb15" style="margin-bottom: 10px">
                     <%= image_tag(idea.image) %>
                   </div>
                 <% end %>
                 <!--<div class="col-md-6 text-center mb15">
                   <%= image_tag('thumbs-img1.jpg') %>
                 </div>-->
-                <div class="col-md-12"><div class="border"></div></div>
+                <div class="col-md-12"><div class="border"></div>
+                </div>
+                <div class="col-md-12 mtres20"><p><span9>Top most viewed from <%= @idea.user.fullname %></span9></p></div>
+                <% @most_views.each do | idea | %>
+                  <div class="col-md-6 text-center mb15" style="margin-bottom: 10px">
+                    <%= image_tag(idea.image) %>
+                  </div>
+                <% end %>
+
               </div>
+
 
               <div class="clearfix"></div>
             </div>

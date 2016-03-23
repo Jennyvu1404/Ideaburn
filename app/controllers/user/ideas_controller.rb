@@ -30,6 +30,7 @@ class User::IdeasController < ApplicationController
   def show
     @idea.update_attributes(views: @idea.views + 1)
     @ideas = @idea.user.ideas.where.not(id: @idea.id).sample(4)
+    @most_views = @idea.user.ideas.order("views DESC").take(4)
   end
 
   # GET /ideas/new
