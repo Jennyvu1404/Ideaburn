@@ -15,7 +15,7 @@ class User::IdeasController < ApplicationController
   end
 
   def load_more
-    page = params[:page] + 1
+    page = params[:page].to_i + 1
     ideas = Idea.all
     ideas = ideas.by_keyword(params[:q]) if params[:q].present?
     ideas = ideas.by_category(params[:c]) if params[:c].present?

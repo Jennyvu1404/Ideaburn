@@ -47,9 +47,9 @@
             </div>
             <div class="clear"></div>
 
-
+            <section class="list-idea">
             <% @ideas.each do |idea| %>
-            <div class="col-md-6 mb30 ">
+            <div class="col-md-6 mb30 idea-block">
 
               <div class="switch-right-grid ">
                 <div class="switch-right-grid1">
@@ -125,6 +125,8 @@
         </div>
 
         <% end %>
+        </section>
+        <div class="load-more"><i class="fa fa-spinner fa-spin"></i> Load more</div>
       </div>
       <%= render 'closed_ideas' %>
       <div class="clearfix"></div>
@@ -139,22 +141,12 @@
   var page = 1;
   $(window).scroll(function() {
     if($(window).scrollTop() + $(window).height() > $(document).height() - 50) {
-      console.log('load-more');
-      //$('.load-more').css({"display":"block"});
+      $('.load-more').css({"display":"block"});
       url =  "/user/ideas/load_more/" + page;
+      $.get(url).done(function( data ) {
+        $('.list-idea').append(data);
+        page++;
+      });
     }
   });
-
-  function disabledScroll() {
-    $('body').on({
-      'mousewheel': function(e) {
-          if (e.target.id == 'el') return;
-          e.preventDefault();
-          e.stopPropagation();
-      }
-    });
-  }
-
-  function enabledScroll() {
-  }
 </script>

@@ -35,6 +35,7 @@ Rails.application.routes.draw do
         post '/reply' => 'ideas#create_reply'
         post '/like' => 'ideas#like'
         post '/update_comment' => 'ideas#update_comment'
+        get '/load_more/:page' => 'ideas#load_more'
       end
     end
   end
