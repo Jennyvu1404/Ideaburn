@@ -103,12 +103,11 @@ li {
             width: 100%;
             background-color: white;
             border: 1px solid #d7d7d7;
-            height: 510px;
+            height: auto;
             .profile-image {
                 width: 250px;
                 background-color: #f9f9f9;
                 float: left;
-                height: 100%;
                 img {
                     width: 250px;
                     height: 220px;
@@ -170,6 +169,9 @@ li {
                     clear: both;
                     margin-bottom: 0px;
                 }
+                &.startupdetail-image{
+                    height: auto;
+                }
             }
             .profile-info {
                 overflow: hidden;
@@ -215,14 +217,31 @@ li {
                             margin-top: 2px;
                             float: right;
                         }
+                        .btn-right{
+                            background: #ffd101;
+                            color: white;
+                            width: 35px;
+                            height: 35px;
+                            border-radius: 0px;
+                            font-size: 24px;
+                            margin-top: -16px;
+                        }
                         &.active,
                         &:hover {
                             color: #ffd101;
                             border-bottom: 3px solid #ffd101;
                         }
+                        &.btn{
+                            color: white;
+                            border-bottom: 3px solid transparent;
+                        }
                         &:last-child {
                             color: #c9c9c9;
                         }
+                    }
+                    &.startupdetail-info{
+                        margin-top: 87px;
+                        padding: 0px 0px 0px 20px;
                     }
                 }
                 .info-content {
@@ -245,6 +264,50 @@ li {
                     &:first-of-type {
                         display: block;
                     }
+                }
+            }
+            .profile-element{
+                background: #fafafa;
+                padding: 20px;
+                border-top: 1px solid #d7d7d7;
+                img{
+                    float:left;
+                    width: 80px;
+                    height: 80px;
+                    border-radius: 50%;
+                }
+                .element-info{
+                    float: left;
+                    margin-left: 10px;
+                    h3{
+                        color: #262626;
+                        font-size: 14px;
+                        margin-top: 4px;
+                    }
+                    h5{
+                        color: #a5a5a5;
+                        font-size: 14px;
+                    }
+                    .info-detail{
+                        float: left;
+                        margin-right: 30px;
+                        label, i{
+                            margin-right: 6px;
+                        }
+                        i{
+                            color: #a5a5a5;
+                            font-size: 18px;
+                            float: left;
+                            margin-top: -2px;
+                        }
+                        p{
+                            float: left;
+                            font-size: 14px;
+                        }
+                    }
+                }
+                &:nth-child(3){
+                    border-top: 1px solid transparent;
                 }
             }
         }
