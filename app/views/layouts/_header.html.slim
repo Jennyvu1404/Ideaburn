@@ -22,13 +22,13 @@ header.c-layout-header.c-layout-header-2.c-layout-header-dark-mobile.c-header-tr
         nav.c-mega-menu.c-pull-right.c-mega-menu-dark.c-mega-menu-dark-mobile.c-theme.c-fonts-uppercase.c-fonts-bold
           ul.nav.navbar-nav.c-theme-nav
             li
-              = link_to "ENTREPRENEURS", entrepreneurs_path, class: "c-link dropdown-toggle"
-            li.c-menu-type-classic
-              = link_to "INVESTORS", investers_path, class: "c-link dropdown-toggle"
+              a.c-link.dropdown-toggle ENTREPRENEURS
             li
-              = link_to "STARTUPS", startups_path, class: "c-link dropdown-toggle"
+              a.c-link.dropdown-toggle INVESTORS
             li
-              = link_to "STARTUP EVENTS", "javascript:;", class: "c-link dropdown-toggle"
+              a.c-link.dropdown-toggle STARTUPS
+            li
+              a.c-link.dropdown-toggle STARTUP EVENTS
             - if current_user
                 li.login
                   = link_to "PROFILE", edit_user_registration_path, class: "m60 c-btn-border-opacity-04 c-btn btn-no-focus c-btn-header btn btn-sm c-btn-border-1x c-btn-white  c-btn-uppercase c-btn-sbold"
