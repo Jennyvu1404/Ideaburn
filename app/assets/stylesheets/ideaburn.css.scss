@@ -1,5 +1,6 @@
 body {
   overflow-x: hidden;
+  background: black;
 }
 
 .nav-tabs > li {
@@ -23,13 +24,21 @@ body {
 footer.c-layout-footer.c-layout-footer-6.c-bg-grey-1 {
   position: relative !important;
 }
-
+.c-theme-nav{
+  li{
+    cursor: pointer;
+  }
+}
 // Entrepreneur
 .entrepreneur-section{
   width: 100%;
-  padding: 20px 40px 40px;
-  animation-name: animate;
-  animation-duration: 3s;
+  height: 100%;
+  background: white;
+  padding: 40px 40px 40px;
+  position: fixed;
+  z-index: 100;
+  opacity: 0;
+  top: -150%;
   .entrepreneur-title{
     .title-link{
       color: white;
@@ -46,7 +55,7 @@ footer.c-layout-footer.c-layout-footer-6.c-bg-grey-1 {
         border-bottom: 17px solid transparent;
         position: absolute;
         top: 0;
-        right: -19px;
+        right: -18px;
       }
     }
     .title-text{
@@ -57,6 +66,11 @@ footer.c-layout-footer.c-layout-footer-6.c-bg-grey-1 {
       padding: 6px 10px;
       font-weight: 700;
       font-size: 22px;
+    }
+    .btn-close{
+      float: right;
+      color: #333;
+      font-size: 28px;
     }
     &.container-fluid{
       padding: 0px 15px;
@@ -115,10 +129,6 @@ footer.c-layout-footer.c-layout-footer-6.c-bg-grey-1 {
   }
 }
 
-@keyframes animate {
-    from {margin-top: -354px;opacity: 0;}
-    to {margin-top: 0px; opacity: 1;}
-}
 
 @keyframes animate_home {
     from {opacity: 1;}
