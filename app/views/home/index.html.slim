@@ -220,59 +220,14 @@
     h4.title-text Entrepreneurs
     button.btn-close X
   .entrepreneur-content.container-fluid
-    .entrepreneur-element
-      = image_tag 'image-entrepreneur.png'
-      .entrepreneur-info
-        h4 Jhon Doe, Lorem Ipsum
-        h5 New York, USA.
-        .line
-        button Read More
-    .entrepreneur-element
-      = image_tag 'image-entrepreneur.png'
-      .entrepreneur-info
-        h4 Jhon Doe, Lorem Ipsum
-        h5 New York, USA.
-        .line
-        button Read More
-    .entrepreneur-element
-      = image_tag 'image-entrepreneur.png'
-      .entrepreneur-info
-        h4 Jhon Doe, Lorem Ipsum
-        h5 New York, USA.
-        .line
-        button Read More
-    .entrepreneur-element
-      = image_tag 'image-entrepreneur.png'
-      .entrepreneur-info
-        h4 Jhon Doe, Lorem Ipsum
-        h5 New York, USA.
-        .line
-        button Read More
-    .entrepreneur-element
-      = image_tag 'image-entrepreneur.png'
-      .entrepreneur-info
-        h4 Jhon Doe, Lorem Ipsum
-        h5 New York, USA.
-        .line
-        button Read More
-    .entrepreneur-element
-      = image_tag 'image-entrepreneur.png'
-      .entrepreneur-info
-        h4 Jhon Doe, Lorem Ipsum
-        h5 New York, USA.
-        .line
-        button Read More
-    .entrepreneur-element
-      = image_tag 'image-entrepreneur.png'
-      .entrepreneur-info
-        h4 Jhon Doe, Lorem Ipsum
-        h5 New York, USA.
-        .line
-        button Read More
-    .entrepreneur-element
-      = image_tag 'image-entrepreneur.png'
-      .entrepreneur-info
-        h4 Jhon Doe, Lorem Ipsum
-        h5 New York, USA.
-        .line
-        button Read More
+    - @entrepreneurs.each do |user|
+      - entrepreneur = user.entrepreneur
+      .entrepreneur-element
+        = image_tag user.avatar, class: 'text-center'
+        .entrepreneur-info
+          h4 = user.fullname
+          h5 = user.location
+          .line
+          button
+            = link_to "Read More", entrepreneur_path(user)
+
