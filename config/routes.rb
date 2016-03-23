@@ -27,6 +27,7 @@ Rails.application.routes.draw do
     get 'notifications/all', to: 'notification#index'
     get 'notifications/seen', to: 'notification#seen'
     get 'idea/like/:id', to: 'idea#like_page'
+    get 'idea/rating/:id', to: 'idea#rating_page'
   end
 
   namespace :user do

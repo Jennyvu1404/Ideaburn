@@ -75,3 +75,13 @@ section {
   @extend .btn-primary;
   @extend .btn-xs;
 }
+.new-checkbox{
+  float:left;
+}
+.c-btn-forgot.c-font-14.forgot{
+  &:active, &:hover, &:focus{
+    text-decoration: underline;
+    color: black;
+
+  }
+}

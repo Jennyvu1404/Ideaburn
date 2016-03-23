@@ -96,7 +96,7 @@
                   <div class="col-md-5 col-xs-12">
                     <br />
                     <div class="stars">
-                      <span class="rating">Rate This</span>
+                      <span class="rating rate">Rate This</span>
                       <%= rating_for @idea, "visual_effects", stars: 10, enable_half: true, path: 'star_on', class: 'rating' %>
                     </div>
                   </div>
@@ -234,6 +234,19 @@ $(document).ready(function() {
   }
 
 });
+
+  channel.bind('rating', function(data) {
+    console.log(data);
+  if (data.idea == idea_id){
+   $.get('/api/idea/rating/'+ data.idea, function(data){
+      console.log(data);
+      $('.rating_content').html(data);
+   });
+   //$('.like-page').html(html);
+  }
+
+});
+
   var comments = $('#comments');
   var url =  "/api/idea/comments/" + <%= @idea.id %> + "/10";
   comments.load(url);

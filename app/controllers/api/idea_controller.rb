@@ -1,5 +1,5 @@
 class Api::IdeaController < ApplicationController
-  before_action :get_idea, only: [:comments]
+  before_action :get_idea, only: [:comments, :rating_page, :like_page]
 
   def comments
     @comments = @idea.comments.where(parent_id: nil).order(id: :desc).limit(params[:limit])
@@ -7,7 +7,10 @@ class Api::IdeaController < ApplicationController
   end
 
   def like_page
-    @idea = Idea.find(params[:id])
+    render layout: false
+  end
+
+  def rating_page
     render layout: false
   end
 
