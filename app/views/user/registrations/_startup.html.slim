@@ -152,3 +152,20 @@
             label.icon-right for="Windows App"
               i.fa.fa-windows
             = startup.text_field :window_app, id: 'window_app', placeholder: 'https://something.com', required: true
+
+javascript:
+  $(document).ready(function() {
+
+    $('#user_startup_attributes_funding_type').on('change',function(){
+      if ( (this.value == 1) || (this.value==2) ){
+        $("#by_invester").val('');
+        $("#by_invester").attr('disabled','');
+      }
+      else{
+        $("#by_invester").removeAttr('disabled','');
+      }
+
+    })
+
+
+  })
