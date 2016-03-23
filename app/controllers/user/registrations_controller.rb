@@ -72,21 +72,17 @@ class User::RegistrationsController < Devise::RegistrationsController
   end
   def loadmorenoti
     last_id = params[:last_id].to_i
-    @noti = Notification.get_noti
+    @noties = Notification.get_noti
     if last_id.nil?
-      @noti = @noti.limit(5)
+      @noties = @notie.limit(5)
     else
-      if (last_id+5) > @noti.count
-        @noti = @noti[last_id..@noti.count]
-      else
-        @noti = @noti[last_id..last_id+4]
-      end
+      @noties = ((last_id + 5) < @noties.count) ? @noties[last_id..@noti.count] : @noties[last_id..last_id+4]
     end
     render 'user/registrations/_loadmorenoti', layout: false
   end
   def notification
-    @noti = Notification.get_noti
-    @noti_unread = Notification.get_unread
+    @noties = Notification.get_noti
+    @noties_unread = Notification.get_unread
     respond_to do |format|
       format.html
       format.js

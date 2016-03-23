@@ -8,18 +8,18 @@
           ul.type-notification.container-fluid
 
             li
-              = link_to "Recent (#{@noti.count})", notification_path, :remote =>true
+              = link_to "Recent (#{@noties.count})", notification_path, :remote =>true
             li
               = link_to "Message Request", message_path, :remote =>true
             li
-              = link_to "Unread (#{@noti_unread.count})", unread_path, :remote =>true
+              = link_to "Unread (#{@noties_unread.count})", unread_path, :remote =>true
             li
               label Search
               input placeholder= "Search here"type='text'/
               button
                 i.fa.fa-search
           #load_detail
-            - @noti.each do |noti|
+            - @noties.each do |noti|
               .notification-element.container-fluid
                 .noti-info-left
                   - if noti.commented?
