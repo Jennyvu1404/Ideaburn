@@ -8,18 +8,18 @@
           ul.type-notification.container-fluid
 
             li
-              = link_to "Recent (#{@noties.count})", notification_path, :remote =>true
+              = link_to "Recent (#{@count_notification})", notification_path, :remote =>true
             li
               = link_to "Message Request", message_path, :remote =>true
             li
-              = link_to "Unread (#{@noties_unread.count})", unread_path, :remote =>true
+              = link_to "Unread (#{@notifications_unread})", unread_path, :remote =>true
             li
               label Search
               input placeholder= "Search here"type='text'/
               button
                 i.fa.fa-search
           #load_detail
-            - @noties.each do |noti|
+            - @notifications.each do |noti|
               .notification-element.container-fluid
                 .noti-info-left
                   - if noti.commented?
@@ -31,11 +31,11 @@
                   h5 #{noti.user.username} #{noti.message.humanize}
                 // = image_tag ''
                 .noti-info-right
-                  = image_tag ("#{noti.user.photo}"), title: "#{noti.user.username.capitalize}: #{noti.user.email} "
+                  = image_tag (noti.user.photo), title: "#{noti.user.username.capitalize}: #{noti.user.email} "
                   h5 #{time_ago_in_words(noti.created_at)} ago
       .button-center
-        = link_to "#" do
-          button.btn onClick="load_more_noti();" Load more
+        = link_to "Loadmore" , "javascript:void(0);", :class => "next"
+          // button.btn onClick="load_more_notification();" Load more
 
 
       ul.your-idea

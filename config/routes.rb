@@ -18,7 +18,7 @@ Rails.application.routes.draw do
     get 'user/notification' => 'user/registrations#notification', as: 'notification'
     get 'user/message' => 'user/registrations#message', as: 'message'
     get 'user/unread' => 'user/registrations#unread', as:'unread'
-    get 'user/loadmorenoti' => 'user/registrations#loadmorenoti', as:'loadmorenoti'
+    get 'user/loadmorenotification' => 'user/registrations#loadmorenotification', as:'loadmorenotification'
   end
   resources :users
 

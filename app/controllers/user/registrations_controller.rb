@@ -70,19 +70,21 @@ class User::RegistrationsController < Devise::RegistrationsController
       render "edit_password"
     end
   end
-  def loadmorenoti
-    last_id = params[:last_id].to_i
-    @noties = Notification.get_noti
-    if last_id.nil?
-      @noties = @notie.limit(5)
+  def loadmorenotification
+    # last_id = params[:last_id].to_i
+    pageno = params[:pageno].to_i
+    @notifications = Notification.by_user_id(current_user.id).page(params[:page])
+    if pageno.nil?
+      @notifications = @notifications.page(1)
     else
-      @noties = ((last_id + 5) < @noties.count) ? @noties[last_id..@noti.count] : @noties[last_id..last_id+4]
+      @notifications = @notifications.page(pageno)
     end
-    render 'user/registrations/_loadmorenoti', layout: false
+    render 'user/registrations/_loadmorenotification', layout: false
   end
   def notification
-    @noties = Notification.get_noti
-    @noties_unread = Notification.get_unread
+    @notifications = Notification.by_user_id(current_user.id).page(params[:page])
+    @count_notification = Notification.by_user_id(current_user.id).count
+    @notifications_unread_count = Notification.user_unread_notifications(current_user.id).count
     respond_to do |format|
       format.html
       format.js

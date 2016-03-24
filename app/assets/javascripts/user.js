@@ -13,7 +13,7 @@ $(document).ready(function() {
     document.getElementById('get_file').onclick = function() {
       document.getElementById('my_file').click();
     };
-  } catch(err){console.clear();}
+  } catch(err){}
 
   //USER PROFILE
   var current = $('.list-info > li:first-child');

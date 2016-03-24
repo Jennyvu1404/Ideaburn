@@ -1,13 +1,26 @@
-function load_more_noti(){
+function load_more_notification(pageno){
   var last_id = $('.notification-element').last().index();
   $.ajax({
-    url: "/user/loadmorenoti",
-    data: {last_id: last_id},
+    url: "/user/loadmorenotification",
+    data: {pageno: pageno},
     success: function(result){
+      console.log(result);
       $("#load_detail").append(result);
     }
   })
 }
+$(document).ready(function() {
+  var currPage = 1;
+  $("a.next").click(function() {
+    load_more_notification(++currPage);
+  });
+  $(window).scroll(function() {
+    if($(window).scrollTop() + $(window).height() > $(document).height() - 200){
+      console.log('fdfdf');
+      load_more_notification(++currPage);
+    }
+  });
+});
 var $notifications = $('ul.drp-notification');
 
 var pusher = new Pusher('5cc1643b6d3132075121', {
