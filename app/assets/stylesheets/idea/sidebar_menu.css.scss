@@ -1,0 +1,14 @@
+span.right-arrow {
+  position: absolute;
+  right: 20px;
+}
+
+li#tbl1:hover {
+  background: hsla(0, 0%, 0%, 0) asset_url("SideNav-Icons-1-hover.png") no-repeat scroll 25px 9px;
+  display: block;
+  -webkit-transition: all .5s ease;
+  -moz-transition: all .5s ease;
+  -ms-transition: all .5s ease;
+  -o-transition: all .5s ease;
+  transition: all .5s ease;
+}
